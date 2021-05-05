@@ -15,31 +15,11 @@
     <jsp:body>
 
         <div>
-            <h2>Velkommen til Fogs Carporte</h2>
+            <h2>Her er din bestilling. Vores sælgere kigger på din ordre og vender tilbage snarest</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                Opret bestilling på din unikt tilpassede drømmecarport
+                <p>Du har valgt den magiske højde: ${sessionScope.height} meter. Held og lykke</p>
             </div>
-
-
-            <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
-
-
-
-                <select name="height" id="height">
-                    <option value="10">10</option>--%>
-                    <option value="20">20</option>--%>
-                    <option value="30">30</option>--%>
-
-
-<%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
-<%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
-
-<%--                    </c:forEach>--%>
-                </select>
-                <input type="submit" value="Send forespørgsel" class="btn btn-primary">
-
-            </form>
 
 
             <c:if test="${sessionScope.role == 'employee' }">
