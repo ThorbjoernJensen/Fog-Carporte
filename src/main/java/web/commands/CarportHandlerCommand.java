@@ -26,7 +26,7 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
 
         int height = Integer.parseInt(request.getParameter("height"));
 
-        carportFacade.insertHeight(height);
+        carportFacade.insertCarport(height);
 
         session.setAttribute("height", height);
 

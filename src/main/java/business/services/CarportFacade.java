@@ -1,10 +1,8 @@
 package business.services;
 
-import business.entities.User;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
-import business.persistence.UserMapper;
 
 public class CarportFacade
 {
@@ -17,8 +15,8 @@ public class CarportFacade
 
 
 
-    public void insertHeight(int height) throws UserException {
-        carportMapper.insertHeight(height);
+    public void insertCarport(int height) throws UserException {
+        carportMapper.insertCarport(height);
     }
 
 

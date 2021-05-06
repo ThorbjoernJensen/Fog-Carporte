@@ -13,7 +13,7 @@ public class CarportMapper {
     }
 
 
-    public void insertHeight(int height) throws UserException {
+    public void insertCarport(int height) throws UserException {
         try (Connection connection = database.connect()) {
 
             String sql = "INSERT INTO carport (height) VALUES (?)";
