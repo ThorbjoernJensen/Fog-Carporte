@@ -1,5 +1,6 @@
 @startuml
 
+@startuml
 Title CARPORT
 
 State custermorpage.jsp
@@ -9,9 +10,10 @@ State loginpage.jsp
 State receiptpage.jsp
 State registerpage.jsp
 State materialpage.jsp
-
+State showcarportrequestpage.jsp
 
 [*] -> index.jsp
 index.jsp --> receiptpage.jsp
 
+employeepage.jsp --> showcarportrequestpage.jsp
 @enduml
