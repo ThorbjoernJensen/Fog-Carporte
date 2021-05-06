@@ -13,22 +13,48 @@ public class CarportMapper {
     }
 
 
-    public void insertCarport(int height,int width,int length) throws UserException {
+    public void insertCarport(int height, int width, int length, int shedwidth, int shedlength) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (height, width, length) VALUES (?,?,?)";
+            String sql = "INSERT INTO carport (height, width, length, shed_id) VALUES (?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                int shedId= insertShed(shedwidth, shedlength);
                 ps.setInt(1, height);
                 ps.setInt(2, width);
                 ps.setInt(3, length);
-                ps.executeUpdate();
+                ps.setInt(4, shedId);
 
+
+                ps.executeUpdate();
 
 //                ResultSet ids = ps.getGeneratedKeys();
 //                ids.next();
 //                int id = ids.getInt(1);
 //                user.setId(id);
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
+
+    public int insertShed(int shedwidth, int shedlength) throws UserException {
+        try (Connection connection = database.connect()) {
+
+            String sql = "INSERT INTO shed (width, length) VALUES (?,?)";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setInt(1, shedwidth);
+                ps.setInt(2, shedlength);
+                ps.executeUpdate();
+
+
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+                int shedid = ids.getInt(1);
+                return shedid;
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }

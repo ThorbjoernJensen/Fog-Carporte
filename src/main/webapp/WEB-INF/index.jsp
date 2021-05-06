@@ -24,16 +24,14 @@
 
             <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
 
-
+                <h4>Vælg dimensioner på carporten</h4>
                 <h5>vælg højde</h5>
                 <select name="height" id="height">
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
-
                         <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
                         <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
-
                         <%--                    </c:forEach>--%>
                 </select>
 
@@ -42,10 +40,8 @@
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
-
                         <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
                         <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
-
                         <%--                    </c:forEach>--%>
                 </select>
 
@@ -54,12 +50,45 @@
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
+                        <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
+                        <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
+                        <%--                    </c:forEach>--%>
+                </select>
+
+
+                <h5>vælg tag</h5>
+                <select name="roofmaterial" id="roofmaterial">
+                    <option value="plasttrapezplader">10</option>
 
                         <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
                         <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
-
                         <%--                    </c:forEach>--%>
                 </select>
+
+                <h4>Redskabsrum </h4>
+                <h5>vælg længde</h5>
+                <select name="shedlength" id="shedlength">
+
+
+                    <option value="0" selected>Jeg ønsker ikke skur</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                        <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
+                        <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
+                        <%--                    </c:forEach>--%>
+                </select>
+                <h5>vælg bredde</h5>
+                <select name="shedwidth" id="shedwidth">
+                    <option value="0" selected>Jeg ønsker ikke skur</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                        <%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
+                        <%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
+                        <%--                    </c:forEach>--%>
+                </select>
+
 
 
                 <input type="submit" value="Send forespørgsel" class="btn btn-primary">
