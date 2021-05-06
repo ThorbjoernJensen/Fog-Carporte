@@ -11,6 +11,13 @@
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
         Du er logget ind som ansat og her kan du se en carport
+        <p>Den har disse tal: </p>
+        carport-id: ${sessionScope.carport.carportId}<br>
+        længde: ${sessionScope.carport.length}<br>
+        bredde: ${sessionScope.carport.width}<br>
+        højde: ${sessionScope.carport.height}<br>
+        skur-id: ${sessionScope.carport.shedId}<br>
+        tag-id: ${sessionScope.carport.roofId}<br>
 
     </jsp:body>
 </t:genericpage>
