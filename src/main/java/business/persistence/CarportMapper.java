@@ -13,13 +13,15 @@ public class CarportMapper {
     }
 
 
-    public void insertCarport(int height) throws UserException {
+    public void insertCarport(int height,int width,int length) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (height) VALUES (?)";
+            String sql = "INSERT INTO carport (height, width, length) VALUES (?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, height);
+                ps.setInt(2, width);
+                ps.setInt(3, length);
                 ps.executeUpdate();
 
 

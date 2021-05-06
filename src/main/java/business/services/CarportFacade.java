@@ -15,8 +15,8 @@ public class CarportFacade
 
 
 
-    public void insertCarport(int height) throws UserException {
-        carportMapper.insertCarport(height);
+    public void insertCarport(int height,int width,int length) throws UserException {
+        carportMapper.insertCarport(height, width, length);
     }
 
 

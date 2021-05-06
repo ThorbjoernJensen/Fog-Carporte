@@ -18,7 +18,7 @@
             <h2>Her er din bestilling. Vores sælgere kigger på din ordre og vender tilbage snarest</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                <p>Du har valgt den magiske højde: ${sessionScope.height} meter. Held og lykke</p>
+                <p>Du har valgt den magiske kombination: højde ${sessionScope.height} cm x, bredde ${sessionScope.width} cm og længde ${sessionScope.length} cm. Held og lykke</p>
             </div>
 
 

@@ -25,10 +25,17 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         HttpSession session = request.getSession();
 
         int height = Integer.parseInt(request.getParameter("height"));
+        System.out.println(height);
+        int width = Integer.parseInt(request.getParameter("width"));
+        System.out.println(width);
+        int length = Integer.parseInt(request.getParameter("length"));
+        System.out.println(length);
 
-        carportFacade.insertCarport(height);
+        carportFacade.insertCarport(height, width, length);
 
         session.setAttribute("height", height);
+        session.setAttribute("width", width);
+        session.setAttribute("length", length);
 
         return pageToShow;
     }
