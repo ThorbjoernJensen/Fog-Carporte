@@ -1,0 +1,17 @@
+@startuml
+
+Title CARPORT
+
+State custermorpage.jsp
+State employeepage.jsp
+State index.jsp
+State loginpage.jsp
+State receiptpage.jsp
+State registerpage.jsp
+State materialpage.jsp
+
+
+[*] -> index.jsp
+index.jsp --> receiptpage.jsp
+
+@enduml
