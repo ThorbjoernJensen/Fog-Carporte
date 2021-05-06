@@ -24,8 +24,6 @@ public class CarportMapper {
                 ps.setInt(2, width);
                 ps.setInt(3, length);
                 ps.setInt(4, shedId);
-
-
                 ps.executeUpdate();
 
 //                ResultSet ids = ps.getGeneratedKeys();
@@ -50,11 +48,10 @@ public class CarportMapper {
                 ps.setInt(2, shedlength);
                 ps.executeUpdate();
 
-
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
-                int shedid = ids.getInt(1);
-                return shedid;
+
+                return ids.getInt(1);
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
