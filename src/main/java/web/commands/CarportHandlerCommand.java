@@ -36,7 +36,24 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         int shedlength = Integer.parseInt(request.getParameter("shedlength"));
         System.out.println(shedlength);
 
-        carportFacade.insertCarport(height, width, length, shedwidth, shedlength);
+
+        if (shedlength!=0 && shedwidth!=0) {
+            carportFacade.insertCarportWithShed(height, width, length, shedwidth, shedlength);
+        }
+        if (shedlength!=0 && shedwidth==0){
+            session.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+            return "index";
+
+        }
+        if (shedwidth!=0 && shedlength==0){
+            session.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+            return "index";
+        }
+        if (shedlength==0 && shedwidth==0){
+        carportFacade.insertCarportWithoutShed(height,width,length);
+        }
+
+
 
         session.setAttribute("height", height);
         session.setAttribute("width", width);
