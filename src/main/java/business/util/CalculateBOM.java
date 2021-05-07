@@ -10,6 +10,7 @@ public class CalculateBOM {
         BillOfMaterials bom;
 
         bom = calculateStolper(carport);
+        bom = calculateOverstenderForBag(carport);
 
         return bom;
 
@@ -18,12 +19,18 @@ public class CalculateBOM {
     private static BillOfMaterials calculateStolper(Carport carport) {
         BillOfMaterials bom;
         int antal = 4;
-        int laengde = carport.getHeight();
-        bom = new BillOfMaterials(antal, laengde);
+        int Længde = carport.getHeight();
+        bom = new BillOfMaterials(antal, Længde);
         return bom;
 
-
-
+    }
+    private static BillOfMaterials calculateOverstenderForBag(Carport carport) {
+        BillOfMaterials bom;
+        int antal = 2;
+        int længde = carport.getLength();
+        bom = new BillOfMaterials(antal, længde);
+        return bom;
 
     }
+
 }

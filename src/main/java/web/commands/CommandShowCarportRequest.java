@@ -31,7 +31,8 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
         session.setAttribute("carport", carport);
 
         bom = CalculateBOM.calculateMaterials(carport);
-        System.out.println("Her er vores mål for stolper" + bom.toString());
+        System.out.println("Her er vores mål for stolper" + bom.getStolpeLaengde());
+        System.out.println("Her er vores mål for stolper" + bom.getOverstender());
         session.setAttribute("bom", bom);
 
 

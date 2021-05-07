@@ -21,7 +21,9 @@
 
         <h1>stykliste</h1>
         stolpelængde: ${sessionScope.bom.stolpeLaengde}
+        overstender: ${sessionScope.bom.overstender}
         stolpeantal: ${sessionScope.bom.stolpeAntal}
+        overstænderantal: ${sessionScope.bom.overstenderAntal}
 
     </jsp:body>
 </t:genericpage>
