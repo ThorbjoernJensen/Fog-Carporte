@@ -2,6 +2,7 @@ package web;
 
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.services.MaterialFacede;
 import web.commands.*;
 
 import java.io.IOException;
@@ -38,7 +39,15 @@ public class FrontController extends HttpServlet
             }
         }
 
-        // Initialize whatever global datastructures needed here:
+        MaterialFacede materialFacede = new MaterialFacede(database);
+
+        try {
+
+            getServletContext().setAttribute("MaterialList", materialFacede.getAllMaterials());
+
+        } catch (UserException ex2) {
+            Logger.getLogger("web").log(Level.SEVERE, ex2.getMessage(), ex2);
+        }
 
     }
 

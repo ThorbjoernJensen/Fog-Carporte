@@ -12,7 +12,9 @@
         <h1>Hello ${sessionScope.email} </h1>
         You are now logged in as a EMPLOYEE of our wonderful site.
         <a href="${pageContext.request.contextPath}/fc/showcarportrequestpage">se en hardcoded carport-forespørgsel </a>
+
 <%--        den skal med tiden sendes afsted med en carport-id, så siden kun viser detaljer for en given carport--%>
+        <a href="${pageContext.request.contextPath}/fc/showmaterials"> gå til lager</a>
 
     </jsp:body>
 </t:genericpage>
