@@ -19,5 +19,9 @@
         skur-id: ${sessionScope.carport.shedId}<br>
         tag-id: ${sessionScope.carport.roofId}<br>
 
+        <h1>stykliste</h1>
+        stolpelængde: ${sessionScope.bom.stolpeLaengde}
+        stolpeantal: ${sessionScope.bom.stolpeAntal}
+
     </jsp:body>
 </t:genericpage>

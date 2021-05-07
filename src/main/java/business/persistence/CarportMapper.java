@@ -37,7 +37,6 @@ public class CarportMapper {
     }
 
     public Carport getCarportById(int carportId) throws UserException {
-        Carport carport;
         try (Connection connection = database.connect()) {
             String sql = "SELECT * FROM carport WHERE carport_id = ?";
 
