@@ -35,10 +35,18 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         System.out.println(shedwidth);
         int shedlength = Integer.parseInt(request.getParameter("shedlength"));
         System.out.println(shedlength);
+        String roofmaterial = request.getParameter("roofmaterial");
+
 
 
         if (shedlength!=0 && shedwidth!=0) {
-            carportFacade.insertCarportWithShed(height, width, length, shedwidth, shedlength);
+            carportFacade.insertCarportWithShed(height, width, length, shedwidth, shedlength, roofmaterial);
+            session.setAttribute("height", height);
+            session.setAttribute("width", width);
+            session.setAttribute("length", length);
+            session.setAttribute("shedwidth", shedwidth);
+            session.setAttribute("shedlength", shedlength);
+            session.setAttribute("roofmaterial", roofmaterial);
         }
         if (shedlength!=0 && shedwidth==0){
             session.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
@@ -50,14 +58,17 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
             return "index";
         }
         if (shedlength==0 && shedwidth==0){
-        carportFacade.insertCarportWithoutShed(height,width,length);
+        carportFacade.insertCarportWithoutShed(height,width,length,roofmaterial);
+            session.setAttribute("height", height);
+            session.setAttribute("width", width);
+            session.setAttribute("length", length);
+            session.setAttribute("roofmaterial", roofmaterial);
+
         }
 
 
 
-        session.setAttribute("height", height);
-        session.setAttribute("width", width);
-        session.setAttribute("length", length);
+
 
         return pageToShow;
     }

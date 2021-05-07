@@ -13,17 +13,19 @@ public class CarportMapper {
     }
 
 
-    public void insertCarportWithShed(int height, int width, int length, int shedwidth, int shedlength) throws UserException {
+    public void insertCarportWithShed(int height, int width, int length, int shedwidth, int shedlength, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (height, width, length, shed_id) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO carport (height, width, length, shed_id, roof_id) VALUES (?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 int shedId = insertShed(shedwidth, shedlength);
+                int roofId = insertRoof(roofmaterial);
                 ps.setInt(1, height);
                 ps.setInt(2, width);
                 ps.setInt(3, length);
                 ps.setInt(4, shedId);
+                ps.setInt(5, roofId);
                 ps.executeUpdate();
 
 //                ResultSet ids = ps.getGeneratedKeys();
@@ -37,15 +39,17 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
     }
-    public void insertCarportWithoutShed(int height, int width, int length) throws UserException {
+    public void insertCarportWithoutShed(int height, int width, int length, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (height, width, length) VALUES (?,?,?)";
+            String sql = "INSERT INTO carport (height, width, length, roof_id) VALUES (?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                int roofId = insertRoof(roofmaterial);
                 ps.setInt(1, height);
                 ps.setInt(2, width);
                 ps.setInt(3, length);
+                ps.setInt(4, roofId);
                 ps.executeUpdate();
 
 //                ResultSet ids = ps.getGeneratedKeys();
@@ -68,6 +72,26 @@ public class CarportMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, shedwidth);
                 ps.setInt(2, shedlength);
+                ps.executeUpdate();
+
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+
+                return ids.getInt(1);
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+    }
+    public int insertRoof(String materials) throws UserException {
+        try (Connection connection = database.connect()) {
+
+            String sql = "INSERT INTO roof (materials) VALUES (?)";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                ps.setString(1, materials);
                 ps.executeUpdate();
 
                 ResultSet ids = ps.getGeneratedKeys();
