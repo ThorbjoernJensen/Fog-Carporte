@@ -12,18 +12,20 @@
         <h1>Hello ${sessionScope.email} </h1>
         Du er logget ind som ansat, og her kan du se en carport
         <p>Den har disse data: </p>
-        carport-id: ${sessionScope.carport.carportId}<br>
-        længde: ${sessionScope.carport.length}<br>
-        bredde: ${sessionScope.carport.width}<br>
-        højde: ${sessionScope.carport.height}<br>
-        skur-id: ${sessionScope.carport.shedId}<br>
-        tag-id: ${sessionScope.carport.roofId}<br>
+        Carport-id: ${sessionScope.carport.carportId}<br>
+        Længde: ${sessionScope.carport.length} cm<br>
+        Bredde: ${sessionScope.carport.width} cm<br>
+        Højde: ${sessionScope.carport.height} cm<br>
+        Skur-id: ${sessionScope.carport.shedId}<br>
+        Tag-id: ${sessionScope.carport.roofId}<br>
 
-        <h1>stykliste</h1>
-        stolpeantal: ${sessionScope.bom.stolpe.stolpeAntal}<br>
-        stolpelængde: ${sessionScope.bom.stolpe.stolpeLaengde}<br>
-        oversternantal: ${sessionScope.bom.overstern.oversternAntal}<br>
-        oversternlængde: ${sessionScope.bom.overstern.oversternLaengde}<br>
+        <h1>Stykliste</h1>
+        Stolpe antal: ${sessionScope.bom.stolpe.stolpeAntal} stk<br>
+        Stolpe længde: ${sessionScope.bom.stolpe.stolpeLaengde} cm<br>
+        Remme antal: ${sessionScope.bom.rem.remAntal} stk<br>
+        Remme længde: ${sessionScope.bom.rem.remLaengde} cm<br>
+        Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>
+        Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>
 
     </jsp:body>
 </t:genericpage>

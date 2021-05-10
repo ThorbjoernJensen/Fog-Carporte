@@ -1,6 +1,7 @@
 package business.util;
 
 import business.entities.materials.Overstern;
+import business.entities.materials.Rem;
 import business.entities.materials.Stolpe;
 import business.entities.materials.BillOfMaterials;
 import business.entities.Carport;
@@ -10,15 +11,26 @@ public class CalculateBOM {
         BillOfMaterials bom;
         Stolpe stolpe;
         Overstern overStern;
+        Rem rem;
 
-
+        rem = calculateRem(carport);
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
 
-        bom = new BillOfMaterials(stolpe, overStern);
+        bom = new BillOfMaterials(stolpe, overStern, rem);
         return bom;
 
     }
+
+    private static Rem calculateRem(Carport carport) {
+        Rem rem;
+        int remLength = carport.getLength();
+        int remAntal = 2;
+        rem = new Rem(remAntal, remLength);
+        return rem;
+
+    }
+
 
     private static Stolpe calculateStolper(Carport carport) {
         Stolpe stolpe;
@@ -40,7 +52,7 @@ public class CalculateBOM {
     }
 
 
-    private static Overstern calcultateOverstern (Carport carport) {
+    private static Overstern calcultateOverstern(Carport carport) {
         Overstern overstern;
         int stenderAntal = 2;
         int stenderLængde = carport.getLength();
