@@ -40,7 +40,12 @@ public class CalculateBOM {
         Rem rem;
         int remLength = carport.getLength();
         int remAntal = 2;
-        rem = new Rem(remAntal, remLength);
+        int meterpris=10;
+        int samletmeter;
+        samletmeter = remAntal*remLength;
+        int samletpris =samletmeter*meterpris;
+        rem = new Rem(remAntal, remLength, meterpris, samletpris);
+        System.out.println("Samletpris på rem i kr:"+ samletpris);
         return rem;
 
     }
