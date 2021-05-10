@@ -1,5 +1,8 @@
 package business.services;
 
+
+import business.entities.Carport;
+import business.entities.User;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
@@ -21,6 +24,10 @@ public class CarportFacade
 
     public void insertCarportWithoutShed(int height,int width,int length, String roofmaterial) throws UserException {
         carportMapper.insertCarportWithoutShed(height, width, length, roofmaterial);
+    }
+
+    public Carport getCarportById(int carportId) throws UserException {
+        return carportMapper.getCarportById(carportId);
     }
 
 

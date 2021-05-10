@@ -1,5 +1,6 @@
 package business.persistence;
 
+import business.entities.Carport;
 import business.entities.User;
 import business.exceptions.UserException;
 
@@ -39,6 +40,7 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
     }
+
     public void insertCarportWithoutShed(int height, int width, int length, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
@@ -64,6 +66,7 @@ public class CarportMapper {
         }
     }
 
+
     public int insertShed(int shedwidth, int shedlength) throws UserException {
         try (Connection connection = database.connect()) {
 
@@ -85,6 +88,37 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
     }
+
+
+    public Carport getCarportById(int carportId) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM carport WHERE carport_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, carportId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    int roofId = rs.getInt("roof_id");
+                    int height = rs.getInt("height");
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    int shedId = rs.getInt("shed_id");
+
+                    return new Carport(carportId, roofId, height, length, width, shedId);
+                }
+                throw new UserException("Carporten findes ikke");
+
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+
+            throw new UserException(ex.getMessage());
+        }
+    }
+
     public int insertRoof(String materials) throws UserException {
         try (Connection connection = database.connect()) {
 
@@ -105,6 +139,8 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
     }
+
+
 }
 
 
