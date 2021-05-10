@@ -24,6 +24,9 @@
         Stolpe længde: ${sessionScope.bom.stolpe.stolpeLaengde} cm<br>
         Remme antal: ${sessionScope.bom.rem.remAntal} stk<br>
         Remme længde: ${sessionScope.bom.rem.remLaengde} cm<br>
+        Spær antal: ${sessionScope.bom.spær.spærAntal} stk<br>
+        Spær længde: ${sessionScope.bom.spær.spærLaengde} cm<br>
+        Max afstand mellem spærene: ${sessionScope.bom.spær.spærMaxAfstand} cm <br>
         Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>
         Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>
 

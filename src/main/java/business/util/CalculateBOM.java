@@ -1,9 +1,6 @@
 package business.util;
 
-import business.entities.materials.Overstern;
-import business.entities.materials.Rem;
-import business.entities.materials.Stolpe;
-import business.entities.materials.BillOfMaterials;
+import business.entities.materials.*;
 import business.entities.Carport;
 
 public class CalculateBOM {
@@ -12,13 +9,30 @@ public class CalculateBOM {
         Stolpe stolpe;
         Overstern overStern;
         Rem rem;
+        Spær spær;
 
         rem = calculateRem(carport);
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
+        spær = calculateSpær(carport);
 
-        bom = new BillOfMaterials(stolpe, overStern, rem);
+        bom = new BillOfMaterials(stolpe, overStern, rem, spær);
         return bom;
+
+    }
+
+    private static Spær calculateSpær(Carport carport) {
+        Spær spær;
+        int carportlenght = carport.getLength();
+        int spærAntal = 0;
+        int spærLaengde = carport.getWidth();
+        int maxAfstand = 55;
+        spærAntal = carportlenght / maxAfstand;
+        if (carportlenght % maxAfstand > 0) {
+            spærAntal++;
+        }
+        spær = new Spær(spærAntal, spærLaengde);
+        return spær;
 
     }
 
@@ -30,7 +44,6 @@ public class CalculateBOM {
         return rem;
 
     }
-
 
     private static Stolpe calculateStolper(Carport carport) {
         Stolpe stolpe;
@@ -51,7 +64,6 @@ public class CalculateBOM {
         return stolpe;
     }
 
-
     private static Overstern calcultateOverstern(Carport carport) {
         Overstern overstern;
         int stenderAntal = 2;
@@ -60,5 +72,6 @@ public class CalculateBOM {
         return overstern;
 
     }
+
 
 }

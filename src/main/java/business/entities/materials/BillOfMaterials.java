@@ -4,11 +4,13 @@ public class BillOfMaterials {
     Stolpe stolpe;
     Overstern overstern;
     Rem rem;
+    Spær spær;
 
-    public BillOfMaterials(Stolpe stolpe, Overstern overstern, Rem rem) {
+    public BillOfMaterials(Stolpe stolpe, Overstern overstern, Rem rem, Spær spær) {
         this.stolpe = stolpe;
         this.overstern = overstern;
         this.rem = rem;
+        this.spær = spær;
     }
 
     public Rem getRem() {
@@ -33,5 +35,13 @@ public class BillOfMaterials {
 
     public void setOverstern(Overstern overstern) {
         this.overstern = overstern;
+    }
+
+    public Spær getSpær() {
+        return spær;
+    }
+
+    public void setSpær(Spær spær) {
+        this.spær = spær;
     }
 }
