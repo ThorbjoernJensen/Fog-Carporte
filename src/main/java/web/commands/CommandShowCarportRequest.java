@@ -1,7 +1,8 @@
 package web.commands;
 
-import business.entities.BillOfMaterials;
+import business.entities.Stolpe;
 import business.entities.Carport;
+import business.entities.materials.BillOfMaterials;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 import business.util.CalculateBOM;
@@ -24,14 +25,13 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         Carport carport;
         BillOfMaterials bom;
-
         HttpSession session = request.getSession();
         carport = carportFacade.getCarportById(1);
         System.out.println("her er vores carport " + carport.toString());
         session.setAttribute("carport", carport);
 
         bom = CalculateBOM.calculateMaterials(carport);
-        System.out.println("Her er vores mål for stolper" + bom.toString());
+//        System.out.println("Her er vores mål for stolper" + bom.toString());
         session.setAttribute("bom", bom);
 
 
