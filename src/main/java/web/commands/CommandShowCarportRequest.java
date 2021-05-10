@@ -1,6 +1,5 @@
 package web.commands;
 
-import business.entities.Stolpe;
 import business.entities.Carport;
 import business.entities.materials.BillOfMaterials;
 import business.exceptions.UserException;
@@ -31,7 +30,10 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
         session.setAttribute("carport", carport);
 
         bom = CalculateBOM.calculateMaterials(carport);
-//        System.out.println("Her er vores mål for stolper" + bom.toString());
+
+        System.out.println("Her er vores mål for stolper" + bom.getStolpe().getStolpeLaengde());
+        System.out.println("Her er vores længde for overstern" + bom.getOverstern().getOversternLaengde());
+
         session.setAttribute("bom", bom);
 
 

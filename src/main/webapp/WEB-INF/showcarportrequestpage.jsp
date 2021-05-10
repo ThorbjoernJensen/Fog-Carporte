@@ -20,8 +20,10 @@
         tag-id: ${sessionScope.carport.roofId}<br>
 
         <h1>stykliste</h1>
-        stolpelængde: ${sessionScope.bom.stolpeLaengde}
-        stolpeantal: ${sessionScope.bom.stolpeAntal}
+        stolpeantal: ${sessionScope.bom.stolpe.stolpeAntal}<br>
+        stolpelængde: ${sessionScope.bom.stolpe.stolpeLaengde}<br>
+        oversternantal: ${sessionScope.bom.overstern.oversternAntal}<br>
+        oversternlængde: ${sessionScope.bom.overstern.oversternLaengde}<br>
 
     </jsp:body>
 </t:genericpage>

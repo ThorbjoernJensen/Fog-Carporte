@@ -1,12 +1,12 @@
 package business.entities.materials;
 
-import business.entities.Stolpe;
-
 public class BillOfMaterials {
     Stolpe stolpe;
+    Overstern overstern;
 
-    public BillOfMaterials(Stolpe stolpe) {
+    public BillOfMaterials(Stolpe stolpe, Overstern overstern) {
         this.stolpe = stolpe;
+        this.overstern = overstern;
     }
 
     public Stolpe getStolpe() {
@@ -15,5 +15,13 @@ public class BillOfMaterials {
 
     public void setStolpe(Stolpe stolpe) {
         this.stolpe = stolpe;
+    }
+
+    public Overstern getOverstern() {
+        return overstern;
+    }
+
+    public void setOverstern(Overstern overstern) {
+        this.overstern = overstern;
     }
 }

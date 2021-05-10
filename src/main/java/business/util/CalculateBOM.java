@@ -1,18 +1,21 @@
 package business.util;
 
-import business.entities.Stolpe;
+import business.entities.materials.Overstern;
+import business.entities.materials.Stolpe;
 import business.entities.materials.BillOfMaterials;
 import business.entities.Carport;
-
-import java.util.List;
 
 public class CalculateBOM {
     public static BillOfMaterials calculateMaterials(Carport carport) {
         BillOfMaterials bom;
         Stolpe stolpe;
+        Overstern overStern;
+
 
         stolpe = calculateStolper(carport);
-        bom = new BillOfMaterials(stolpe);
+        overStern = calcultateOverstern(carport);
+
+        bom = new BillOfMaterials(stolpe, overStern);
         return bom;
 
     }
@@ -34,7 +37,16 @@ public class CalculateBOM {
 
 //        indvendigt mål sættes som højde, og vi beregner ikke ekstra til
         return stolpe;
+    }
 
+
+    private static Overstern calcultateOverstern (Carport carport) {
+        Overstern overstern;
+        int stenderAntal = 2;
+        int stenderLængde = carport.getLength();
+        overstern = new Overstern(stenderAntal, stenderLængde);
+        return overstern;
 
     }
+
 }
