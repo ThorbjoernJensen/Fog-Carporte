@@ -27,11 +27,15 @@ public class CalculateBOM {
         int spærAntal = 0;
         int spærLaengde = carport.getWidth();
         int maxAfstand = 55;
+        int meterpris = 10;
+        int samletmeter;
         spærAntal = carportlenght / maxAfstand;
         if (carportlenght % maxAfstand > 0) {
             spærAntal++;
         }
-        spær = new Spær(spærAntal, spærLaengde);
+        samletmeter = spærAntal * spærLaengde;
+        int samletPris = (samletmeter * meterpris) / 100;
+        spær = new Spær(spærAntal, spærLaengde,samletPris);
         return spær;
 
     }
@@ -43,7 +47,7 @@ public class CalculateBOM {
         int meterpris = 10;
         int samletmeter;
         samletmeter = remAntal * remLength;
-        int samletpris = samletmeter * meterpris;
+        int samletpris = (samletmeter * meterpris) / 100;
         rem = new Rem(remAntal, remLength, meterpris, samletpris);
         System.out.println("Samletpris på rem i kr:" + samletpris);
         return rem;
@@ -67,7 +71,7 @@ public class CalculateBOM {
         }
 
         samletmeter = stolpeAntal*stolpeLength;
-        int samletpris = samletmeter * meterpris;
+        int samletpris = (samletmeter * meterpris) / 100;
         stolpe = new Stolpe(stolpeAntal, stolpeLength, samletpris);
 
 //        indvendigt mål sættes som højde, og vi beregner ikke ekstra til
@@ -76,9 +80,13 @@ public class CalculateBOM {
 
     private static Overstern calcultateOverstern(Carport carport) {
         Overstern overstern;
-        int stenderAntal = 2;
-        int stenderLængde = carport.getLength();
-        overstern = new Overstern(stenderAntal, stenderLængde);
+        int sternAntal = 2;
+        int sternLængde = carport.getLength();
+        int meterpris = 10;
+        int samletmeter;
+        samletmeter = sternAntal * sternLængde;
+        int samletPris = (samletmeter * meterpris) / 100;
+        overstern = new Overstern(sternAntal, sternLængde, samletPris);
         return overstern;
 
     }

@@ -6,10 +6,9 @@ public class Overstern {
     private int meterPris;
     private int samletpris;
 
-    public Overstern(int oversternAntal, int oversternLaengde, int meterPris, int samletpris) {
+    public Overstern(int oversternAntal, int oversternLaengde, int samletpris) {
         this.oversternAntal = oversternAntal;
         this.oversternLaengde = oversternLaengde;
-        this.meterPris = meterPris;
         this.samletpris = samletpris;
     }
 
