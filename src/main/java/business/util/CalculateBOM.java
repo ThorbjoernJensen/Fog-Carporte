@@ -40,12 +40,12 @@ public class CalculateBOM {
         Rem rem;
         int remLength = carport.getLength();
         int remAntal = 2;
-        int meterpris=10;
+        int meterpris = 10;
         int samletmeter;
-        samletmeter = remAntal*remLength;
-        int samletpris =samletmeter*meterpris;
+        samletmeter = remAntal * remLength;
+        int samletpris = samletmeter * meterpris;
         rem = new Rem(remAntal, remLength, meterpris, samletpris);
-        System.out.println("Samletpris på rem i kr:"+ samletpris);
+        System.out.println("Samletpris på rem i kr:" + samletpris);
         return rem;
 
     }
@@ -56,6 +56,8 @@ public class CalculateBOM {
         int carportLength = carport.getLength();
         int stolpeAntal = 0;
         stolpeAntal = 4;
+        int meterpris = 10;
+        int samletmeter;
         //       vi har vurderet at man skifter til 6 stolper ved længde på over 5m
         if (carportLength > 500) {
             stolpeAntal = 6;
@@ -63,7 +65,10 @@ public class CalculateBOM {
         if (carportLength > 700) {
             stolpeAntal = 8;
         }
-        stolpe = new Stolpe(stolpeAntal, stolpeLength);
+
+        samletmeter = stolpeAntal*stolpeLength;
+        int samletpris = samletmeter * meterpris;
+        stolpe = new Stolpe(stolpeAntal, stolpeLength, samletpris);
 
 //        indvendigt mål sættes som højde, og vi beregner ikke ekstra til
         return stolpe;

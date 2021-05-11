@@ -5,11 +5,44 @@ public class Spær {
     private int spærAntal;
     private int spærLaengde;
     private int spærMaxAfstand=55;
+    private int meterPris;
+    private int samletpris;
 
-    public Spær(int spærAntal, int spærLaengde) {
+    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand, int meterPris, int samletpris) {
         this.spærAntal = spærAntal;
         this.spærLaengde = spærLaengde;
+        this.spærMaxAfstand = spærMaxAfstand;
+        this.meterPris = meterPris;
+        this.samletpris = samletpris;
     }
+
+    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand) {
+        this.spærAntal = spærAntal;
+        this.spærLaengde = spærLaengde;
+        this.spærMaxAfstand = spærMaxAfstand;
+    }
+
+    public Spær(int spærLaengde, int spærMaxAfstand) {
+        this.spærLaengde = spærLaengde;
+        this.spærMaxAfstand = spærMaxAfstand;
+    }
+
+    public int getMeterPris() {
+        return meterPris;
+    }
+
+    public void setMeterPris(int meterPris) {
+        this.meterPris = meterPris;
+    }
+
+    public int getSamletpris() {
+        return samletpris;
+    }
+
+    public void setSamletpris(int samletpris) {
+        this.samletpris = samletpris;
+    }
+
 
     public int getSpærAntal() {
         return spærAntal;
