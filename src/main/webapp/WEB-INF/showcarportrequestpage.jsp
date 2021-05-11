@@ -22,7 +22,7 @@
         <h1>Stykliste</h1>
         Stolpe antal: ${sessionScope.bom.stolpe.stolpeAntal} stk<br>
         Stolpe længde: ${sessionScope.bom.stolpe.stolpeLaengde} cm<br>
-        Stolpe pris: ${sessionScope.bom.stolpe.samletpris} <br>
+        Stolpe pris: ${sessionScope.bom.stolpe.samletpris} kr. <br>
 
         Remme antal: ${sessionScope.bom.rem.remAntal} stk<br>
         Remme længde: ${sessionScope.bom.rem.remLaengde} cm<br>
@@ -31,7 +31,7 @@
         Spær antal: ${sessionScope.bom.spær.spærAntal} stk<br>
         Spær længde: ${sessionScope.bom.spær.spærLaengde} cm<br>
         Max afstand mellem spærene: ${sessionScope.bom.spær.spærMaxAfstand} cm <br>
-        spær pris: ${sessionScope.bom.spær.samletpris} <br>
+        spær pris: ${sessionScope.bom.spær.samletpris} kr.<br>
 
         Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>
         Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>

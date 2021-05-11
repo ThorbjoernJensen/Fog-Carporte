@@ -33,9 +33,10 @@ public class CalculateBOM {
         if (carportlenght % maxAfstand > 0) {
             spærAntal++;
         }
+        System.out.println(" her har vi spær " + spærAntal);
         samletmeter = spærAntal * spærLaengde;
-        int samletPris = (samletmeter * meterpris) / 100;
-        spær = new Spær(spærAntal, spærLaengde,samletPris);
+        int samletpris = (samletmeter * meterpris) / 100;
+        spær = new Spær(spærAntal, spærLaengde, maxAfstand, samletpris);
         return spær;
 
     }

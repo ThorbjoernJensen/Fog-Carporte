@@ -4,15 +4,14 @@ public class Spær {
 
     private int spærAntal;
     private int spærLaengde;
-    private int spærMaxAfstand=55;
+    private int spærMaxAfstand;
     private int meterPris;
     private int samletpris;
 
-    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand, int meterPris, int samletpris) {
+    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand, int samletpris) {
         this.spærAntal = spærAntal;
         this.spærLaengde = spærLaengde;
         this.spærMaxAfstand = spærMaxAfstand;
-        this.meterPris = meterPris;
         this.samletpris = samletpris;
     }
 
