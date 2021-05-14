@@ -17,21 +17,22 @@ public class UserMapper {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO user (name, email, password, role, address, zip) VALUES (?, ?, ?, ?, ?,? )";
 
-            try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-                ps.setString(1, user.getName());
-                ps.setString(2, user.getEmail());
-                ps.setString(3, user.getPassword());
-                ps.setString(4, user.getRole());
-                ps.setString(5, user.getAddress());
-                ps.setString(6, user.getZip());
-                ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                user.setUserId(id);
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
+
+                try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+                    ps.setString(1, user.getName());
+                    ps.setString(2, user.getEmail());
+                    ps.setString(3, user.getPassword());
+                    ps.setString(4, user.getRole());
+                    ps.setString(5, user.getAddress());
+                    ps.setString(6, user.getZip());
+                    ps.executeUpdate();
+                    ResultSet ids = ps.getGeneratedKeys();
+                    ids.next();
+                    int id = ids.getInt(1);
+                    user.setUserId(id);
+                } catch (SQLException ex) {
+                    throw new UserException(ex.getMessage());
+                }
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }
