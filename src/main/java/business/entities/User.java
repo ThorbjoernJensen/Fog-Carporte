@@ -9,7 +9,8 @@ public class User {
     private String password; // Should be hashed and secured
     private String role;
     private String address;
-    private int zip;
+    private String zip;
+    private String city;
 
 
     public User(String name, String email, String password, String role) {
@@ -23,6 +24,23 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
+    }
+
+    public User(String name, String email, String password, String role, String address, String zip) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.address = address;
+        this.zip = zip;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getName() {
@@ -41,11 +59,11 @@ public class User {
         this.address = address;
     }
 
-    public int getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(int zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 
