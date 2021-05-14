@@ -28,7 +28,7 @@ public class RegisterCommand extends CommandUnprotectedPage
         String password2 = request.getParameter("password2");
         String address = request.getParameter("address");
         String zip = request.getParameter("zip");
-        String city = request.getParameter("city");
+
 
         if (password1.equals(password2))
         {
@@ -41,7 +41,6 @@ public class RegisterCommand extends CommandUnprotectedPage
             session.setAttribute("role", user.getRole());
             session.setAttribute("address", user.getAddress());
             session.setAttribute("zip", user.getZip());
-//            session.setAttribute("city", user.getCity());
             return user.getRole() + "page";
         }
         else

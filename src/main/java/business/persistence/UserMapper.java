@@ -16,7 +16,6 @@ public class UserMapper {
     public void createUser(User user) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO user (name, email, password, role, address, zip) VALUES (?, ?, ?, ?, ?,? )";
-//            String sql1 = " INSERT INTO zip (zip, city) VALUES (?, ?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, user.getName());
@@ -30,13 +29,7 @@ public class UserMapper {
                 ids.next();
                 int id = ids.getInt(1);
                 user.setUserId(id);
-            }
-//            try (PreparedStatement ps = connection.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS)) {
-//
-//                ps.setInt(1, user.getZip());
-//                ps.setString(2, user.getCity());
-//            }
-            catch (SQLException ex) {
+            } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
         } catch (SQLException ex) {
