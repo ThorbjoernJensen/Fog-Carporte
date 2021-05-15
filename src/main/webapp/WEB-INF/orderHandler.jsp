@@ -10,10 +10,15 @@
     </jsp:attribute>
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        Du er logget ind som ansat, og her kan du se en carport
-        <p>Den har disse data: </p>
+        <H2>Du har godkendt fælgende ordre</H2>
+        Den har fået følgende ordre ID
+        ${sessionScope.orderId}
+<br>
+<br>
+<br>
+<br>
+<br>
         <div class="container">
-
         Carport-id: ${sessionScope.carport.carportId}<br>
         Længde: ${sessionScope.carport.length} cm<br>
         Bredde: ${sessionScope.carport.width} cm<br>
@@ -41,10 +46,6 @@
         Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>
         Overstern pris: ${sessionScope.bom.overstern.samletpris} <br>
         </div>
-
-        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
-            <input type="submit" name="carportId" id="carportId" value="${sessionScope.carport.carportId}" class="btn btn-primary">
-        </form>
 
     </jsp:body>
 </t:genericpage>

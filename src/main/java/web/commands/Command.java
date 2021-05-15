@@ -20,6 +20,7 @@ public abstract class Command
     private static void initCommands(Database database)
     {
         commands = new HashMap<>();
+        commands.put("orderHandler", new CommandOrderHandler("orderHandler","employee"));
         commands.put("index", new CommandUnprotectedPage("index"));
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
         commands.put("logincommand", new LoginCommand(""));

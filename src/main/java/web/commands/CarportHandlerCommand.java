@@ -66,10 +66,6 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
 
         }
 
-
-
-
-
         return pageToShow;
     }
 }
