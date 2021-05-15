@@ -25,10 +25,50 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         HttpSession session = request.getSession();
 
         int height = Integer.parseInt(request.getParameter("height"));
+        System.out.println(height);
+        int width = Integer.parseInt(request.getParameter("width"));
+        System.out.println(width);
+        int length = Integer.parseInt(request.getParameter("length"));
+        System.out.println(length);
 
-        carportFacade.insertHeight(height);
+        int shedwidth = Integer.parseInt(request.getParameter("shedwidth"));
+        System.out.println(shedwidth);
+        int shedlength = Integer.parseInt(request.getParameter("shedlength"));
+        System.out.println(shedlength);
+        String roofmaterial = request.getParameter("roofmaterial");
 
-        session.setAttribute("height", height);
+
+
+        if (shedlength!=0 && shedwidth!=0) {
+            carportFacade.insertCarportWithShed(height, width, length, shedwidth, shedlength, roofmaterial);
+            session.setAttribute("height", height);
+            session.setAttribute("width", width);
+            session.setAttribute("length", length);
+            session.setAttribute("shedwidth", shedwidth);
+            session.setAttribute("shedlength", shedlength);
+            session.setAttribute("roofmaterial", roofmaterial);
+        }
+        if (shedlength!=0 && shedwidth==0){
+            session.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+            return "index";
+
+        }
+        if (shedwidth!=0 && shedlength==0){
+            session.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+            return "index";
+        }
+        if (shedlength==0 && shedwidth==0){
+        carportFacade.insertCarportWithoutShed(height,width,length,roofmaterial);
+            session.setAttribute("height", height);
+            session.setAttribute("width", width);
+            session.setAttribute("length", length);
+            session.setAttribute("roofmaterial", roofmaterial);
+
+        }
+
+
+
+
 
         return pageToShow;
     }

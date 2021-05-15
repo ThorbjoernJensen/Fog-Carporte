@@ -24,36 +24,63 @@
 
             <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
 
-
-
+                <h4>Vælg dimensioner på carporten</h4>
+                <h5>vælg højde</h5>
                 <select name="height" id="height">
-                    <option value="10">10</option>--%>
-                    <option value="20">20</option>--%>
-                    <option value="30">30</option>--%>
-
-
-<%--                    <c:forEach var="sport" items="${applicationScope.sportList}">--%>
-<%--                        <option value="${sport.sport_id}">${sport.name}</option>--%>
-
-<%--                    </c:forEach>--%>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
                 </select>
+
+                <h5>vælg bredde</h5>
+                <select name="width" id="width">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                </select>
+
+                <h5>vælg længde</h5>
+                <select name="length" id="length">
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+
+                </select>
+
+
+                <h5>vælg tag</h5>
+                <select name="roofmaterial" id="roofmaterial">
+                    <option value="Plasttrapezplader">Plasttrapezplader</option>
+                    <option value="Plasttrapezplader">Plasttrapezplader</option>
+                </select>
+
+
+                <div class="container">
+                    <h4>Redskabsrum</h4>
+                    <h5>vælg længde</h5>
+                    <select name="shedlength" id="shedlength">
+                        <option value="0" selected>Jeg ønsker ikke skur</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+
+                    <h5>vælg bredde</h5>
+                    <select name="shedwidth" id="shedwidth">
+                        <option value="0" selected>Jeg ønsker ikke skur</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                    </select>
+                </div>
                 <input type="submit" value="Send forespørgsel" class="btn btn-primary">
 
             </form>
-
-
-            <c:if test="${sessionScope.role == 'employee' }">
-            <p style="font-size: larger">This is what you can do,
-                since your are logged in as an employee</p>
-            <p><a href="fc/employeepage">Employee Page</a>
-                </c:if>
-
-                <c:if test="${sessionScope.role == 'customer' }">
-            <p style="font-size: larger">This is what you can do, since your
-                are logged in as a customer</p>
-            <p><a href="fc/customerpage">Customer Page</a>
-                </c:if>
-
+            <c:if test="${sessionScope.error != null }">
+                <p style="color:red">
+                        ${sessionScope.error}
+                </p>
+            </c:if>
         </div>
 
     </jsp:body>

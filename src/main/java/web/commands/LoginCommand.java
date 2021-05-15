@@ -26,7 +26,7 @@ public class LoginCommand extends CommandUnprotectedPage
 
         try {
         User user = userFacade.login(email, password);
-
+            System.out.println("");
         HttpSession session = request.getSession();
 
         session.setAttribute("user", user);
