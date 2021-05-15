@@ -24,6 +24,11 @@
 
             <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
 
+                <h4>Kontaktoplysninger:</h4>
+                <label for="tlf">Telefon/mobil:</label><br>
+                <input type="number" id="tlf" name="tlf" value=""><br>
+                <br>
+
                 <h4>Vælg dimensioner på carporten</h4>
                 <h5>vælg højde</h5>
                 <select name="height" id="height">

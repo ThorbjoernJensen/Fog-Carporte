@@ -15,7 +15,6 @@ public class CalculateBOM {
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
         spær = calculateSpær(carport);
-
         bom = new BillOfMaterials(stolpe, overStern, rem, spær);
         return bom;
 

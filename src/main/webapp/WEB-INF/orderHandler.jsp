@@ -10,14 +10,12 @@
     </jsp:attribute>
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
-        <H2>Du har godkendt fælgende ordre</H2>
+        <H2>Du har godkendt følgende ordre</H2>
         Den har fået følgende ordre ID
         ${sessionScope.orderId}
 <br>
 <br>
-<br>
-<br>
-<br>
+
         <div class="container">
         Carport-id: ${sessionScope.carport.carportId}<br>
         Længde: ${sessionScope.carport.length} cm<br>

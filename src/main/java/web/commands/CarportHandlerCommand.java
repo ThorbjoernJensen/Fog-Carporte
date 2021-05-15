@@ -24,6 +24,7 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
 
         HttpSession session = request.getSession();
 
+        int tlf = Integer.parseInt(request.getParameter("tlf"));
         int height = Integer.parseInt(request.getParameter("height"));
         System.out.println(height);
         int width = Integer.parseInt(request.getParameter("width"));
@@ -40,7 +41,8 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
 
 
         if (shedlength!=0 && shedwidth!=0) {
-            carportFacade.insertCarportWithShed(height, width, length, shedwidth, shedlength, roofmaterial);
+            carportFacade.insertCarportWithShed(tlf, height, width, length, shedwidth, shedlength, roofmaterial);
+            session.setAttribute("userId", tlf);
             session.setAttribute("height", height);
             session.setAttribute("width", width);
             session.setAttribute("length", length);
@@ -58,7 +60,8 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
             return "index";
         }
         if (shedlength==0 && shedwidth==0){
-        carportFacade.insertCarportWithoutShed(height,width,length,roofmaterial);
+        carportFacade.insertCarportWithoutShed(tlf,height,width,length,roofmaterial);
+            session.setAttribute("userId", tlf);
             session.setAttribute("height", height);
             session.setAttribute("width", width);
             session.setAttribute("length", length);

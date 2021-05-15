@@ -18,12 +18,12 @@ public class CarportFacade
 
 
 
-    public void insertCarportWithShed(int height,int width,int length, int shedwidth, int shedlength, String roofmaterial) throws UserException {
-        carportMapper.insertCarportWithShed(height, width, length, shedwidth, shedlength, roofmaterial);
+    public void insertCarportWithShed(int tlf,int height,int width,int length, int shedwidth, int shedlength, String roofmaterial) throws UserException {
+        carportMapper.insertCarportWithShed(tlf, height, width, length, shedwidth, shedlength, roofmaterial);
     }
 
-    public void insertCarportWithoutShed(int height,int width,int length, String roofmaterial) throws UserException {
-        carportMapper.insertCarportWithoutShed(height, width, length, roofmaterial);
+    public void insertCarportWithoutShed(int tlf, int height,int width,int length, String roofmaterial) throws UserException {
+        carportMapper.insertCarportWithoutShed(tlf, height, width, length, roofmaterial);
     }
 
     public Carport getCarportById(int carportId) throws UserException {

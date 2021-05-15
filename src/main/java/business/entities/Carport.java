@@ -2,6 +2,7 @@ package business.entities;
 
 public class Carport {
     private int carportId;
+    private int userId;
     private int roofId;
     private int height;
     private int length;
@@ -15,6 +16,19 @@ public class Carport {
         this.length = length;
         this.width = width;
         this.shedId = shedId;
+    }
+    public Carport(int carportId, int userId, int roofId, int height, int length, int width, int shedId) {
+        this.carportId = carportId;
+        this.userId=userId;
+        this.roofId = roofId;
+        this.height = height;
+        this.length = length;
+        this.width = width;
+        this.shedId = shedId;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public int getCarportId() {

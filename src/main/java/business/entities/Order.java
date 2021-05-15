@@ -10,8 +10,8 @@ public class Order {
     private Timestamp orderDate;
     private int orderStatusId;
 
-    public Order(int orderId, int carportId, int userId, double price, Timestamp orderDate, int orderStatusId) {
-        this.orderId = orderId;
+    public Order(int carportId, int userId, double price, Timestamp orderDate, int orderStatusId) {
+//        this.orderId = orderId;
         this.carportId = carportId;
         this.userId = userId;
         this.price = price;
