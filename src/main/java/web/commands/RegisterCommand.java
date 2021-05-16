@@ -31,11 +31,27 @@ public class RegisterCommand extends CommandUnprotectedPage {
         String zip = request.getParameter("zip");
 
         //Hvem der har oprettet brugeren. Er der værdi, er det admin, igen værdi brugeren selv
+        int carportId = Integer.parseInt(request.getParameter("carportId"));
+        double price = Double.parseDouble(request.getParameter("pris"));
         String creatorId = request.getParameter("creatorId");
 
         if (password1.equals(password2)) {
             User user = userFacade.createUser(name, email, tlf, password1, address, zip);
-            if (creatorId.length() > 0) {
+            if (creatorId!=null) {
+
+                HttpSession session = request.getSession();
+                session.setAttribute("name", name);
+                session.setAttribute("email", email);
+                session.setAttribute("carportId", carportId);
+                session.setAttribute("pris", price);
+                session.setAttribute("tlf", tlf);
+                session.setAttribute("user", user);
+                session.setAttribute("role", user.getRole());
+                session.setAttribute("address", user.getAddress());
+                session.setAttribute("zip", user.getZip());
+                int userId = user.getUserId();
+
+
                 return commandOrderHandler.execute(request, response);
             }
 
@@ -43,6 +59,7 @@ public class RegisterCommand extends CommandUnprotectedPage {
             session.setAttribute("name", name);
             session.setAttribute("email", email);
             session.setAttribute("user", user);
+            session.setAttribute("tlf", tlf);
             session.setAttribute("role", user.getRole());
             session.setAttribute("address", user.getAddress());
             session.setAttribute("zip", user.getZip());

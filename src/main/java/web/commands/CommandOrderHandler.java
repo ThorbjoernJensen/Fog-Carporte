@@ -22,12 +22,12 @@ public class CommandOrderHandler extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
 
-        int carportId = Integer.parseInt(request.getParameter("carportId"));
-        int tlf = Integer.parseInt(request.getParameter("tlf"));
-        double price = Double.parseDouble(request.getParameter("price"));
-        int orderStatus=1;
-
-        orderFacade.carportToOrder(carportId,tlf,price,orderStatus);
+//        int carportId = Integer.parseInt(request.getParameter("carportId"));
+//        int userId = Integer.parseInt(request.getParameter("userId"));
+//        double price = Double.parseDouble(request.getParameter("pris"));
+//        int orderStatus=1;
+//        System.out.println(userId);
+//        orderFacade.carportToOrder(carportId,userId,price,orderStatus);
         return pageToShow;
     }
 }
