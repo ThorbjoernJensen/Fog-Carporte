@@ -1,6 +1,7 @@
 package business.services;
 
 
+import business.entities.Order;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
@@ -15,8 +16,8 @@ public class OrderFacade
         orderMapper = new OrderMapper(database);
     }
 
-    public void carportToOrder (int carportId, int userId, double price, int status) throws UserException{
-        orderMapper.carportToOrder(carportId, userId, price, status);
+    public void carportToOrder (Order order) throws UserException{
+        orderMapper.carportToOrder(order);
     }
 
 }
