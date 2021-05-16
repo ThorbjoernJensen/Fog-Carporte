@@ -17,7 +17,7 @@ public class CarportMapper {
     public void insertCarportWithShed(int tlf, int height, int width, int length, int shedwidth, int shedlength, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (user_id, height, width, length, shed_id, roof_id) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO carport (tlf, height, width, length, shed_id, roof_id) VALUES (?,?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 int shedId = insertShed(shedwidth, shedlength);
@@ -40,7 +40,7 @@ public class CarportMapper {
     public void insertCarportWithoutShed(int tlf, int height, int width, int length, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (user_id, height, width, length, roof_id) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO carport (tlf, height, width, length, roof_id) VALUES (?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 int roofId = insertRoof(roofmaterial);
@@ -92,14 +92,14 @@ public class CarportMapper {
                 ps.setInt(1, carportId);
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
-                    int userId = rs.getInt("user_id");
+                    int tlf = rs.getInt("tlf");
                     int roofId = rs.getInt("roof_id");
                     int height = rs.getInt("height");
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     int shedId = rs.getInt("shed_id");
 
-                    return new Carport(carportId, userId, roofId, height, length, width, shedId);
+                    return new Carport(carportId, tlf, roofId, height, length, width, shedId);
                 }
                 throw new UserException("Carporten findes ikke");
 

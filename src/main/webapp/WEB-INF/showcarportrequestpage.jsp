@@ -15,7 +15,7 @@
         <div class="container">
 
             Carport-id: ${sessionScope.carport.carportId}<br>
-            Købers-id: ${sessionScope.carport.userId}<br>
+            Købers-id: ${sessionScope.carport.tlf}<br>
             Længde: ${sessionScope.carport.length} cm<br>
             Bredde: ${sessionScope.carport.width} cm<br>
             Højde: ${sessionScope.carport.height} cm<br>
@@ -45,21 +45,12 @@
 <br>
 <br>
 <br>
-        Samlet pris: ${sessionScope.bom.overstern.samletpris+
-                        sessionScope.bom.spær.samletpris+
-                        sessionScope.bom.stolpe.samletpris+
-                        sessionScope.bom.rem.samletpris}
+       <h2> Samlet pris på carporten: ${sessionScope.bom.pris} </h2>
 
         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
             <input type="text" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}"><br>
-            <input type="text" hidden id="userId" name="userId" value="${sessionScope.carport.userId}"><br>
-
-            <input type="text" hidden id="price" name="price" value="${sessionScope.bom.overstern.samletpris+
-                        sessionScope.bom.spær.samletpris+
-                        sessionScope.bom.stolpe.samletpris+
-                        sessionScope.bom.rem.samletpris}"><br>
-
-
+            <input type="text" hidden id="tlf" name="tlf" value="${sessionScope.carport.tlf}"><br>
+            <input type="text" hidden id="price" name="price" value="${sessionScope.bom.pris}"><br>
             <input type="submit" value="Godkend Ordre">
         </form>
 

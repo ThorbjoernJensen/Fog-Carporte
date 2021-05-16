@@ -11,11 +11,13 @@ public class CalculateBOM {
         Rem rem;
         Spær spær;
 
+
         rem = calculateRem(carport);
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
         spær = calculateSpær(carport);
-        bom = new BillOfMaterials(stolpe, overStern, rem, spær);
+        double samletPris = stolpe.getSamletpris()+ overStern.getSamletpris()+ rem.getSamletpris()+ spær.getSamletpris();
+        bom = new BillOfMaterials(stolpe, overStern, rem, spær, samletPris);
         return bom;
 
     }

@@ -21,20 +21,13 @@ public class CommandOrderHandler extends CommandProtectedPage {
             HttpServletRequest request,
             HttpServletResponse response) throws UserException {
 
-        HttpSession session = request.getSession();
         int carportId = Integer.parseInt(request.getParameter("carportId"));
-        int userId = Integer.parseInt(request.getParameter("userId"));
+        int tlf = Integer.parseInt(request.getParameter("tlf"));
         double price = Double.parseDouble(request.getParameter("price"));
         int orderStatus=1;
-        request.setAttribute("orderId", carportId);
-        request.setAttribute("userId", userId);
-        request.setAttribute("price", price);
-        request.setAttribute("orderStatus", orderStatus);
 
-        orderFacade.carportToOrder(carportId,userId,price,orderStatus);
-
-        System.out.println(carportId);
-
+//Skift til nu User story? her skal der oprettes en bruger, som ordren kan få sat som user_id.
+        orderFacade.carportToOrder(carportId,tlf,price,orderStatus);
 
         return pageToShow;
     }

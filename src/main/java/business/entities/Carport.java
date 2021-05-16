@@ -2,7 +2,7 @@ package business.entities;
 
 public class Carport {
     private int carportId;
-    private int userId;
+    private int tlf;
     private int roofId;
     private int height;
     private int length;
@@ -17,9 +17,9 @@ public class Carport {
         this.width = width;
         this.shedId = shedId;
     }
-    public Carport(int carportId, int userId, int roofId, int height, int length, int width, int shedId) {
+    public Carport(int carportId, int tlf, int roofId, int height, int length, int width, int shedId) {
         this.carportId = carportId;
-        this.userId=userId;
+        this.tlf = tlf;
         this.roofId = roofId;
         this.height = height;
         this.length = length;
@@ -27,8 +27,12 @@ public class Carport {
         this.shedId = shedId;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getTlf() {
+        return tlf;
+    }
+
+    public void setTlf(int tlf) {
+        this.tlf = tlf;
     }
 
     public int getCarportId() {

@@ -5,12 +5,22 @@ public class BillOfMaterials {
     Overstern overstern;
     Rem rem;
     Spær spær;
+    private double pris;
 
-    public BillOfMaterials(Stolpe stolpe, Overstern overstern, Rem rem, Spær spær) {
+    public BillOfMaterials(Stolpe stolpe, Overstern overstern, Rem rem, Spær spær, double pris) {
         this.stolpe = stolpe;
         this.overstern = overstern;
         this.rem = rem;
         this.spær = spær;
+        this.pris = pris;
+    }
+
+    public double getPris() {
+        return pris;
+    }
+
+    public void setPris(double pris) {
+        this.pris = pris;
     }
 
     public Rem getRem() {
