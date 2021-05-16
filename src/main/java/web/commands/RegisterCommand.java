@@ -24,6 +24,7 @@ public class RegisterCommand extends CommandUnprotectedPage
     {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
+        int tlf = Integer.parseInt(request.getParameter("tlf"));
         String password1 = request.getParameter("password1");
         String password2 = request.getParameter("password2");
         String address = request.getParameter("address");
@@ -32,7 +33,7 @@ public class RegisterCommand extends CommandUnprotectedPage
 
         if (password1.equals(password2))
         {
-            User user = userFacade.createUser(name, email, password1, address, zip);
+            User user = userFacade.createUser(name, email,tlf, password1, address, zip);
             HttpSession session = request.getSession();
 
             session.setAttribute("name", name);

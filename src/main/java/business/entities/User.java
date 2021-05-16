@@ -6,6 +6,7 @@ public class User {
     private int userId; // just used to demo retrieval of autogen keys in UserMapper
     private String name;
     private String email;
+    private int tlf;
     private String password; // Should be hashed and secured
     private String role;
     private String address;
@@ -26,13 +27,22 @@ public class User {
         this.role = role;
     }
 
-    public User(String name, String email, String password, String role, String address, String zip) {
+    public User(String name, String email,int tlf, String password, String role, String address, String zip) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.role = role;
         this.address = address;
         this.zip = zip;
+        this.tlf = tlf;
+    }
+
+    public int getTlf() {
+        return tlf;
+    }
+
+    public void setTlf(int tlf) {
+        this.tlf = tlf;
     }
 
     public String getCity() {
