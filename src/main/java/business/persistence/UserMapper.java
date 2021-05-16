@@ -13,7 +13,7 @@ public class UserMapper {
     }
 
     //Denne funktion virker ikke på nuværende, mangler passende navne
-    public void createUser(User user) throws UserException {
+    public User createUser(User user) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO user (name, email, tlf, password, role, address, zip) VALUES (?, ?, ?, ?, ?,?,? )";
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -29,13 +29,13 @@ public class UserMapper {
                 ids.next();
                 int id = ids.getInt(1);
                 user.setUserId(id);
-                System.out.println(user.getUserId());
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }
+        return user;
     }
 
     public User login(String email, String password) throws UserException {
