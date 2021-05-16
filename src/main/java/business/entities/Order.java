@@ -11,7 +11,6 @@ public class Order {
     private int orderStatusId;
 
     public Order(int carportId, int userId, double price, Timestamp orderDate, int orderStatusId) {
-//        this.orderId = orderId;
         this.carportId = carportId;
         this.userId = userId;
         this.price = price;

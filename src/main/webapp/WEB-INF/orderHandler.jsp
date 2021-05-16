@@ -12,7 +12,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         <H2>Du har godkendt følgende ordre</H2>
         Den har fået følgende ordre ID
-        ${sessionScope.orderId}
+
 <br>
 <br>
 
