@@ -18,25 +18,33 @@ public class Carport {
         this.width = width;
         this.shedId = shedId;
     }
-    public Carport(int carportId, int tlf, int roofId, int height, int length, int width, int shedId, int carportStatusId) {
+    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int tlf, int carportStatusId) {
         this.carportId = carportId;
-        this.tlf = tlf;
         this.roofId = roofId;
         this.height = height;
         this.length = length;
         this.width = width;
         this.shedId = shedId;
+        this.tlf = tlf;
         this.carportStatusId=carportStatusId;
     }
 
-    public Carport(int carportId, int tlf, int roofId, int height, int length, int width, int shedId) {
+    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int tlf) {
         this.carportId = carportId;
-        this.tlf = tlf;
         this.roofId = roofId;
         this.height = height;
         this.length = length;
         this.width = width;
         this.shedId = shedId;
+        this.tlf = tlf;
+    }
+
+    public int getCarportStatusId() {
+        return carportStatusId;
+    }
+
+    public void setCarportStatusId(int carportStatusId) {
+        this.carportStatusId = carportStatusId;
     }
 
     public int getTlf() {

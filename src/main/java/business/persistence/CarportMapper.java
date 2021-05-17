@@ -151,10 +151,8 @@ public class CarportMapper {
                     int width = rs.getInt("width");
                     int shedId = rs.getInt("shed_id");
                     int tlf = rs.getInt("tlf");
-                    carportList.add(new Carport(carportId,roofId,height,length,width,shedId,tlf));
+                    carportList.add(new Carport(carportId,roofId,height,length,width,shedId,tlf,status));
                 }
-                throw new UserException("Carporten findes ikke");
-
 
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
@@ -163,6 +161,7 @@ public class CarportMapper {
 
             throw new UserException(ex.getMessage());
         }
+        return carportList;
     }
 
 }
