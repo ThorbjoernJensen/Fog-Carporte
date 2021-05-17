@@ -51,8 +51,6 @@
                     <option value="30">30</option>
 
                 </select>
-
-
                 <h5>vælg tag</h5>
                 <select name="roofmaterial" id="roofmaterial">
                     <option value="Plasttrapezplader">Plasttrapezplader</option>

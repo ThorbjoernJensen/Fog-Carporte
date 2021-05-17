@@ -53,6 +53,7 @@ public class RegisterCommand extends CommandUnprotectedPage {
                 return commandOrderHandler.execute(request, response);
             }
 
+
             HttpSession session = request.getSession();
             session.setAttribute("name", name);
             session.setAttribute("email", email);
@@ -64,10 +65,13 @@ public class RegisterCommand extends CommandUnprotectedPage {
 
             return user.getRole() + "page";
 
+
         } else {
             request.setAttribute("error", "the two passwords did not match");
             return "registerpage";
         }
-    }
 
+    }
 }
+
+

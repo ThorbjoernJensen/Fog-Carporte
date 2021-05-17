@@ -19,7 +19,7 @@ public class CarportMapper {
     public void insertCarportWithShed(int tlf, int height, int width, int length, int shedwidth, int shedlength, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (tlf, height, width, length, shed_id, roof_id) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO carport (tlf, height, width, length, shed_id, roof_id, carport_status_id) VALUES (?,?,?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 int shedId = insertShed(shedwidth, shedlength);
@@ -30,6 +30,7 @@ public class CarportMapper {
                 ps.setInt(4, length);
                 ps.setInt(5, shedId);
                 ps.setInt(6, roofId);
+                ps.setInt(7, 1);
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
@@ -42,7 +43,7 @@ public class CarportMapper {
     public void insertCarportWithoutShed(int tlf, int height, int width, int length, String roofmaterial) throws UserException {
         try (Connection connection = database.connect()) {
 
-            String sql = "INSERT INTO carport (tlf, height, width, length, roof_id) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO carport (tlf, height, width, length, roof_id, carport_status_id) VALUES (?,?,?,?,?,?)";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 int roofId = insertRoof(roofmaterial);
@@ -51,6 +52,7 @@ public class CarportMapper {
                 ps.setInt(3, width);
                 ps.setInt(4, length);
                 ps.setInt(5, roofId);
+                ps.setInt(6, 1);
                 ps.executeUpdate();
 
             } catch (SQLException ex) {
@@ -100,8 +102,10 @@ public class CarportMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     int shedId = rs.getInt("shed_id");
+                    int status = rs.getInt("carport_status_id");
 
-                    return new Carport(carportId, tlf, roofId, height, length, width, shedId);
+                    return new  Carport(carportId,roofId,height,length,width,shedId,tlf,status);
+
                 }
                 throw new UserException("Carporten findes ikke");
 
@@ -151,6 +155,7 @@ public class CarportMapper {
                     int width = rs.getInt("width");
                     int shedId = rs.getInt("shed_id");
                     int tlf = rs.getInt("tlf");
+
                     carportList.add(new Carport(carportId,roofId,height,length,width,shedId,tlf,status));
                 }
 
