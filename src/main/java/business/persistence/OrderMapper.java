@@ -7,7 +7,6 @@ import java.sql.*;
 import java.time.LocalDateTime;
 
 public class OrderMapper {
-    Order order;
     private Database database;
 
     public OrderMapper(Database database) {
