@@ -147,7 +147,7 @@ public class CarportMapper {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setInt(1, status);
                 ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
+                while (rs.next()) {
                     int carportId = rs.getInt("carport_id");
                     int roofId = rs.getInt("roof_id");
                     int height = rs.getInt("height");

@@ -52,6 +52,10 @@ public class RegisterCommand extends CommandUnprotectedPage {
 
                 return commandOrderHandler.execute(request, response);
             }
+//            if (zip != null){
+//                HttpSession session = request.getSession();
+//                session.setAttribute("error", "Du har intastet et forkert postnummer eller også leveret vi ikke til dit område");
+//            }
 
 
             HttpSession session = request.getSession();
