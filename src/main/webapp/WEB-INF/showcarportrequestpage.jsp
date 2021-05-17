@@ -36,7 +36,13 @@
                         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
                             <input class="btn btn-primary" type="submit" name="select" value="Godkend forespørgsel">
                             <input type="number" hidden id="carportId" name="carportId" value="${carports.carportId}">
-                            <input type="text" hidden id="tlf" name="tlf" value="${carports.tlf}">
+                            <input type="number" hidden id="roofId" name="roofId" value="${carports.roofId}">
+                            <input type="number" hidden id="height" name="height" value="${carports.height}">
+                            <input type="number" hidden id="length" name="length" value="${carports.length}">
+                            <input type="number" hidden id="width" name="width" value="${carports.width}">
+                            <input type="number" hidden id="shedId" name="shedId" value="${carports.shedId}">
+                            <input type="number" hidden id="tlf" name="tlf" value="${carports.tlf}">
+                            <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${carports.carportStatusId}">
                         </form>
                     </td>
                 </tr>

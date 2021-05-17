@@ -58,9 +58,8 @@
 
 
                 <input type="number" hidden id="creatorId" name="creatorId" value="1">
-                <input type="number" hidden id="tlf" name="tlf" value="${sessionScope.carport.tlf}">
+                <input type="number" hidden id="tlf" name="tlf" value="${sessionScope.carportList}">
                 <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">
-                <input type="number" hidden id="pris" name="pris" value="${sessionScope.bom.pris}">
 
 
                 <input class="btn btn-primary" type="submit" type="submit" value="Submit">
