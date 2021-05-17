@@ -13,7 +13,6 @@
         Du er logget ind som ansat, og her kan du se en carport
         <table>
             <thead>
-
             <th>Carport ID</th>
             <th>Tag</th>
             <th>Højde</th>
@@ -33,10 +32,14 @@
                     <td>${carports.shedId}</td>
                     <td>${carports.tlf}</td>
                     <td>${carports.carportStatusId}</td>
-
-
+                    <td>
+                        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
+                            <input class="btn btn-primary" type="submit" name="select" value="Godkend forespørgsel">
+                            <input type="number" hidden id="carportId" name="carportId" value="${carports.carportId}">
+                            <input type="text" hidden id="tlf" name="tlf" value="${carports.tlf}">
+                        </form>
+                    </td>
                 </tr>
-
             </c:forEach>
         </table>
 
@@ -77,12 +80,12 @@
         <%--<br>--%>
         <%--       <h2> Samlet pris på carporten: ${sessionScope.bom.pris} </h2>--%>
 
-        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
-            <input type="text" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}"><br>
-            <input type="text" hidden id="tlf" name="tlf" value="${sessionScope.carport.tlf}"><br>
-            <input type="text" hidden id="price" name="price" value="${sessionScope.bom.pris}"><br>
-            <input type="submit" value="Godkend Ordre">
-        </form>
+        <%--        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">--%>
+        <%--            <input type="text" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}"><br>--%>
+        <%--            <input type="text" hidden id="tlf" name="tlf" value="${sessionScope.carport.tlf}"><br>--%>
+        <%--            <input type="text" hidden id="price" name="price" value="${sessionScope.bom.pris}"><br>--%>
+        <%--            <input type="submit" value="Godkend Ordre">--%>
+        <%--        </form>--%>
 
     </jsp:body>
 </t:genericpage>
