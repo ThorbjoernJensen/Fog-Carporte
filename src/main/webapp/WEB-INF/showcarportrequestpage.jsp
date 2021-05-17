@@ -49,6 +49,8 @@
             </c:forEach>
         </table>
 
+        se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg">SVG-tegning</a>
+
 
         <%--        <p>Den har disse data: </p>--%>
         <%--        <div class="container">--%>
