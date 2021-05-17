@@ -8,6 +8,7 @@ public class Carport {
     private int length;
     private int width;
     private int shedId;
+    private int carportStatusId;
 
     public Carport(int carportId, int roofId, int height, int length, int width, int shedId) {
         this.carportId = carportId;
@@ -17,6 +18,17 @@ public class Carport {
         this.width = width;
         this.shedId = shedId;
     }
+    public Carport(int carportId, int tlf, int roofId, int height, int length, int width, int shedId, int carportStatusId) {
+        this.carportId = carportId;
+        this.tlf = tlf;
+        this.roofId = roofId;
+        this.height = height;
+        this.length = length;
+        this.width = width;
+        this.shedId = shedId;
+        this.carportStatusId=carportStatusId;
+    }
+
     public Carport(int carportId, int tlf, int roofId, int height, int length, int width, int shedId) {
         this.carportId = carportId;
         this.tlf = tlf;
@@ -34,6 +46,7 @@ public class Carport {
     public void setTlf(int tlf) {
         this.tlf = tlf;
     }
+
 
     public int getCarportId() {
         return carportId;

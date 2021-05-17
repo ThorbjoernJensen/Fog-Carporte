@@ -5,6 +5,8 @@ import business.entities.User;
 import business.exceptions.UserException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarportMapper {
     private Database database;
@@ -134,5 +136,33 @@ public class CarportMapper {
         }
     }
 
+    public List<Carport> getCarportByStatus(int status) throws UserException {
+        List<Carport> carportList=new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM carport WHERE carport_status_id = ?";
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, status);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    int carportId = rs.getInt("carport_id");
+                    int roofId = rs.getInt("roof_id");
+                    int height = rs.getInt("height");
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    int shedId = rs.getInt("shed_id");
+                    int tlf = rs.getInt("tlf");
+                    carportList.add(new Carport(carportId,roofId,height,length,width,shedId,tlf));
+                }
+                throw new UserException("Carporten findes ikke");
+
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+
+            throw new UserException(ex.getMessage());
+        }
+    }
 
 }

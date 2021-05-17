@@ -9,6 +9,8 @@ import business.util.CalculateBOM;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommandShowCarportRequest extends CommandProtectedPage {
 
@@ -26,13 +28,14 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
         BillOfMaterials bom;
         HttpSession session = request.getSession();
         carport = carportFacade.getCarportById(1);
-        System.out.println("her er vores carport " + carport.toString());
+        List <Carport> carports = carportFacade.getCarportByStatusId(1);
+
+
+
         session.setAttribute("carport", carport);
 
         bom = CalculateBOM.calculateMaterials(carport);
 
-        System.out.println("Her er vores mål for stolper" + bom.getStolpe().getStolpeLaengde());
-        System.out.println("Her er vores længde for overstern" + bom.getOverstern().getOversternLaengde());
 
         session.setAttribute("bom", bom);
 
