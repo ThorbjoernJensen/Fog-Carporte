@@ -49,13 +49,14 @@
 
         <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
 
+        <h4>Samlet pris efter evt rabatter: ${sessionScope.newPrice}</h4>
+
         <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
 
             <div class="row mb-3">
-                <label class="col-sm-1 col-form-label" for="price">Ændre pris for ordre</label>
-        <div class="col-sm-4">
-            <input id="price" class="form-control" type="number" name="price" value="Ændre pris:"
-                   placeholder="${sessionScope.bom.pris}">
+                <label class="col-sm-2 col-form-label" for="price">Ændre pris for ordre</label>
+        <div class="col-sm-3">
+            <input id="price" class="form-control" type="number" step="0.01" name="price" value="Ændre pris:">
         </div>
             </div>
 

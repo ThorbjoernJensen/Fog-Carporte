@@ -33,19 +33,12 @@ public class CommandOrderUpdater extends CommandProtectedPage {
         HttpSession session = request.getSession();
 
         int orderId = Integer.parseInt(request.getParameter("orderId"));
-        double price = 0.0;
+        double price = Double.parseDouble(request.getParameter("price"));
 
-        try {
-
-            price = Double.parseDouble(request.getParameter("price"));
-
-        } catch (NumberFormatException e) {
-
-        }
 
         orderFacade.setOrderPrice(price, orderId);
 
-        session.setAttribute("opdateretprice", price);
+        session.setAttribute("newPrice", price);
 
 
         return pageToShow;
