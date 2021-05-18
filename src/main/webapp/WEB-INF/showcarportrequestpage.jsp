@@ -30,7 +30,7 @@
                     <td>${carports.length}</td>
                     <td>${carports.width}</td>
                     <td>${carports.shedId}</td>
-                    <td>${carports.tlf}</td>
+                    <td>${carports.userId}</td>
                     <td>${carports.carportStatusId}</td>
                     <td>
                         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
@@ -41,7 +41,7 @@
                             <input type="number" hidden id="length" name="length" value="${carports.length}">
                             <input type="number" hidden id="width" name="width" value="${carports.width}">
                             <input type="number" hidden id="shedId" name="shedId" value="${carports.shedId}">
-                            <input type="number" hidden id="tlf" name="tlf" value="${carports.tlf}">
+                            <input type="number" hidden id="tlf" name="tlf" value="${carports.userId}">
                             <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${carports.carportStatusId}">
                         </form>
                     </td>

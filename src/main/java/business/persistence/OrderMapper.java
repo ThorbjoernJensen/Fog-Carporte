@@ -14,7 +14,7 @@ public class OrderMapper {
 
     }
 
-    public Order carportToOrder(Order order, int status) throws UserException {
+    public Order carportToOrder(Order order) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO `order` (carport_id, price, user_id, material_list, order_date, order_status_id ) VALUES (?,?,?,?,?,?)";
             try (PreparedStatement ps = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {

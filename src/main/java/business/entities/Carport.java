@@ -2,7 +2,7 @@ package business.entities;
 
 public class Carport {
     private int carportId;
-    private int tlf;
+    private int userId;
     private int roofId;
     private int height;
     private int length;
@@ -18,25 +18,25 @@ public class Carport {
         this.width = width;
         this.shedId = shedId;
     }
-    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int tlf, int carportStatusId) {
+    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int userId, int carportStatusId) {
         this.carportId = carportId;
         this.roofId = roofId;
         this.height = height;
         this.length = length;
         this.width = width;
         this.shedId = shedId;
-        this.tlf = tlf;
+        this.userId = userId;
         this.carportStatusId=carportStatusId;
     }
 
-    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int tlf) {
+    public Carport(int carportId, int roofId, int height, int length, int width, int shedId, int userId) {
         this.carportId = carportId;
         this.roofId = roofId;
         this.height = height;
         this.length = length;
         this.width = width;
         this.shedId = shedId;
-        this.tlf = tlf;
+        this.userId = userId;
     }
 
     public int getCarportStatusId() {
@@ -47,12 +47,12 @@ public class Carport {
         this.carportStatusId = carportStatusId;
     }
 
-    public int getTlf() {
-        return tlf;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setTlf(int tlf) {
-        this.tlf = tlf;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
 

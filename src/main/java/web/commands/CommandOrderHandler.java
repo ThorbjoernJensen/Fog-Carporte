@@ -30,20 +30,20 @@ public class CommandOrderHandler extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
+        int carportId = Integer.parseInt(request.getParameter("carportId"));
         Carport carport;
         BillOfMaterials bom;
-        int carportId = Integer.parseInt(request.getParameter("carportId"));
         carport = carportFacade.getCarportById(carportId);
         bom = CalculateBOM.calculateMaterials(carport);
-        int userId = (int) session.getAttribute("userId");
-        //Mangler at kunne sætte andre status via select menu.
+        int userId = carport.getUserId();
         int orderStatus = 2;
         double price = bom.getPris();
         order = new Order(carportId, userId, price, orderStatus);
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
+        order = orderFacade.carportToOrder(order);
         request.setAttribute("orderId", order.getOrderId());
-        orderFacade.carportToOrder(order, orderStatus);
+        carportFacade.updateCarportStatus(orderStatus,carportId);
         return pageToShow;
     }
 }

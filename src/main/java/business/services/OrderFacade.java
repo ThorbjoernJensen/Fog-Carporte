@@ -16,8 +16,9 @@ public class OrderFacade
         orderMapper = new OrderMapper(database);
     }
 
-    public void carportToOrder (Order order, int status) throws UserException{
-        orderMapper.carportToOrder(order,status);
+    public Order carportToOrder (Order order) throws UserException{
+        orderMapper.carportToOrder(order);
+        return order;
     }
 
 }
