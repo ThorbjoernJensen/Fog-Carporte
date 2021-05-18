@@ -18,6 +18,7 @@ public class CommandOrderHandler extends CommandProtectedPage {
     UserFacade userFacade;
     Order order;
     CarportFacade carportFacade;
+    CarportFacade carportFacadeCheck;
 
 
     public CommandOrderHandler(String pageToShow, String role) {
@@ -34,6 +35,11 @@ public class CommandOrderHandler extends CommandProtectedPage {
         Carport carport;
         BillOfMaterials bom;
         carport = carportFacade.getCarportById(carportId);
+        if (carport.getCarportStatusId()>=2){
+            System.out.println("Test fejl?");
+            request.setAttribute("error","Carporten med ID "+carportId+" er allerede oprettet som ordre i systemet.. Kontakt venligst kundeservice.");
+            return "showcarportrequestpage";
+        }
         bom = CalculateBOM.calculateMaterials(carport);
         int userId = carport.getUserId();
         int orderStatus = 2;
@@ -41,6 +47,9 @@ public class CommandOrderHandler extends CommandProtectedPage {
         order = new Order(carportId, userId, price, orderStatus);
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
+
+
+
         order = orderFacade.carportToOrder(order);
         request.setAttribute("orderId", order.getOrderId());
         carportFacade.updateCarportStatus(orderStatus,carportId);

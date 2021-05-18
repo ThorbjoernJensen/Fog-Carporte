@@ -19,7 +19,7 @@
             <th>Længde</th>
             <th>Bredde</th>
             <th>Skur</th>
-            <th>Telefon</th>
+            <th>UserId</th>
             <th>Status</th>
             </thead>
             <c:forEach var="carports" items="${sessionScope.carportList}">
@@ -41,7 +41,7 @@
                             <input type="number" hidden id="length" name="length" value="${carports.length}">
                             <input type="number" hidden id="width" name="width" value="${carports.width}">
                             <input type="number" hidden id="shedId" name="shedId" value="${carports.shedId}">
-                            <input type="number" hidden id="tlf" name="tlf" value="${carports.userId}">
+                            <input type="number" hidden id="userId" name="userId" value="${carports.userId}">
                             <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${carports.carportStatusId}">
                         </form>
                     </td>
@@ -49,49 +49,12 @@
             </c:forEach>
         </table>
 
-
-        <%--        <p>Den har disse data: </p>--%>
-        <%--        <div class="container">--%>
-
-        <%--            Carport-id: ${sessionScope.carport.carportId}<br>--%>
-        <%--            Købers-id: ${sessionScope.carport.tlf}<br>--%>
-        <%--            Længde: ${sessionScope.carport.length} cm<br>--%>
-        <%--            Bredde: ${sessionScope.carport.width} cm<br>--%>
-        <%--            Højde: ${sessionScope.carport.height} cm<br>--%>
-        <%--            Skur-id: ${sessionScope.carport.shedId}<br>--%>
-        <%--            Tag-id: ${sessionScope.carport.roofId}<br>--%>
-
-        <%--        </div>--%>
-        <%--        <h1>Stykliste</h1>--%>
-        <%--        <div class="container">--%>
-        <%--            Stolpe antal: ${sessionScope.bom.stolpe.stolpeAntal} stk<br>--%>
-        <%--            Stolpe længde: ${sessionScope.bom.stolpe.stolpeLaengde} cm<br>--%>
-        <%--            Stolpe pris: ${sessionScope.bom.stolpe.samletpris} kr. <br>--%>
-
-        <%--            Remme antal: ${sessionScope.bom.rem.remAntal} stk<br>--%>
-        <%--            Remme længde: ${sessionScope.bom.rem.remLaengde} cm<br>--%>
-        <%--            Remme pris: ${sessionScope.bom.rem.samletpris} kr. <br>--%>
-
-        <%--            Spær antal: ${sessionScope.bom.spær.spærAntal} stk<br>--%>
-        <%--            Spær længde: ${sessionScope.bom.spær.spærLaengde} cm<br>--%>
-        <%--            Max afstand mellem spærene: ${sessionScope.bom.spær.spærMaxAfstand} cm <br>--%>
-        <%--            spær pris: ${sessionScope.bom.spær.samletpris} kr.<br>--%>
-
-        <%--            Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>--%>
-        <%--            Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>--%>
-        <%--            Overstern pris: ${sessionScope.bom.overstern.samletpris} <br>--%>
-        <%--        </div>--%>
-        <%--<br>--%>
-        <%--<br>--%>
-        <%--<br>--%>
-        <%--       <h2> Samlet pris på carporten: ${sessionScope.bom.pris} </h2>--%>
-
-        <%--        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">--%>
-        <%--            <input type="text" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}"><br>--%>
-        <%--            <input type="text" hidden id="tlf" name="tlf" value="${sessionScope.carport.tlf}"><br>--%>
-        <%--            <input type="text" hidden id="price" name="price" value="${sessionScope.bom.pris}"><br>--%>
-        <%--            <input type="submit" value="Godkend Ordre">--%>
-        <%--        </form>--%>
+        <c:if test="${requestScope.error != null }">
+            <p style="color:red">
+                    ${requestScope.error}
+            </p>
+        </c:if>
+        </div>
 
     </jsp:body>
 </t:genericpage>
