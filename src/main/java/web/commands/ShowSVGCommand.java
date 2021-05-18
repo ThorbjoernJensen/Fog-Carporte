@@ -23,16 +23,20 @@ public class ShowSVGCommand extends CommandProtectedPage {
         Carport carport;
         SVG svg;
         CalculateMaterialsSVG materialSVG = null;
-//        StringBuilder stringBuilder = null;
-
-
+        StringBuilder stringBuilder = null;
 
         bom = (BillOfMaterials) session.getAttribute("bom");
         carport = (Carport) session.getAttribute("carport");
 
-        System.out.println("her har vi bom: "+ bom);
 
-        svg = new SVG(0, 0, "0 0 800 600", 100, 50 );
+        String viewBoxTemplate = "0 0 %s %s";
+
+        String xCanvas = String.valueOf(carport.getLength()+100);
+        String yCanvas = String.valueOf(carport.getWidth()+100);
+        String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
+        System.out.println("vores viewbox " + viewBox);
+
+        svg = new SVG(0, 0, viewBox, 100, 50);
         materialSVG = new CalculateMaterialsSVG();
         materialSVG.CalculateMaterials(bom, carport, svg);
 
