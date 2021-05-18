@@ -180,10 +180,9 @@ public class CarportMapper {
 
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
         }
-        return status;
     }
 }
 

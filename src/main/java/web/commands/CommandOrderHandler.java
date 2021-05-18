@@ -36,7 +36,6 @@ public class CommandOrderHandler extends CommandProtectedPage {
         BillOfMaterials bom;
         carport = carportFacade.getCarportById(carportId);
         if (carport.getCarportStatusId()>=2){
-            System.out.println("Test fejl?");
             request.setAttribute("error","Carporten med ID "+carportId+" er allerede oprettet som ordre i systemet.. Kontakt venligst kundeservice.");
             return "showcarportrequestpage";
         }
@@ -47,11 +46,8 @@ public class CommandOrderHandler extends CommandProtectedPage {
         order = new Order(carportId, userId, price, orderStatus);
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
-
-
-
         order = orderFacade.carportToOrder(order);
-        request.setAttribute("orderId", order.getOrderId());
+        session.setAttribute("orderId", order.getOrderId());
         carportFacade.updateCarportStatus(orderStatus,carportId);
         return pageToShow;
     }

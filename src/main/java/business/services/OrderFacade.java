@@ -21,4 +21,8 @@ public class OrderFacade
         return order;
     }
 
+    public void setOrderPrice(double price, int orderId) throws UserException {
+        orderMapper.setOrderPrice(price,orderId);
+    }
+
 }

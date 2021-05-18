@@ -12,7 +12,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         <H2>Du har godkendt følgende ordre</H2>
         Den har fået følgende ordre ID:
-        ${requestScope.orderId}
+        ${sessionScope.orderId}
 
 <br>
 <br>
@@ -45,6 +45,25 @@
         Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>
         Overstern pris: ${sessionScope.bom.overstern.samletpris} <br>
         </div>
+
+
+        <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
+
+        <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
+
+            <div class="row mb-3">
+                <label class="col-sm-1 col-form-label" for="price">Ændre pris for ordre</label>
+        <div class="col-sm-4">
+            <input id="price" class="form-control" type="number" name="price" value="Ændre pris:"
+                   placeholder="${sessionScope.bom.pris}">
+        </div>
+            </div>
+
+            <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">
+            <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">
+
+            <input type="submit" value="Ændre pris" class="btn btn-primary">
+        </form>
 
     </jsp:body>
 </t:genericpage>

@@ -35,6 +35,30 @@ public class OrderMapper {
         }
         return order;
     }
+
+
+    public void setOrderPrice(double price, int orderId) throws UserException {
+        try (Connection connection = database.connect()) {
+
+            String sql = "UPDATE `order` SET price = ? WHERE order_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setDouble(1, price);
+                ps.setInt(2, orderId);
+                ps.executeUpdate();
+
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+
+
+
 }
 
 
