@@ -2,9 +2,12 @@ package business.persistence;
 
 import business.entities.Carport;
 import business.entities.User;
+import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarportMapper {
     private Database database;
@@ -140,6 +143,32 @@ public class CarportMapper {
         }
     }
 
+    public List<Dimensions> getAllDimensions() throws UserException {
+        List<Dimensions> dimensionsList = new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM dimensions";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+
+                    int id = rs.getInt("id");
+                    int height = rs.getInt("height");
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    dimensionsList.add(new Dimensions(id, height,length, width));
+                    System.out.println(width);
+
+                }
+                return dimensionsList;
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
 
 }
 

@@ -3,9 +3,12 @@ package business.services;
 
 import business.entities.Carport;
 import business.entities.User;
+import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
+
+import java.util.List;
 
 public class CarportFacade
 {
@@ -28,6 +31,10 @@ public class CarportFacade
 
     public Carport getCarportById(int carportId) throws UserException {
         return carportMapper.getCarportById(carportId);
+    }
+
+    public List<Dimensions> getAllDimensions() throws UserException {
+        return carportMapper.getAllDimensions();
     }
 
 

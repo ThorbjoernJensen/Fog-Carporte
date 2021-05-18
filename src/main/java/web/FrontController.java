@@ -1,9 +1,12 @@
 package web;
 
+import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.services.CarportFacade;
 import web.commands.*;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;
@@ -38,7 +41,13 @@ public class FrontController extends HttpServlet
             }
         }
 
-        // Initialize whatever global datastructures needed here:
+        CarportFacade carportFacade = new CarportFacade(database);
+
+        try {
+            getServletContext().setAttribute("DimensionList", carportFacade.getAllDimensions());
+        } catch (UserException ex2) {
+            Logger.getLogger("web").log(Level.SEVERE, ex2.getMessage(), ex2);
+        }
 
     }
 
