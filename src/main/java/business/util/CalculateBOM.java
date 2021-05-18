@@ -11,7 +11,6 @@ public class CalculateBOM {
         Rem rem;
         Spær spær;
 
-
         rem = calculateRem(carport);
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
@@ -19,12 +18,12 @@ public class CalculateBOM {
         double samletPris = stolpe.getSamletpris()+ overStern.getSamletpris()+ rem.getSamletpris()+ spær.getSamletpris();
         bom = new BillOfMaterials(stolpe, overStern, rem, spær, samletPris);
         return bom;
-
     }
 
     private static Spær calculateSpær(Carport carport) {
         Spær spær;
         int carportlenght = carport.getLength();
+        System.out.println(carportlenght);
         int spærAntal = 0;
         int spærLaengde = carport.getWidth();
         int maxAfstand = 55;

@@ -27,20 +27,15 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
         Carport carport;
         BillOfMaterials bom;
         HttpSession session = request.getSession();
-//        carport = carportFacade.getCarportById(1);
+        carport = carportFacade.getCarportById(1);
         List <Carport> carportList = carportFacade.getCarportByStatusId(1);
 
-
-
-//        session.setAttribute("carport", carport);
+        session.setAttribute("carport", carport);
+        System.out.println(carport.getLength()+"længde");
         session.setAttribute("carportList", carportList);
 
-//        bom = CalculateBOM.calculateMaterials(carport);
-
-
-//        session.setAttribute("bom", bom);
-
-
+        bom = CalculateBOM.calculateMaterials(carport);
+        session.setAttribute("bom", bom);
         return pageToShow;
     }
 

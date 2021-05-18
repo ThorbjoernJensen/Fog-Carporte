@@ -101,7 +101,7 @@ public class CarportMapper {
                     int width = rs.getInt("width");
                     int shedId = rs.getInt("shed_id");
 
-                    return new Carport(carportId, tlf, roofId, height, length, width, shedId);
+                    return new Carport(carportId, roofId, height, length, width, shedId, tlf);
                 }
                 throw new UserException("Carporten findes ikke");
 
