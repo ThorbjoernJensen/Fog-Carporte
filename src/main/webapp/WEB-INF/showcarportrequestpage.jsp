@@ -48,6 +48,7 @@
                 </tr>
             </c:forEach>
         </table>
+        se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg">SVG-tegning</a>
 
         <c:if test="${requestScope.error != null }">
             <p style="color:red">
@@ -55,6 +56,8 @@
             </p>
         </c:if>
         </div>
+
+
 
     </jsp:body>
 </t:genericpage>
