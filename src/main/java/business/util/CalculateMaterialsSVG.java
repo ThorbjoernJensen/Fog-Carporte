@@ -9,9 +9,9 @@ public class CalculateMaterialsSVG {
     private SVG svg;
 
     public void CalculateMaterials(BillOfMaterials bom, Carport carport, SVG svg) {
-        drawSpær(bom, carport, svg);
-        drawRem(bom, carport, svg);
         drawStolpe(bom, carport, svg);
+        drawRem(bom, carport, svg);
+        drawSpær(bom, carport, svg);
 
     }
 
@@ -20,22 +20,22 @@ public class CalculateMaterialsSVG {
         double yStart;
         double y2Start;
         double stolpeWidth = 22.0;
-        double indtrykning = 50.0;
+        double indrykningXakse = 50.0;
         double stolpeAfstand;
         int stolpeAntal;
 
 //        efter Foghs vejledning om 35 cm. til rem
-        yStart = 35.0;
-        y2Start = Double.valueOf(carport.getWidth()) - (35 + 22);
+        yStart = 35.0 - stolpeWidth + 4.5;
+        y2Start = Double.valueOf(carport.getWidth()) - (35 + 4.5);
         width = Double.valueOf(carport.getLength());
         stolpeAntal = bom.getStolpe().getStolpeAntal();
-        stolpeAfstand = (width - 2 * indtrykning - stolpeWidth) / (stolpeAntal / 2);
+        stolpeAfstand = (width - 2 * indrykningXakse - stolpeWidth) / (stolpeAntal / 2 - 1);
         System.out.println("afstand ml. stolper" + stolpeAfstand);
 
-        for (int x = 0; x < (bom.getStolpe().getStolpeAntal()); x = x + 2) {
+        for (int x = 0; x < (bom.getStolpe().getStolpeAntal()); x++) {
 
-            svg.addRect(indtrykning + x * stolpeAfstand, yStart, stolpeWidth, stolpeWidth);
-            svg.addRect(indtrykning + x * stolpeAfstand, y2Start, stolpeWidth, stolpeWidth);
+            svg.addRect(indrykningXakse + x * stolpeAfstand, yStart, stolpeWidth, stolpeWidth);
+            svg.addRect(indrykningXakse + x * stolpeAfstand, y2Start, stolpeWidth, stolpeWidth);
 
         }
     }
