@@ -12,7 +12,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         <H2>Du har godkendt følgende ordre</H2>
         Den har fået følgende ordre ID:
-        ${sessionScope.orderId}
+        ${requestScope.orderId}
 
 <br>
 <br>
@@ -49,22 +49,52 @@
 
         <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
 
-        <h4>Samlet pris efter evt rabatter: ${requestScope.newPrice}</h4>
+        <h4>Samlet pris efter evt rabatter: ${sessionScope.newPrice}</h4>
 
-        <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
+                <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
 
-            <div class="row mb-3">
-                <label class="col-sm-2 col-form-label" for="price">Ændre pris for ordre</label>
-        <div class="col-sm-3">
-            <input id="price" class="form-control" type="number" step="0.01" name="price" value="Ændre pris:">
-        </div>
-            </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="price">Ændre pris for ordre</label>
+                <div class="col-sm-3">
+                    <input id="price" class="form-control" type="number" step="0.01" name="price" value="Ændre pris:">
+                </div>
+                    </div>
 
-            <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">
+                    <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">
+                    
+                    <input type="submit" value="Ændre pris" class="btn btn-primary">
+                </form>
+
+        <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
+
+            <input class="btn btn-primary" type="submit" name="select" value="Godkend ordre">
             <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">
+            <input type="number" hidden id="roofId" name="roofId" value="${sessionScope.carport.roofId}">
+            <input type="number" hidden id="height" name="height" value="${sessionScope.carport.height}">
+            <input type="number" hidden id="length" name="length" value="${sessionScope.carport.length}">
+            <input type="number" hidden id="width" name="width" value="${sessionScope.carport.width}">
+            <input type="number" hidden id="shedId" name="shedId" value="${sessionScope.carport.shedId}">
+            <input type="number" hidden id="userId" name="userId" value="${sessionScope.carport.userId}">
+            <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${sessionScope.carport.carportStatusId}">
+            <input type="text" hidden id="token" name="token" value="5">
+            <input type="text" hidden id="newPrice" name="newPrice" value="${0}">
 
-            <input type="submit" value="Ændre pris" class="btn btn-primary">
         </form>
+
+<%--        <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">--%>
+
+<%--            <div class="row mb-3">--%>
+<%--                <label class="col-sm-2 col-form-label" for="price">Ændre pris for ordre</label>--%>
+<%--        <div class="col-sm-3">--%>
+<%--            <input id="price" class="form-control" type="number" step="0.01" name="price" value="Ændre pris:">--%>
+<%--        </div>--%>
+<%--            </div>--%>
+
+<%--            <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">--%>
+<%--            <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">--%>
+
+<%--            <input type="submit" value="Ændre pris" class="btn btn-primary">--%>
+<%--        </form>--%>
 
     </jsp:body>
 </t:genericpage>
