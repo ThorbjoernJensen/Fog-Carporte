@@ -120,13 +120,10 @@ public class CarportMapper {
 
     public int insertRoof(String materials) throws UserException {
         try (Connection connection = database.connect()) {
-
             String sql = "INSERT INTO roof (materials) VALUES (?)";
-
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, materials);
                 ps.executeUpdate();
-
                 ResultSet ids = ps.getGeneratedKeys();
                 ids.next();
 
@@ -179,7 +176,6 @@ public class CarportMapper {
                 return rowsInserted;
 
             }
-
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
         }

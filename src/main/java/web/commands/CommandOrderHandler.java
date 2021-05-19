@@ -41,8 +41,8 @@ public class CommandOrderHandler extends CommandProtectedPage {
         }
         bom = CalculateBOM.calculateMaterials(carport);
         int userId = carport.getUserId();
-        int orderStatus = 2;
         double price = bom.getPris();
+        int orderStatus = 2;
         order = new Order(carportId, userId, price, orderStatus);
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
