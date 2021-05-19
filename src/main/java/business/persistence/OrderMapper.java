@@ -1,10 +1,13 @@
 package business.persistence;
 
+import business.entities.Carport;
 import business.entities.Order;
 import business.exceptions.UserException;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderMapper {
     private Database database;
@@ -57,7 +60,33 @@ public class OrderMapper {
         }
     }
 
+    public List<Order> getAllOrders() throws UserException {
+        List<Order> orderList = new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM order";
 
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, status);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int orderId = rs.getInt("carport_id");
+                    int carportId = rs.getInt("roof_id");
+                    int price = rs.getInt("height");
+                    int orderDate = rs.getInt("length");
+                    int orderStatusId = rs.getInt("width");
+
+                    orderList.add(new Order());
+                }
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+
+            throw new UserException(ex.getMessage());
+        }
+        return carportList;
+    }
 
 }
 
