@@ -15,10 +15,12 @@ import java.util.List;
 public class CommandShowCarportRequest extends CommandProtectedPage {
 
     CarportFacade carportFacade;
+    CommandShowCarportRequest commandShowCarportRequest;
 
     public CommandShowCarportRequest(String pageToShow, String role) {
         super(pageToShow, role);
         this.carportFacade = new CarportFacade(database);
+//        this.commandShowCarportRequest = new CommandShowCarportRequest("showcarportrequestpage", "employee");
 
     }
 

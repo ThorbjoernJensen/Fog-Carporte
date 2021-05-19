@@ -16,9 +16,8 @@ import javax.servlet.http.HttpSession;
 public class CommandOrderUpdater extends CommandProtectedPage {
     OrderFacade orderFacade;
     UserFacade userFacade;
-    Order order;
     CarportFacade carportFacade;
-    CarportFacade carportFacadeCheck;
+
 
 
     public CommandOrderUpdater(String pageToShow, String role) {
