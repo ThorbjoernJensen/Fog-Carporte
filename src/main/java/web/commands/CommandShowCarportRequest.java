@@ -25,23 +25,11 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
-        Carport carport;
-        BillOfMaterials bom;
-        carport = carportFacade.getCarportById(1);
-
-        List<Carport> carportList = carportFacade.getCarportByStatusId(1);
+        List <Carport> carportList = carportFacade.getCarportByStatusId(1);
         System.out.println(carportList.size());
 
-
         session.setAttribute("carportList", carportList);
 
-
-        session.setAttribute("carport", carport);
-        System.out.println(carport.getLength() + "længde");
-        session.setAttribute("carportList", carportList);
-
-        bom = CalculateBOM.calculateMaterials(carport);
-        session.setAttribute("bom", bom);
         return pageToShow;
     }
 

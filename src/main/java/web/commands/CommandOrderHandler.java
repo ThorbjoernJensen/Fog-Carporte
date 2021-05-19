@@ -48,22 +48,32 @@ public class CommandOrderHandler extends CommandProtectedPage {
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
         session.setAttribute("order", order);
-//        price = Double.parseDouble(request.getParameter("newPrice"));
-//        session.setAttribute("orderStatus", orderStatus); kan evt bruges senere hvis vi vil skrive status ud.
 
-        try {
-            String token = request.getParameter("token");
-            System.out.println(" dette er token " + token);
-            if (token.equals("5")) {
-                order.setPrice(price);
+        session.setAttribute("orderId", order.getOrderId());
+
+
+        String token = request.getParameter("token");
+        if (token.equals("5")) {
+            double newPrice = 5;
+
+            System.out.println(newPrice);
+            if (session.getAttribute("newPrice")==null) {
+                System.out.println("Vi er i 0 if");
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);
-                session.setAttribute("orderId", order.getOrderId());
+                request.setAttribute("orderId",order.getOrderId());
+
+            } else {
+                newPrice = (double) session.getAttribute("newPrice");
+                System.out.println(newPrice);
+                order.setPrice(newPrice);
+                order = orderFacade.carportToOrder(order);
+                carportFacade.updateCarportStatus(orderStatus, carportId);
+                request.setAttribute("orderId",order.getOrderId());
+                session.removeAttribute("newPrice");
             }
-        } catch (UserException e) {
-            return pageToShow;
+
         }
         return pageToShow;
-
     }
 }

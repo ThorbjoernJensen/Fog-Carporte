@@ -12,7 +12,7 @@
         <h1>Hello ${sessionScope.email} </h1>
         <H2>Du har godkendt følgende ordre</H2>
         Den har fået følgende ordre ID:
-        ${sessionScope.orderId}
+        ${requestScope.orderId}
 
 <br>
 <br>
@@ -49,7 +49,8 @@
 
         <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
 
-        <h4>Samlet pris efter evt rabatter: ${requestScope.newPrice}</h4>
+        <h4>Samlet pris efter evt rabatter: ${sessionScope.newPrice}</h4>
+
                 <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
 
                     <div class="row mb-3">
@@ -66,7 +67,7 @@
 
         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
 
-            <input class="btn btn-primary" type="submit" name="select" value="Godkend forespørgsel">
+            <input class="btn btn-primary" type="submit" name="select" value="Godkend ordre">
             <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">
             <input type="number" hidden id="roofId" name="roofId" value="${sessionScope.carport.roofId}">
             <input type="number" hidden id="height" name="height" value="${sessionScope.carport.height}">
@@ -76,6 +77,7 @@
             <input type="number" hidden id="userId" name="userId" value="${sessionScope.carport.userId}">
             <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${sessionScope.carport.carportStatusId}">
             <input type="text" hidden id="token" name="token" value="5">
+            <input type="text" hidden id="newPrice" name="newPrice" value="${0}">
 
         </form>
 
