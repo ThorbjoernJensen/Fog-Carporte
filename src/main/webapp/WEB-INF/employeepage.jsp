@@ -15,6 +15,5 @@
 <%--        den skal med tiden sendes afsted med en carport-id, så siden kun viser detaljer for en given carport--%>
 
 
-
     </jsp:body>
 </t:genericpage>

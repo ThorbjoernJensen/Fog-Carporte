@@ -3,13 +3,17 @@ package business.services;
 
 import business.entities.Carport;
 import business.entities.User;
+import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;
 import business.persistence.Database;
 
 import java.util.List;
 
+
 public class CarportFacade {
+
+
     CarportMapper carportMapper;
 
     public CarportFacade(Database database) {
@@ -29,14 +33,17 @@ public class CarportFacade {
         return carportMapper.getCarportById(carportId);
     }
 
+
     public List<Carport> getCarportByStatusId(int status) throws UserException {
         return carportMapper.getCarportByStatus(status);
     }
 
     public void updateCarportStatus(int status, int carportId) throws UserException {
-        carportMapper.updateCarportStatus(status,carportId);
+        carportMapper.updateCarportStatus(status, carportId);
     }
 
-
+    public List<Dimensions> getAllDimensions() throws UserException {
+        return carportMapper.getAllDimensions();
+    }
 
 }
