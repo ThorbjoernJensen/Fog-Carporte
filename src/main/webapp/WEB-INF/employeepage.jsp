@@ -13,7 +13,8 @@
         You are now logged in as a EMPLOYEE of our wonderful site.
         <a href="${pageContext.request.contextPath}/fc/showcarportrequestpage">se en hardcoded carport-forespørgsel </a>
 <%--        den skal med tiden sendes afsted med en carport-id, så siden kun viser detaljer for en given carport--%>
-
+<br>
+        <a href="${pageContext.request.contextPath}/fc/showOrders"> se alle ordre </a>
 
     </jsp:body>
 </t:genericpage>

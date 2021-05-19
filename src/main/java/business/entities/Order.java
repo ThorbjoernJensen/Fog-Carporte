@@ -5,10 +5,21 @@ import java.sql.Timestamp;
 public class Order {
     private int orderId;
     private int carportId;
-    private int userId;
     private double price;
+    private int userId;
+    private int materialList;
     private Timestamp orderDate;
     private int orderStatusId;
+
+    public Order(int orderId, int carportId, double price, int userId, int materialList, Timestamp orderDate, int orderStatusId) {
+        this.orderId = orderId;
+        this.carportId = carportId;
+        this.price = price;
+        this.userId = userId;
+        this.materialList = materialList;
+        this.orderDate = orderDate;
+        this.orderStatusId = orderStatusId;
+    }
 
     public Order(int carportId, int userId, double price, Timestamp orderDate, int orderStatusId) {
         this.carportId = carportId;
@@ -23,6 +34,14 @@ public class Order {
         this.userId = userId;
         this.price = price;
         this.orderStatusId = orderStatusId;
+    }
+
+    public int getMaterialList() {
+        return materialList;
+    }
+
+    public void setMaterialList(int materialList) {
+        this.materialList = materialList;
     }
 
     public int getOrderId() {

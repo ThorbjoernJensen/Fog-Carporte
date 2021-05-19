@@ -63,19 +63,20 @@ public class OrderMapper {
     public List<Order> getAllOrders() throws UserException {
         List<Order> orderList = new ArrayList<>();
         try (Connection connection = database.connect()) {
-            String sql = "SELECT * FROM order";
+            String sql = "SELECT * FROM `order`";
 
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
-                ps.setInt(1, status);
                 ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    int orderId = rs.getInt("carport_id");
-                    int carportId = rs.getInt("roof_id");
-                    int price = rs.getInt("height");
-                    int orderDate = rs.getInt("length");
-                    int orderStatusId = rs.getInt("width");
-
-                    orderList.add(new Order());
+                    int orderId = rs.getInt("order_id");
+                    int carportId = rs.getInt("carport_id");
+                    double price = rs.getDouble("price");
+                    int userId = rs.getInt("user_id");
+                    int materialList = rs.getInt("material_list");
+                    Timestamp orderDate = rs.getTimestamp("order_date");
+                    int orderStatusId = rs.getInt("order_status_id");
+                    orderList.add(new Order(orderId, carportId, price, userId, materialList, orderDate, orderStatusId));
+                    System.out.println(price);
                 }
 
             } catch (SQLException ex) {
@@ -85,7 +86,7 @@ public class OrderMapper {
 
             throw new UserException(ex.getMessage());
         }
-        return carportList;
+        return orderList;
     }
 
 }

@@ -7,6 +7,8 @@ import business.persistence.CarportMapper;
 import business.persistence.Database;
 import business.persistence.OrderMapper;
 
+import java.util.List;
+
 public class OrderFacade
 {
     OrderMapper orderMapper;
@@ -23,6 +25,10 @@ public class OrderFacade
 
     public void setOrderPrice(double price, int orderId) throws UserException {
         orderMapper.setOrderPrice(price,orderId);
+    }
+
+    public List<Order> getAllOrders() throws UserException {
+        return orderMapper.getAllOrders();
     }
 
 }
