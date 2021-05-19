@@ -18,14 +18,14 @@ public class CommandOrderHandler extends CommandProtectedPage {
     UserFacade userFacade;
     Order order;
     CarportFacade carportFacade;
-    CarportFacade carportFacadeCheck;
-
+    OrderListCommand orderListCommand;
 
     public CommandOrderHandler(String pageToShow, String role) {
         super(pageToShow, role);
         this.orderFacade = new OrderFacade(database);
         this.userFacade = new UserFacade(database);
         this.carportFacade = new CarportFacade(database);
+        this.orderListCommand = new OrderListCommand("showallorders", "employee");
     }
 
     @Override
@@ -57,11 +57,12 @@ public class CommandOrderHandler extends CommandProtectedPage {
             double newPrice = 5;
 
             System.out.println(newPrice);
-            if (session.getAttribute("newPrice")==null) {
+            if (session.getAttribute("newPrice") == null) {
                 System.out.println("Vi er i 0 if");
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);
-                request.setAttribute("orderId",order.getOrderId());
+                request.setAttribute("orderId", order.getOrderId());
+                return orderListCommand.execute(request,response);
 
             } else {
                 newPrice = (double) session.getAttribute("newPrice");
@@ -69,8 +70,9 @@ public class CommandOrderHandler extends CommandProtectedPage {
                 order.setPrice(newPrice);
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);
-                request.setAttribute("orderId",order.getOrderId());
+                request.setAttribute("orderId", order.getOrderId());
                 session.removeAttribute("newPrice");
+                return orderListCommand.execute(request,response);
             }
 
         }
