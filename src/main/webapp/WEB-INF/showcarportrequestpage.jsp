@@ -43,6 +43,7 @@
                             <input type="number" hidden id="shedId" name="shedId" value="${carports.shedId}">
                             <input type="number" hidden id="userId" name="userId" value="${carports.userId}">
                             <input type="number" hidden id="carportStatusId" name="carportStatusId" value="${carports.carportStatusId}">
+                            <input type="text" hidden id="token" name="token" value="10">
                         </form>
                     </td>
                 </tr>

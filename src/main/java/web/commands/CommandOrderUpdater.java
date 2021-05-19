@@ -31,14 +31,27 @@ public class CommandOrderUpdater extends CommandProtectedPage {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
+        Order order;
 
-        int orderId = Integer.parseInt(request.getParameter("orderId"));
-        double price = Double.parseDouble(request.getParameter("price"));
+        int orderId = 0;
+        double price = 0;
+        try {
+            orderId = Integer.parseInt(request.getParameter("orderId"));
+            if (orderId != 0) {
+                price = Double.parseDouble(request.getParameter("price"));
+                request.setAttribute("newPrice", price);
+                orderFacade.setOrderPrice(price, orderId);
+                System.out.println("vi er i try" + price);
+            }
+        } catch (NumberFormatException e) {
 
-
-        orderFacade.setOrderPrice(price, orderId);
-
-        request.setAttribute("newPrice", price);
+            order = (Order) session.getAttribute("order");
+            price = Double.parseDouble(request.getParameter("price"));
+            order.setPrice(price);
+            request.setAttribute("newPrice", price);
+            orderFacade.setOrderPrice(price, orderId);
+            System.out.println("vi er i catch " + price);
+        }
 
 
         return pageToShow;
