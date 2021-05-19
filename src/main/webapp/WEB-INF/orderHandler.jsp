@@ -16,7 +16,7 @@
 
 <br>
 <br>
-
+        se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg">SVG-tegning</a>
         <div class="container">
         Carport-id: ${sessionScope.carport.carportId}<br>
         Længde: ${sessionScope.carport.length} cm<br>
@@ -49,7 +49,7 @@
 
         <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
 
-        <h4>Samlet pris efter evt rabatter: ${sessionScope.newPrice}</h4>
+        <h4>Samlet pris efter evt rabatter: ${requestScope.newPrice}</h4>
 
         <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">
 

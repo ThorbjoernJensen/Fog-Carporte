@@ -38,7 +38,7 @@ public class CommandOrderUpdater extends CommandProtectedPage {
 
         orderFacade.setOrderPrice(price, orderId);
 
-        session.setAttribute("newPrice", price);
+        request.setAttribute("newPrice", price);
 
 
         return pageToShow;
