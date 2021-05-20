@@ -30,5 +30,11 @@ public class OrderFacade
     public List<Order> getAllOrders() throws UserException {
         return orderMapper.getAllOrders();
     }
+    public Order getOrderById(int orderId) throws UserException {
+        return orderMapper.getOrderById(orderId);
+    }
 
+    public int deleteOrder(int order_id) throws UserException {
+        return orderMapper.deleteOrder(order_id);
+    }
 }

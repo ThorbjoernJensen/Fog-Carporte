@@ -89,6 +89,53 @@ public class OrderMapper {
         return orderList;
     }
 
+    public Order getOrderById(int orderId) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM `order` WHERE order_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, orderId);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+
+                    int order_id = rs.getInt("order_id");
+                    int carportId = rs.getInt("carport_id");
+                    double price = rs.getDouble("price");
+                    int userId = rs.getInt("user_id");
+                    int materialList = rs.getInt("material_list");
+                    Timestamp orderDate = rs.getTimestamp("order_date");
+                    int orderStatusId = rs.getInt("order_status_id");
+                    return new Order(order_id, carportId, price, userId, materialList, orderDate, orderStatusId);
+                }
+                throw new UserException("Ordren findes ikke for order_id = " + orderId);
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException("Connection to database could not be established");
+        }
+    }
+    public int deleteOrder(int order_id) throws UserException {
+        try (Connection connection = database.connect()) {
+            String sql = "DELETE FROM `order` " +
+                    "WHERE order_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, order_id);
+                int rowaAffected = ps.executeUpdate();
+                return rowaAffected;
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+
+    }
 }
 
 

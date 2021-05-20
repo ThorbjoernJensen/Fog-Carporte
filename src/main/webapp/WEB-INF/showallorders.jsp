@@ -13,7 +13,7 @@
 
 
 
-        <form action="${pageContext.request.contextPath}/fc/showOrders" method="post">
+        <form action="${pageContext.request.contextPath}/fc/showsingleorder" method="post">
 
         <table class="table">
         <thead>
@@ -27,20 +27,21 @@
         <th></th>
         </thead>
 
-        <c:forEach var="order" items="${applicationScope.orderList}">
+        <c:forEach var="orderItem" items="${applicationScope.orderList}">
             <tr>
-                <td>${order.orderId}</td>
-                <td>${order.carportId}</td>
-                <td>${order.price}</td>
-                <td>${order.userId}</td>
-                <td>${order.materialList}</td>
-                <td>${order.orderDate}</td>
-                <td>${order.orderStatusId}</td>
+                <td>${orderItem.orderId}</td>
+                <td>${orderItem.carportId}</td>
+                <td>${orderItem.price}</td>
+                <td>${orderItem.userId}</td>
+                <td>${orderItem.materialList}</td>
+                <td>${orderItem.orderDate}</td>
+                <td>${orderItem.orderStatusId}</td>
                 <td>
-<%--                    <button class="btn btn-danger " type="submit" name="delete"--%>
-<%--                            value="${userItem.id}">slet kunde!--%>
-<%--                    </button>--%>
+                    <button class="btn btn-danger " type="submit" name="singleOrder"
+                            value="${orderItem.orderId}">se ordre!
+                    </button>
                 </td>
+
             </form>
 
         </c:forEach>
