@@ -25,6 +25,7 @@
         <th>orderDate</th>
         <th>orderStatusId</th>
         <th></th>
+        <th></th>
         </thead>
 
         <c:forEach var="orderItem" items="${applicationScope.orderList}">
@@ -38,7 +39,12 @@
                 <td>${orderItem.orderStatusId}</td>
                 <td>
                     <button class="btn btn-danger " type="submit" name="singleOrder"
-                            value="${orderItem.orderId}">se ordre!
+                            value="${orderItem.orderId}">se ordre
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-danger " type="submit" name="editOrder"
+                            value="${orderItem.orderId}">Rediger
                     </button>
                 </td>
 

@@ -23,26 +23,39 @@ public class OrderByIdCommand extends CommandUnprotectedPage {
             HttpServletRequest request,
             HttpServletResponse response) throws UserException {
 
-        Order order;
+
         OrderFacade orderFacade = new OrderFacade(database);
         request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders());
 //        request.getServletContext().setAttribute("ordreById", orderFacade.getOrderById(order.getOrderId()));
 
 
         String singleOrder = request.getParameter("singleOrder");
+        String editOrder = request.getParameter("editOrder");
         String editPrice = request.getParameter("editPrice");
         String cancel = request.getParameter("cancel");
 
         if (singleOrder != null) {
-            order = orderFacade.getOrderById((Integer.parseInt(singleOrder)));
+           Order order = orderFacade.getOrderById((Integer.parseInt(singleOrder)));
             request.setAttribute("order", order);
         } else if (cancel != null) {
             int rowsAffected = orderFacade.deleteOrder(Integer.parseInt(cancel));
             if (rowsAffected > 0) {
                 request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders());
+            } else if (editOrder != null) {
+                Order order = orderFacade.getOrderById(Integer.parseInt(editOrder));
+                request.setAttribute("orderItem", order);
+                return "editorderpage";
+            } else if (editPrice != null) {
+
+                String price = request.getParameter("price");
+                String orderId = request.getParameter("order_id");
+                int rowsInserted = orderFacade.updateOrder(Double.parseDouble(price), (Integer.parseInt(orderId)));
+                if (rowsInserted == 1) {
+                    request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders());
+                }
+                System.out.print("ny pris " + price + " for ordre med id = " + orderId);
+
             }
-
-
         }
         return pageToShow;
     }

@@ -37,4 +37,8 @@ public class OrderFacade
     public int deleteOrder(int order_id) throws UserException {
         return orderMapper.deleteOrder(order_id);
     }
+
+    public int updateOrder(Double price, int order_id) throws UserException {
+        return orderMapper.updateOrder(price, order_id);
+    }
 }
