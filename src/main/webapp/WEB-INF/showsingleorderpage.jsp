@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Her er en liste af alle ordre
+         Enkelt Ordre
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
@@ -25,6 +25,7 @@
                 <th>orderStatusId</th>
                 <th></th>
                 <th></th>
+
                 </thead>
 
                 <tr>
@@ -36,11 +37,15 @@
                     <td>${requestScope.order.orderDate}</td>
                     <td>${requestScope.order.orderStatusId}</td>
                     <td>
-                        <button class="btn btn-danger " type="submit" name="cancel"
-                                value="${requestScope.order.orderId}">Annuller ordre
+                        <button class="btn btn-danger " type="submit" name="editOrder"
+                                value="${requestScope.order.orderId}">Rediger
                         </button>
                     </td>
-
+                    <td>
+                        <button class="btn btn-danger " type="submit" name="cancel"
+                                value="${requestScope.order.orderId}">Annuller
+                        </button>
+                    </td>
                 </tr>
             </table>
         </form>

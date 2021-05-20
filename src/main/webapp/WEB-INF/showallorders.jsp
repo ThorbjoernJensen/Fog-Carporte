@@ -42,12 +42,6 @@
                             value="${orderItem.orderId}">se ordre
                     </button>
                 </td>
-                <td>
-                    <button class="btn btn-danger " type="submit" name="editOrder"
-                            value="${orderItem.orderId}">Rediger
-                    </button>
-                </td>
-
             </form>
 
         </c:forEach>

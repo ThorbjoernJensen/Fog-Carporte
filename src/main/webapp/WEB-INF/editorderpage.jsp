@@ -18,12 +18,12 @@
         <h3 class="mb-3">Please edit and Update text below</h3>
 
         <form action="${pageContext.request.contextPath}/fc/showsingleorder" method="post">
-            <input type="hidden" name="order_id" value="${requestScope.order.orderId}"/>
+            <input type="hidden" name="order_id" value="${requestScope.orderItem.orderId}"/>
 
             <div class="input-group input-group-sm mb-3">
                 <div class="form-group">
                     <label class="form-check-label" for="price">Pris: </label>
-                    <input id="price" class="form-control" type="text" name="price"
+                    <input id="price" class="form-control" type="number" name="price"
                            value="${requestScope.orderItem.price}"/>
                     <button class="btn btn-primary btn-sm mt-2" type="submit" name="editPrice">Rediger</button>
                 </div>

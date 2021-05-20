@@ -22,7 +22,7 @@ public class OrderListCommand extends CommandUnprotectedPage {
             HttpServletRequest request,
             HttpServletResponse response) throws UserException {
 
-        HttpSession session = request.getSession();
+//        HttpSession session = request.getSession();
 
         OrderFacade orderFacade = new OrderFacade(database);
 
