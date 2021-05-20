@@ -18,18 +18,18 @@ public class CalculateElementsSVG {
         String yCanvas = String.valueOf(carport.getWidth());
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
 
-        materialSVG = new SVG(100, 10, viewBox, 100, 100);
+        materialSVG = new SVG(100, 10, viewBox, 80, 80);
 
         drawStolpe(bom, carport, materialSVG);
         drawRem(bom, carport, materialSVG);
         drawSpær(bom, carport, materialSVG);
         svg.addSvg(materialSVG);
 
-        String xCanvasDimensions = String.valueOf(carport.getLength() + 100);
-        String yCanvasSimensions = String.valueOf(carport.getWidth() + 100);
-        String viewBoxDimensions = String.format(viewBoxTemplate, xCanvas, yCanvas);
+        String xCanvasDimensions = String.valueOf((carport.getLength()));
+        String yCanvasSimensions = String.valueOf((carport.getWidth()));
+        String viewBoxDimensions = String.format(viewBoxTemplate, xCanvasDimensions, yCanvasSimensions);
 
-        SVG dimensionsSVG = new SVG(0, 0, viewBoxDimensions, 100, 100);
+        SVG dimensionsSVG = new SVG(0, 0, viewBoxDimensions, 80, 80);
         drawArrawX(bom, carport, dimensionsSVG);
         drawArrawY(bom, carport, dimensionsSVG);
         svg.addSvg(dimensionsSVG);
@@ -46,7 +46,7 @@ public class CalculateElementsSVG {
         x1= 50;
         y1= 10;
         x2= x1;
-        y2= y1+ carport.getWidth();
+        y2= carport.getWidth()+y1;
         dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
         dimensionsSVG.addArrowDefinitions();
         dimensionsSVG.addDefinitionLineText(40, carport.getWidth()/2, -90, carport.getWidth());
@@ -62,11 +62,11 @@ public class CalculateElementsSVG {
 
         x1= 100;
         y1= carport.getWidth()+40;
-        x2= carport.getLength();
+        x2= carport.getLength()+x1;
         y2= y1;
         dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
         dimensionsSVG.addArrowDefinitions();
-        dimensionsSVG.addDefinitionLineText(carport.getLength()/2,carport.getWidth()+50, 0, carport.getLength());
+        dimensionsSVG.addDefinitionLineText(carport.getLength()/2,carport.getWidth()+60, 0, carport.getLength());
 
 
     }

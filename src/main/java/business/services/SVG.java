@@ -11,7 +11,8 @@ public class SVG {
     private int width;
     private int height;
 
-    private final String headerTemplate = "<svg height=\"%d%%\" " +
+    private final String headerTemplate = "<svg version=\"1.1\"\n" +
+            "         xmlns=\"http://www.w3.org/2000/svg\""+"height=\"%d%%\" " +
             "width=\"%d%%\" " +
             "viewBox=\"%s\" " +
             "x=\"%d\"   " +
