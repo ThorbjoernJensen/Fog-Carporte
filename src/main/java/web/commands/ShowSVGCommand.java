@@ -30,13 +30,13 @@ public class ShowSVGCommand extends CommandProtectedPage {
 
 
         String viewBoxTemplate = "0 0 %s %s";
-        String xCanvas = String.valueOf(carport.getLength()+100);
-        String yCanvas = String.valueOf(carport.getWidth()+100);
+        String xCanvas = String.valueOf(carport.getLength()+300);
+        String yCanvas = String.valueOf(carport.getWidth()+300);
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
 
-        svg = new SVG(100, 100, viewBox, 100, 50);
+        svg = new SVG(0, 0, viewBox, 100, 100);
         CalculateElementsSVG.calculateElements(bom, carport, svg);
-        svg.closeSvg();
+//        svg.closeSvg();
 
 
 

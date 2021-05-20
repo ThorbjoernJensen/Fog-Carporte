@@ -13,84 +13,63 @@ public class CalculateElementsSVG {
 
 
         String viewBoxTemplate = "0 0 %s %s";
-        String xCanvas = String.valueOf(carport.getLength() + 100);
-        String yCanvas = String.valueOf(carport.getWidth() + 100);
+        String xCanvas = String.valueOf(carport.getLength());
+        System.out.println("længde som bliver til carport: "+ carport.getLength());
+        String yCanvas = String.valueOf(carport.getWidth());
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
 
-        materialSVG = new SVG(100, 100, viewBox, 100, 50);
+        materialSVG = new SVG(100, 10, viewBox, 100, 100);
 
         drawStolpe(bom, carport, materialSVG);
         drawRem(bom, carport, materialSVG);
         drawSpær(bom, carport, materialSVG);
         svg.addSvg(materialSVG);
-//        svg.closeSvg();
 
-        SVG dimensionsSVG = new SVG(0, 0, "0 0 800 600", 80, 80);
-        drawDimensions(bom, carport, dimensionsSVG);
+        String xCanvasDimensions = String.valueOf(carport.getLength() + 100);
+        String yCanvasSimensions = String.valueOf(carport.getWidth() + 100);
+        String viewBoxDimensions = String.format(viewBoxTemplate, xCanvas, yCanvas);
+
+        SVG dimensionsSVG = new SVG(0, 0, viewBoxDimensions, 100, 100);
+        drawArrawX(bom, carport, dimensionsSVG);
+        drawArrawY(bom, carport, dimensionsSVG);
         svg.addSvg(dimensionsSVG);
 
 
     }
 
-    private static void drawDimensions(BillOfMaterials bom, Carport carport, SVG dimensionsSVG) {
-        dimensionsSVG.addDimensions();
+    private static void drawArrawX(BillOfMaterials bom, Carport carport, SVG dimensionsSVG) {
+        int x1;
+        int y1;
+        int x2;
+        int y2;
+
+        x1= 50;
+        y1= 10;
+        x2= x1;
+        y2= y1+ carport.getWidth();
+        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
+        dimensionsSVG.addArrowDefinitions();
+        dimensionsSVG.addDefinitionLineText(40, carport.getWidth()/2, -90, carport.getWidth());
 
 
     }
 
-//           <defs>
-//                <marker
-//                id="beginArrow"
-//        markerWidth="12"
-//        markerHeight="12"
-//        refX="0"
-//        refY="6"
-//        orient="auto">
-//                    <path d="M0,6 L12,0 L12,12 L0,6" style="fill: #000000;"/>
-//                </marker>
-//                <marker
-//                id="endArrow"
-//        markerWidth="12"
-//        markerHeight="12"
-//        refX="12"
-//        refY="6"
-//        orient="auto">
-//                    <path d="M0,0 L12,6 L0,12 L0,0 " style="fill: #000000;"/>
-//                </marker>
-//            </defs>
-//            <line x1="50" y1="610" x2="50" y2="10"
-//        style="stroke: #000000;
-//        marker-start: url(#beginArrow);
-//        marker-end: url(#endArrow);"/>
-//                <text style="text-anchor: middle" transform="translate(40,300) rotate(-90)">600 cm</text>
-//
-//            <defs>
-//                <marker
-//                id="beginArrow"
-//        markerWidth="12"
-//        markerHeight="12"
-//        refX="0"
-//        refY="6"
-//        orient="auto">
-//                    <path d="M0,6 L12,0 L12,12 L0,6" style="fill: #000000;"/>
-//                </marker>
-//                <marker
-//                id="endArrow"
-//        markerWidth="12"
-//        markerHeight="12"
-//        refX="12"
-//        refY="6"
-//        orient="auto">
-//                    <path d="M0,0 L12,6 L0,12 L0,0 " style="fill: #000000;"/>
-//                </marker>
-//            </defs>
-//            <line x1="100" y1="650" x2="880" y2="650"
-//        style="stroke: #000000;
-//        marker-start: url(#beginArrow);
-//        marker-end: url(#endArrow);"/>
-//                <text style="text-anchor: middle" transform="translate(500,680) rotate(0)">780 cm</text>
-//        </svg>
+    private static void drawArrawY(BillOfMaterials bom, Carport carport, SVG dimensionsSVG) {
+        int x1;
+        int y1;
+        int x2;
+        int y2;
 
+        x1= 100;
+        y1= carport.getWidth()+40;
+        x2= carport.getLength();
+        y2= y1;
+        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
+        dimensionsSVG.addArrowDefinitions();
+        dimensionsSVG.addDefinitionLineText(carport.getLength()/2,carport.getWidth()+50, 0, carport.getLength());
+
+
+    }
 
     private static void drawStolpe(BillOfMaterials bom, Carport carport, SVG svg) {
         double width;
@@ -109,14 +88,13 @@ public class CalculateElementsSVG {
         stolpeAfstand = (width - 2 * indrykningXakse - stolpeWidth) / (stolpeAntal / 2 - 1);
         System.out.println("afstand ml. stolper" + stolpeAfstand);
 
-        for (int x = 0; x < (bom.getStolpe().getStolpeAntal()); x++) {
+        for (int x = 0; x < ((bom.getStolpe().getStolpeAntal())/2); x++) {
 
             svg.addRect(indrykningXakse + x * stolpeAfstand, yStart, stolpeWidth, stolpeWidth);
             svg.addRect(indrykningXakse + x * stolpeAfstand, y2Start, stolpeWidth, stolpeWidth);
 
         }
     }
-
 
     private static void drawRem(BillOfMaterials bom, Carport carport, SVG svg) {
         double width;
