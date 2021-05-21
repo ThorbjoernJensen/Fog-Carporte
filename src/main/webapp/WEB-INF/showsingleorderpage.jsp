@@ -37,13 +37,13 @@
                     <td>${requestScope.order.orderDate}</td>
                     <td>${requestScope.order.orderStatusId}</td>
                     <td>
-                        <button class="btn btn-danger " type="submit" name="editOrder"
+                        <button class="btn btn-primary " type="submit" name="editOrder"
                                 value="${requestScope.order.orderId}">Rediger
                         </button>
                     </td>
                     <td>
                         <button class="btn btn-danger " type="submit" name="cancel"
-                                value="${requestScope.order.orderId}">Annuller
+                                value="${requestScope.order.orderId}">!Slet!
                         </button>
                     </td>
                 </tr>
@@ -51,21 +51,7 @@
         </form>
 
 
-        <%--        <form action="${pageContext.request.contextPath}/fc/managesports" method="post">--%>
-        <%--            <input type="hidden" name="sports_id" value="${requestScope.sportItem.sport_id}"/>--%>
-        <%--            <div class="input-group input-group-sm mb-3">--%>
-        <%--                <div class="form-group">--%>
-        <%--                    <label class="form-check-label" for="name">Navn: </label>--%>
-        <%--                    <input id="name" class="form-control" type="text" name="name"--%>
-        <%--                           value="${requestScope.sportItem.name}"/>--%>
-        <%--                    <button class="btn btn-primary btn-sm mt-2" type="submit" name="update">Rediger</button>--%>
-        <%--                </div>--%>
-        <%--            </div>--%>
-        <%--            <c:if test="${not empty requestScope.error}">--%>
-        <%--                <br/>--%>
-        <%--                <p style="coler:red;font-size: large">${requestScope.error}</p>--%>
-        <%--            </c:if>--%>
-        <%--        </form>--%>
+
 
     </jsp:body>
 </t:genericpage>

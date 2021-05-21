@@ -8,6 +8,7 @@ import business.services.OrderFacade;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.DecimalFormat;
 
 public class OrderByIdCommand extends CommandUnprotectedPage {
     CarportFacade carportFacade;
@@ -22,7 +23,6 @@ public class OrderByIdCommand extends CommandUnprotectedPage {
     public String execute(
             HttpServletRequest request,
             HttpServletResponse response) throws UserException {
-
 
         OrderFacade orderFacade = new OrderFacade(database);
         request.getServletContext().setAttribute("orderList", orderFacade.getAllOrders());
@@ -58,8 +58,8 @@ public class OrderByIdCommand extends CommandUnprotectedPage {
         }
         if (editPrice != null) {
             String price = request.getParameter("price");
-            String orderId= request.getParameter("order_id");
-            System.out.println(price +" pris");
+            String orderId = request.getParameter("order_id");
+            System.out.println(price + " pris");
             System.out.println(orderId + " orderid");
             int rowsInserted = orderFacade.updateOrder(Double.parseDouble(price), Integer.parseInt(orderId));
 
