@@ -28,12 +28,10 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         int height = Integer.parseInt(request.getParameter("height"));
         int width = Integer.parseInt(request.getParameter("width"));
         int length = Integer.parseInt(request.getParameter("length"));
-
         int shedwidth = Integer.parseInt(request.getParameter("shedwidth"));
         int shedlength = Integer.parseInt(request.getParameter("shedlength"));
 
         String roofmaterial = request.getParameter("roofmaterial");
-
 
 
         if (shedlength!=0 && shedwidth!=0) {
@@ -54,7 +52,6 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
             session.setAttribute("width", width);
             session.setAttribute("length", length);
             session.setAttribute("roofmaterial", roofmaterial);
-
         }
 
         return pageToShow;
