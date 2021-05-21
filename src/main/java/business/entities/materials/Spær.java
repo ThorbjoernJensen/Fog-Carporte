@@ -4,55 +4,22 @@ public class Spær {
 
     private int spærAntal;
     private int spærLaengde;
-    private int spærMaxAfstand;
-    private int meterPris;
-    private int samletpris;
+    private int samletPris;
+    private double centerAfstand;
 
-    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand, int samletpris) {
+    private static final int meterPris = 10;
+    private static final int maxAfstand = 60;
+
+    public Spær(int spærAntal, int spærLaengde, double centerAfstand, int samletPris) {
         this.spærAntal = spærAntal;
         this.spærLaengde = spærLaengde;
-        this.spærMaxAfstand = spærMaxAfstand;
-        this.samletpris = samletpris;
-    }
-
-    public Spær(int spærAntal, int spærLaengde, int spærMaxAfstand) {
-        this.spærAntal = spærAntal;
-        this.spærLaengde = spærLaengde;
-        this.spærMaxAfstand = spærMaxAfstand;
-    }
-
-    public Spær(int spærLaengde, int spærMaxAfstand) {
-        this.spærLaengde = spærLaengde;
-        this.spærMaxAfstand = spærMaxAfstand;
-    }
-
-    public int getMeterPris() {
-        return meterPris;
-    }
-
-    public void setMeterPris(int meterPris) {
-        this.meterPris = meterPris;
-    }
-
-    public int getSamletpris() {
-        return samletpris;
-    }
-
-    public void setSamletpris(int samletpris) {
-        this.samletpris = samletpris;
+        this.centerAfstand = centerAfstand;
+        this.samletPris = samletPris;
     }
 
 
     public int getSpærAntal() {
         return spærAntal;
-    }
-
-    public int getSpærMaxAfstand() {
-        return spærMaxAfstand;
-    }
-
-    public void setSpærMaxAfstand(int spærMaxAfstand) {
-        this.spærMaxAfstand = spærMaxAfstand;
     }
 
     public void setSpærAntal(int spærAntal) {
@@ -65,5 +32,29 @@ public class Spær {
 
     public void setSpærLaengde(int spærLaengde) {
         this.spærLaengde = spærLaengde;
+    }
+
+    public double getCenterAfstand() {
+        return centerAfstand;
+    }
+
+    public void setCenterAfstand(double centerAfstand) {
+        this.centerAfstand = centerAfstand;
+    }
+
+    public int getSamletPris() {
+        return samletPris;
+    }
+
+    public void setSamletPris(int samletPris) {
+        this.samletPris = samletPris;
+    }
+
+    public static int getMeterPris() {
+        return meterPris;
+    }
+
+    public static int getMaxAfstand() {
+        return maxAfstand;
     }
 }

@@ -39,7 +39,7 @@
         Spær antal: ${sessionScope.bom.spær.spærAntal} stk<br>
         Spær længde: ${sessionScope.bom.spær.spærLaengde} cm<br>
         Max afstand mellem spærene: ${sessionScope.bom.spær.spærMaxAfstand} cm <br>
-        spær pris: ${sessionScope.bom.spær.samletpris} kr.<br>
+        spær pris: ${sessionScope.bom.spær.samletPris} kr.<br>
 
         Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>
         Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>

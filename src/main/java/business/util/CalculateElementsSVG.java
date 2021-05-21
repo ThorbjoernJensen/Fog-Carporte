@@ -11,7 +11,6 @@ public class CalculateElementsSVG {
     public static void calculateElements(BillOfMaterials bom, Carport carport, SVG svg) {
         SVG materialSVG;
 
-
         String viewBoxTemplate = "0 0 %s %s";
         String xCanvas = String.valueOf(carport.getLength());
         String yCanvas = String.valueOf(carport.getWidth());
@@ -32,8 +31,6 @@ public class CalculateElementsSVG {
         drawArrawX(bom, carport, dimensionsSVG);
         drawArrawY(bom, carport, dimensionsSVG);
         svg.addSvg(dimensionsSVG);
-
-
     }
 
     private static void drawArrawX(BillOfMaterials bom, Carport carport, SVG dimensionsSVG) {

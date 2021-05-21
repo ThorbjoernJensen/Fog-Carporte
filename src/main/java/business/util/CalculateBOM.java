@@ -10,37 +10,46 @@ public class CalculateBOM {
         Overstern overStern;
         Rem rem;
         Spær spær;
+        double bomSamletPris;
 
         rem = calculateRem(carport);
         stolpe = calculateStolper(carport);
         overStern = calcultateOverstern(carport);
         spær = calculateSpær(carport);
-        double samletPris = stolpe.getSamletpris()+ overStern.getSamletpris()+ rem.getSamletpris()+ spær.getSamletpris();
-        bom = new BillOfMaterials(stolpe, overStern, rem, spær, samletPris);
-        return bom;
+
+//        ville være lettere med et interface der krævede at hver klasse havde en getSamletpris.
+        bomSamletPris = stolpe.getSamletpris() + overStern.getSamletpris() + rem.getSamletpris() + spær.getSamletPris();
+
+        return new BillOfMaterials(stolpe, overStern, rem, spær, bomSamletPris);
     }
 
-    private static Spær calculateSpær(Carport carport) {
+    public static Spær calculateSpær(Carport carport) {
         Spær spær;
         int carportlenght = carport.getLength();
-        System.out.println(carportlenght);
         int spærAntal = 0;
+        int samletPris = 0;
+        double centerAfstand = 0;
+
+        int meterPris = Spær.getMeterPris();
+        int maxAfstand = Spær.getMaxAfstand();
         int spærLaengde = carport.getWidth();
-        int maxAfstand = 55;
-        int meterpris = 10;
-        int samletmeter;
-        spærAntal = carportlenght / maxAfstand;
-        if (carportlenght % maxAfstand > 0) {
-            spærAntal++;
+
+        spærAntal = ((carportlenght - 4) / maxAfstand) + 1;
+
+//        antal ikke går op i længden skal vi have et spær mere så vi ikke overstiger maxafstand
+        if ((carportlenght - 4) % maxAfstand > 0) {
+            spærAntal = spærAntal + 1;
         }
-        samletmeter = spærAntal * spærLaengde;
-        int samletpris = (samletmeter * meterpris) / 100;
-        spær = new Spær(spærAntal, spærLaengde, maxAfstand, samletpris);
-        return spær;
+        centerAfstand = Double.valueOf((carportlenght - 5) / (spærAntal - 1));
+
+//        vi dividerer med 100 for at omregne for at omregne fra centimeter til meter
+        samletPris = (spærAntal * spærLaengde * meterPris) / 100;
+
+        return new Spær(spærAntal, spærLaengde, centerAfstand, samletPris);
 
     }
 
-    private static Rem calculateRem(Carport carport) {
+    public static Rem calculateRem(Carport carport) {
         Rem rem;
         int remLength = carport.getLength();
         int remAntal = 2;
@@ -53,7 +62,7 @@ public class CalculateBOM {
 
     }
 
-    private static Stolpe calculateStolper(Carport carport) {
+    public static Stolpe calculateStolper(Carport carport) {
         Stolpe stolpe;
         int stolpeLength = carport.getHeight();
         int carportLength = carport.getLength();
@@ -69,7 +78,7 @@ public class CalculateBOM {
             stolpeAntal = 8;
         }
 
-        samletmeter = stolpeAntal*stolpeLength;
+        samletmeter = stolpeAntal * stolpeLength;
         int samletpris = (samletmeter * meterpris) / 100;
         stolpe = new Stolpe(stolpeAntal, stolpeLength, samletpris);
 
@@ -77,7 +86,7 @@ public class CalculateBOM {
         return stolpe;
     }
 
-    private static Overstern calcultateOverstern(Carport carport) {
+    public static Overstern calcultateOverstern(Carport carport) {
         Overstern overstern;
         int sternAntal = 2;
         int sternLængde = carport.getLength();

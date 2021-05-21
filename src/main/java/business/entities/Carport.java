@@ -10,6 +10,12 @@ public class Carport {
     private int shedId;
     private int carportStatusId;
 
+    public Carport(int height, int length, int width) {
+        this.height = height;
+        this.length = length;
+        this.width = width;
+    }
+
     public Carport(int carportId, int roofId, int height, int length, int width, int shedId) {
         this.carportId = carportId;
         this.roofId = roofId;
