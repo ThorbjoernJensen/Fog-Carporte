@@ -28,26 +28,26 @@
         </div>
         <h1>Stykliste</h1>
         <div class="container">
-        Stolpe antal: ${sessionScope.bom.stolpe.stolpeAntal} stk<br>
-        Stolpe længde: ${sessionScope.bom.stolpe.stolpeLaengde} cm<br>
-        Stolpe pris: ${sessionScope.bom.stolpe.samletpris} kr. <br>
+        Stolpe antal: ${sessionScope.bom.stolpe.antal} stk<br>
+        Stolpe længde: ${sessionScope.bom.stolpe.laengde} cm<br>
+        Stolpe pris: ${sessionScope.bom.stolpe.samletPris} kr. <br>
 
-        Remme antal: ${sessionScope.bom.rem.remAntal} stk<br>
-        Remme længde: ${sessionScope.bom.rem.remLaengde} cm<br>
-        Remme pris: ${sessionScope.bom.rem.samletpris} kr. <br>
+        Remme antal: ${sessionScope.bom.rem.antal} stk<br>
+        Remme længde: ${sessionScope.bom.rem.laengde} cm<br>
+        Remme pris: ${sessionScope.bom.rem.samletPris} kr. <br>
 
-        Spær antal: ${sessionScope.bom.spær.spærAntal} stk<br>
-        Spær længde: ${sessionScope.bom.spær.spærLaengde} cm<br>
-        Max afstand mellem spærene: ${sessionScope.bom.spær.spærMaxAfstand} cm <br>
+        Spær antal: ${sessionScope.bom.spær.antal} stk<br>
+        Spær længde: ${sessionScope.bom.spær.laengde} cm<br>
+        Afstand mellem spærene: ${sessionScope.bom.spær.centerAfstand} cm <br>
         spær pris: ${sessionScope.bom.spær.samletPris} kr.<br>
 
-        Overstern antal: ${sessionScope.bom.overstern.oversternAntal} stk<br>
-        Overstern længde: ${sessionScope.bom.overstern.oversternLaengde} cm<br>
-        Overstern pris: ${sessionScope.bom.overstern.samletpris} <br>
+        Overstern antal: ${sessionScope.bom.oversternSider.antal} stk<br>
+        Overstern længde: ${sessionScope.bom.oversternSider.laengde} cm<br>
+        Overstern pris: ${sessionScope.bom.oversternSider.samletPris} <br>
         </div>
 
 
-        <h4>Samlet pris før evt rabatter: ${sessionScope.bom.pris}</h4>
+        <h4>Samlet pris før evt rabatter: ${sessionScope.bom.bomSamletPris}</h4>
 
         <h4>Samlet pris efter evt rabatter: ${sessionScope.newPrice}</h4>
 

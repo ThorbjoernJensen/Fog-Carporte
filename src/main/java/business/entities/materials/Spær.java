@@ -1,37 +1,43 @@
 package business.entities.materials;
 
 public class Spær {
-
-    private int spærAntal;
-    private int spærLaengde;
-    private int samletPris;
+    private int antal;
+    private int laengde;
+    private double samletPris;
     private double centerAfstand;
 
-    private static final int meterPris = 10;
+    private static final double meterPris = 10.0;
     private static final int maxAfstand = 60;
 
-    public Spær(int spærAntal, int spærLaengde, double centerAfstand, int samletPris) {
-        this.spærAntal = spærAntal;
-        this.spærLaengde = spærLaengde;
+    public Spær(int antal, int laengde, double centerAfstand, double samletPris) {
+        this.antal = antal;
+        this.laengde = laengde;
         this.centerAfstand = centerAfstand;
         this.samletPris = samletPris;
     }
 
-
-    public int getSpærAntal() {
-        return spærAntal;
+    public int getAntal() {
+        return antal;
     }
 
-    public void setSpærAntal(int spærAntal) {
-        this.spærAntal = spærAntal;
+    public void setAntal(int antal) {
+        this.antal = antal;
     }
 
-    public int getSpærLaengde() {
-        return spærLaengde;
+    public int getLaengde() {
+        return laengde;
     }
 
-    public void setSpærLaengde(int spærLaengde) {
-        this.spærLaengde = spærLaengde;
+    public void setLaengde(int laengde) {
+        this.laengde = laengde;
+    }
+
+    public double getSamletPris() {
+        return samletPris;
+    }
+
+    public void setSamletPris(double samletPris) {
+        this.samletPris = samletPris;
     }
 
     public double getCenterAfstand() {
@@ -42,15 +48,7 @@ public class Spær {
         this.centerAfstand = centerAfstand;
     }
 
-    public int getSamletPris() {
-        return samletPris;
-    }
-
-    public void setSamletPris(int samletPris) {
-        this.samletPris = samletPris;
-    }
-
-    public static int getMeterPris() {
+    public static double getMeterPris() {
         return meterPris;
     }
 

@@ -1,13 +1,13 @@
 package business.entities.materials;
 
-public class Stolpe {
+public class OversternEnder {
     private int antal;
     private int laengde;
     private double samletPris;
 
     private static final double meterPris = 10.0;
 
-    public Stolpe(int antal, int laengde, double samletPris) {
+    public OversternEnder(int antal, int laengde, double samletPris) {
         this.antal = antal;
         this.laengde = laengde;
         this.samletPris = samletPris;

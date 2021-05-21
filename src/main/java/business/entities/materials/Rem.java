@@ -1,49 +1,43 @@
 package business.entities.materials;
 
 public class Rem {
+    private int antal;
+    private int laengde;
+    private double samletPris;
 
-    private int remAntal;
-    private int remLaengde;
-    private int meterPris;
-    private int samletpris;
+    private static final double meterPris = 10.0;
 
-
-
-    public Rem(int remAntal, int remLaengde, int meterPris, int samletpris) {
-        this.remAntal = remAntal;
-        this.remLaengde = remLaengde;
-        this.meterPris=meterPris;
-        this.samletpris=samletpris;
-
+    public Rem(int antal, int laengde, double samletPris) {
+        this.antal = antal;
+        this.laengde = laengde;
+        this.samletPris = samletPris;
     }
-    public int getMeterPris() {
+
+    public int getAntal() {
+        return antal;
+    }
+
+    public void setAntal(int antal) {
+        this.antal = antal;
+    }
+
+    public int getLaengde() {
+        return laengde;
+    }
+
+    public void setLaengde(int laengde) {
+        this.laengde = laengde;
+    }
+
+    public double getSamletPris() {
+        return samletPris;
+    }
+
+    public void setSamletPris(double samletPris) {
+        this.samletPris = samletPris;
+    }
+
+    public static double getMeterPris() {
         return meterPris;
-    }
-
-    public int getSamletpris() {
-        return samletpris;
-    }
-
-    public void setSamletpris(int samletpris) {
-        this.samletpris = samletpris;
-    }
-
-    public void setMeterPris(int meterPris) {
-        this.meterPris = meterPris;
-    }
-    public int getRemAntal() {
-        return remAntal;
-    }
-
-    public void setRemAntal(int remAntal) {
-        this.remAntal = remAntal;
-    }
-
-    public int getRemLaengde() {
-        return remLaengde;
-    }
-
-    public void setRemLaengde(int remLaengde) {
-        this.remLaengde = remLaengde;
     }
 }
