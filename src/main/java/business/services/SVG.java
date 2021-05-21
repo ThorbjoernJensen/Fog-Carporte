@@ -19,6 +19,14 @@ public class SVG {
             "y=\"%d\"   " +
             " preserveAspectRatio=\"xMinYMin\">";
 
+    private final String headerInnerSVGTemplate = "<svg version=\"1.1\"\n" +
+            "         xmlns=\"http://www.w3.org/2000/svg\"" +
+            "width=\"%d\" " +
+            "viewBox=\"%s\" " +
+            "x=\"%d\"   " +
+            "y=\"%d\"   " +
+            " preserveAspectRatio=\"xMinYMin\">";
+
     private final String rectTemplate = "<rect x=\"%f\" y=\"%f\" height=\"%f\" width=\"%f\" style=\"stroke:#000000; fill: #ffffff\" />";
 
     private final String dimensionLineTemplate =
@@ -40,6 +48,14 @@ public class SVG {
         this.width = width;
         this.height = height;
         svg.append(String.format(headerTemplate, height, width, viewBox, x, y));
+    }
+    public SVG(int x, int y, String viewBox, int width) {
+        this.x = x;
+        this.y = y;
+        this.viewBox = viewBox;
+        this.width = width;
+        this.height = height;
+        svg.append(String.format(headerInnerSVGTemplate, width, viewBox, x, y));
     }
 
     public void addRect(double x, double y, double height, double width) {

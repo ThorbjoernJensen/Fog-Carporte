@@ -14,22 +14,21 @@ public class CalculateElementsSVG {
 
         String viewBoxTemplate = "0 0 %s %s";
         String xCanvas = String.valueOf(carport.getLength());
-        System.out.println("længde som bliver til carport: "+ carport.getLength());
         String yCanvas = String.valueOf(carport.getWidth());
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
 
-        materialSVG = new SVG(100, 10, viewBox, 80, 80);
+        materialSVG = new SVG(100, 10, viewBox, carport.getLength());
 
         drawStolpe(bom, carport, materialSVG);
         drawRem(bom, carport, materialSVG);
         drawSpær(bom, carport, materialSVG);
         svg.addSvg(materialSVG);
 
-        String xCanvasDimensions = String.valueOf((carport.getLength()));
-        String yCanvasSimensions = String.valueOf((carport.getWidth()));
+        String xCanvasDimensions = String.valueOf((carport.getLength()+100));
+        String yCanvasSimensions = String.valueOf((carport.getWidth()+100));
         String viewBoxDimensions = String.format(viewBoxTemplate, xCanvasDimensions, yCanvasSimensions);
 
-        SVG dimensionsSVG = new SVG(0, 0, viewBoxDimensions, 80, 80);
+        SVG dimensionsSVG = new SVG(0, 0, viewBoxDimensions, carport.getLength()+100);
         drawArrawX(bom, carport, dimensionsSVG);
         drawArrawY(bom, carport, dimensionsSVG);
         svg.addSvg(dimensionsSVG);
@@ -66,7 +65,7 @@ public class CalculateElementsSVG {
         y2= y1;
         dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
         dimensionsSVG.addArrowDefinitions();
-        dimensionsSVG.addDefinitionLineText(carport.getLength()/2,carport.getWidth()+60, 0, carport.getLength());
+        dimensionsSVG.addDefinitionLineText((carport.getLength()/2+100),carport.getWidth()+60, 0, carport.getLength());
 
 
     }
