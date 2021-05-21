@@ -46,4 +46,8 @@ public class CarportFacade {
         return carportMapper.getAllDimensions();
     }
 
+    public List<Carport> getCarportByUser(int userId) throws UserException {
+        return carportMapper.getCarportByUser(userId);
+    }
+
 }

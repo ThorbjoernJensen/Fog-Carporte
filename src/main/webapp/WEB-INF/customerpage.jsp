@@ -14,9 +14,9 @@
         You are now logged in as a Customer of our wonderful site.
         Role: ${sessionScope.role}
 
-       <h2>Opret ny forespørgelse</h2>
-        <a href="${pageContext.request.contextPath}/fc/newrequestpage">se en hardcoded carport-forespørgsel </a>
+       <h2><a href="${pageContext.request.contextPath}/fc/newrequestpage">Opret ny forespørgelse</a></h2>
 
+       <h2><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se dine forespørgelser</a></h2>
 
 
     </jsp:body>

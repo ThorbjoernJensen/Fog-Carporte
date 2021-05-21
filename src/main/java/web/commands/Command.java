@@ -24,6 +24,7 @@ public abstract class Command
         commands.put("updatePrice", new CommandOrderUpdater("orderHandler","employee"));
         commands.put("showOrders", new OrderListCommand("showallorders","employee"));
         commands.put("newrequestpage", new CommandNewRequest("newrequestpage", "customer"));
+        commands.put("viewrequestpage", new CommandViewRequest("viewrequestpage", "customer"));
         commands.put("editorder", new OrderListCommand("editorderpage","employee"));
         commands.put("showsingleorder", new OrderByIdCommand("showsingleorderpage","employee"));
         commands.put("index", new CommandUnprotectedPage("index"));

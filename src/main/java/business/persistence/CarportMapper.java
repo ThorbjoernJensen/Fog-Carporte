@@ -120,6 +120,7 @@ public class CarportMapper {
         }
     }
 
+
     public int insertRoof(String materials) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO roof (materials) VALUES (?)";
@@ -199,7 +200,7 @@ public class CarportMapper {
                     int height = rs.getInt("height");
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
-                    dimensionsList.add(new Dimensions(id, height,length, width));
+                    dimensionsList.add(new Dimensions(id, height, length, width));
                     System.out.println(width);
 
                 }
@@ -211,5 +212,37 @@ public class CarportMapper {
             throw new UserException("Connection to database could not be established");
         }
     }
-}
 
+
+    public List<Carport> getCarportByUser(int userId) throws UserException {
+        List<Carport> userCarportList = new ArrayList<>();
+        try (Connection connection = database.connect()) {
+            String sql = "SELECT * FROM carport WHERE user_id = ?";
+
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+
+                ps.setInt(1, userId);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int carportId = rs.getInt("carport_id");
+                    int roofId = rs.getInt("roof_id");
+                    int height = rs.getInt("height");
+                    int length = rs.getInt("length");
+                    int width = rs.getInt("width");
+                    int shedId = rs.getInt("shed_id");
+                    userId = rs.getInt("user_id");
+                    int status = rs.getInt("carport_status_id");
+
+                    userCarportList.add(new Carport(carportId, roofId, height, length, width, shedId, userId, status));
+                }
+
+
+            } catch (SQLException ex) {
+                throw new UserException(ex.getMessage());
+            }
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
+        return userCarportList;
+    }
+}
