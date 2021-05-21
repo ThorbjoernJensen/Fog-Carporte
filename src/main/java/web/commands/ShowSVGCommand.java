@@ -4,8 +4,7 @@ import business.entities.Carport;
 import business.entities.materials.BillOfMaterials;
 import business.exceptions.UserException;
 import business.services.SVG;
-import business.util.CalculateMaterialsSVG;
-import com.mysql.cj.Session;
+import business.util.CalculateElementsSVG;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,7 +21,8 @@ public class ShowSVGCommand extends CommandProtectedPage {
         BillOfMaterials bom;
         Carport carport;
         SVG svg;
-        CalculateMaterialsSVG materialSVG = null;
+        SVG dimensions;
+        CalculateElementsSVG materialSVG = null;
         StringBuilder stringBuilder = null;
 
         bom = (BillOfMaterials) session.getAttribute("bom");
@@ -30,15 +30,16 @@ public class ShowSVGCommand extends CommandProtectedPage {
 
 
         String viewBoxTemplate = "0 0 %s %s";
-
         String xCanvas = String.valueOf(carport.getLength()+100);
         String yCanvas = String.valueOf(carport.getWidth()+100);
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
-        System.out.println("vores viewbox " + viewBox);
 
-        svg = new SVG(0, 0, viewBox, 100, 50);
-        materialSVG = new CalculateMaterialsSVG();
-        materialSVG.CalculateMaterials(bom, carport, svg);
+        svg = new SVG(0, 0, viewBox, 100, 100);
+        CalculateElementsSVG.calculateElements(bom, carport, svg);
+//        svg.closeSvg();
+
+
+
 
 //        stringBuilder.append(svg);
 //        stringBuilder.append(
