@@ -47,39 +47,7 @@ public class CalculateElementsSVG2 {
         svg.addSvg(dimensionsSVG);
     }
 
-    private static void drawArrawX(Carport carport, SVG dimensionsSVG) {
-        int x1;
-        int y1;
-        int x2;
-        int y2;
 
-        x1 = 50;
-        y1 = 10;
-        x2 = x1;
-        y2 = carport.getWidth() + y1;
-        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
-        dimensionsSVG.addArrowDefinitions();
-        dimensionsSVG.addDefinitionLineText(40, carport.getWidth() / 2, -90, carport.getWidth());
-
-
-    }
-
-    private static void drawArrawY(Carport carport, SVG dimensionsSVG) {
-        int x1;
-        int y1;
-        int x2;
-        int y2;
-
-        x1 = 100;
-        y1 = carport.getWidth() + 40;
-        x2 = carport.getLength() + x1;
-        y2 = y1;
-        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
-        dimensionsSVG.addArrowDefinitions();
-        dimensionsSVG.addDefinitionLineText((carport.getLength() / 2 + 100), carport.getWidth() + 60, 0, carport.getLength());
-
-
-    }
 
     private static void drawStolpe(Materiale materiale, Carport carport, SVG svg) {
         double width;
@@ -130,6 +98,40 @@ public class CalculateElementsSVG2 {
         for (int x = 0; x < antalSpær; x++) {
             svg.addRect(centerafstand * x, 0, height, 4.5);
         }
+    }
+
+    private static void drawArrawX(Carport carport, SVG dimensionsSVG) {
+        int x1;
+        int y1;
+        int x2;
+        int y2;
+
+        x1 = 50;
+        y1 = 10;
+        x2 = x1;
+        y2 = carport.getWidth() + y1;
+        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
+        dimensionsSVG.addArrowDefinitions();
+        dimensionsSVG.addDefinitionLineText(40, carport.getWidth() / 2, -90, carport.getWidth());
+
+
+    }
+
+    private static void drawArrawY(Carport carport, SVG dimensionsSVG) {
+        int x1;
+        int y1;
+        int x2;
+        int y2;
+
+        x1 = 100;
+        y1 = carport.getWidth() + 40;
+        x2 = carport.getLength() + x1;
+        y2 = y1;
+        dimensionsSVG.addDimensionXLine(x1, y1, x2, y2);
+        dimensionsSVG.addArrowDefinitions();
+        dimensionsSVG.addDefinitionLineText((carport.getLength() / 2 + 100), carport.getWidth() + 60, 0, carport.getLength());
+
+
     }
 
 

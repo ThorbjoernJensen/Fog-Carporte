@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CalculateBOM2 {
-    private List<Materiale> stykliste;
+    private List<ByggeMateriale> stykliste;
     private Carport carport;
 
     private String materialType;
@@ -15,35 +15,30 @@ public class CalculateBOM2 {
     private int laengde;
     double meterPris;
     double sumMaterialPris;
-
     double prisStykliste;
-
-
+    private double centerAfstandSpær;
 
     private static final int maxSpærAfstand = 60;
-    private double centerAfstandSpær;
 
     public CalculateBOM2(Carport carport) {
         this.stykliste = new ArrayList<>();
         this.carport = carport;
-
     }
 
-    public List<Materiale> calculateMaterials() {
+    public List<ByggeMateriale> calculateMaterials() {
         calculateStolper(carport);
         calculateRem(carport);
         calculateSpær(carport);
-//        calcultateOversternSider(carport);
-//        oversternEnder = calcultateOversternEnder(carport);
+        calcultateOversternSider(carport);
+        calcultateOversternEnder(carport);
 
-//        vi mangler at beregne samletpris
-        for (Materiale materiale : stykliste) {
-            prisStykliste = materiale.getSamletPris();
+        for (ByggeMateriale materiale : stykliste) {
+            prisStykliste = prisStykliste + materiale.getSamletPris();
         }
         return stykliste;
     }
 
-    public Materiale calculateStolper(Carport carport) {
+    public ByggeMateriale calculateStolper(Carport carport) {
         String materialType = "stolpe";
         meterPris = 10;
 
@@ -86,11 +81,9 @@ public class CalculateBOM2 {
     public ByggeMateriale calculateSpær(Carport carport) {
         materialType = "spær";
         int carportlenght = carport.getLength();
-
-        laengde = carport.getWidth();
-        meterPris = Spær.getMeterPris();
-
         antal = ((carportlenght - 4) / maxSpærAfstand) + 1;
+        laengde = carport.getWidth();
+        meterPris = 10;
 
 //        antal ikke går op i længden skal vi have et spær mere så vi ikke overstiger maxafstand
         if ((carportlenght - 4) % maxSpærAfstand > 0) {
@@ -107,26 +100,31 @@ public class CalculateBOM2 {
     }
 
 
-    public static OversternSider calcultateOversternSider(Carport carport) {
+    public ByggeMateriale calcultateOversternSider(Carport carport) {
+        materialType = "overstern sider";
+        antal = 2;
+        laengde = carport.getLength();
+        meterPris = OversternSider.getMeterPris();
 
-        int oversternAntal = 2;
-        int oversternLængde = carport.getLength();
-        double meterPris = OversternSider.getMeterPris();
+        sumMaterialPris = (antal * laengde * meterPris) / 100;
 
-        double samletPris = (oversternAntal * oversternLængde * meterPris) / 100;
-
-        return new OversternSider(oversternAntal, oversternLængde, samletPris);
+        ByggeMateriale byggeMateriale = new ByggeMateriale(materialType, antal, laengde, meterPris, sumMaterialPris);
+        stykliste.add(byggeMateriale);
+        return byggeMateriale;
 
     }
 
-    public static OversternEnder calcultateOversternEnder(Carport carport) {
-        int oversternAntal = 2;
-        int oversternLængde = carport.getWidth();
-        double meterPris = OversternSider.getMeterPris();
+    public ByggeMateriale calcultateOversternEnder(Carport carport) {
+        materialType = "overstern for og bag";
+        antal = 2;
+        laengde = carport.getWidth();
+        meterPris = 10;
 
-        double samletPris = (oversternAntal * oversternLængde * meterPris) / 100;
+        sumMaterialPris = (antal * laengde * meterPris) / 100;
 
-        return new OversternEnder(oversternAntal, oversternLængde, samletPris);
+        ByggeMateriale byggeMateriale = new ByggeMateriale(materialType, antal, laengde, meterPris, sumMaterialPris);
+        stykliste.add(byggeMateriale);
+        return byggeMateriale;
 
     }
 

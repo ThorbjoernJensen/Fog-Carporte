@@ -3,6 +3,7 @@ package web.commands;
 import business.entities.Carport;
 import business.entities.Order;
 import business.entities.materials.BillOfMaterials;
+import business.entities.materials.ByggeMateriale;
 import business.entities.materials.Materiale;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
@@ -52,13 +53,10 @@ public class CommandOrderHandler extends CommandProtectedPage {
 
 //        forsøg med at lave en liste af materialer der opfylder interface
         CalculateBOM2 bom2 = new CalculateBOM2(carport);
-        List<Materiale> stykliste = bom2.calculateMaterials();
-
+        List<ByggeMateriale> stykliste = bom2.calculateMaterials();
         session.setAttribute("stykliste", stykliste);
         session.setAttribute("samletpris", bom2.getPrisStykliste());
         session.setAttribute("centerafstand", bom2.getCenterAfstandSpær());
-
-
 
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
