@@ -31,11 +31,6 @@ public class ShowSVGCommand extends CommandProtectedPage {
         bom = (BillOfMaterials) session.getAttribute("bom");
         carport = (Carport) session.getAttribute("carport");
 
-
-
-
-
-
         String viewBoxTemplate = "0 0 %s %s";
         String xCanvas = String.valueOf(carport.getLength()+100);
         String yCanvas = String.valueOf(carport.getWidth()+100);
@@ -43,17 +38,19 @@ public class ShowSVGCommand extends CommandProtectedPage {
 
         svg = new SVG(0, 0, viewBox, 100, 100);
         CalculateElementsSVG.calculateElements(bom, carport, svg);
-//        svg.closeSvg();
+        request.setAttribute("svg", svg.toString());
 
 //        forsøg med ny stykliste
         List<Materiale> stykliste = (List<Materiale>) session.getAttribute("stykliste");
-        CalculateElementsSVG2.calculateElements(stykliste, carport, svg);
+        SVG svg2 = new SVG(0, 0, viewBox, 100, 100);
+        CalculateElementsSVG2.calculateElements(stykliste, carport, svg2);
+        request.setAttribute("svg2", svg2.toString());
 
 
-//        stringBuilder.append(svg);
-//        stringBuilder.append(
 
-        request.setAttribute("svg", svg.toString());
+
+
+
 
         return pageToShow;
 

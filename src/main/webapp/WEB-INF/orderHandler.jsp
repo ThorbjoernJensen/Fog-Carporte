@@ -84,17 +84,18 @@
 
         <table>
             <thead>
-            <th>navn </th>
+            <th>navn</th>
             <th>antal</th>
             <th>laengde</th>
-            <th>pris </th>
+            <th>pris</th>
 
 
             </thead>
 
             <c:forEach var="materiale" items="${sessionScope.stykliste}">
                 <tr>
-                    <td>[materialenavn]</td>
+
+                    <td>${materiale.materialeType}</td>
                     <td>${materiale.antal}</td>
                     <td>${materiale.laengde}</td>
                     <td>${materiale.samletPris}</td>
@@ -106,6 +107,9 @@
                 </tr>
             </c:forEach>
         </table>
+        <p> centerafstand spær er: ${sessionScope.centerafstand}</p>
+        <p> samlet pris er: ${sessionScope.samletpris}</p>
+
 
 
         <%--        <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">--%>

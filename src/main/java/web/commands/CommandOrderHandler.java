@@ -53,17 +53,17 @@ public class CommandOrderHandler extends CommandProtectedPage {
 //        forsøg med at lave en liste af materialer der opfylder interface
         CalculateBOM2 bom2 = new CalculateBOM2(carport);
         List<Materiale> stykliste = bom2.calculateMaterials();
-        session.setAttribute("stykliste", stykliste);
 
+        session.setAttribute("stykliste", stykliste);
+        session.setAttribute("samletpris", bom2.getPrisStykliste());
+        session.setAttribute("centerafstand", bom2.getCenterAfstandSpær());
 
 
 
         session.setAttribute("bom", bom);
         session.setAttribute("carport", carport);
         session.setAttribute("order", order);
-
         session.setAttribute("orderId", order.getOrderId());
-
 
         String token = request.getParameter("token");
         if (token.equals("5")) {
@@ -75,7 +75,7 @@ public class CommandOrderHandler extends CommandProtectedPage {
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);
                 request.setAttribute("orderId", order.getOrderId());
-                return orderListCommand.execute(request,response);
+                return orderListCommand.execute(request, response);
 
             } else {
                 newPrice = (double) session.getAttribute("newPrice");
@@ -85,7 +85,7 @@ public class CommandOrderHandler extends CommandProtectedPage {
                 carportFacade.updateCarportStatus(orderStatus, carportId);
                 request.setAttribute("orderId", order.getOrderId());
                 session.removeAttribute("newPrice");
-                return orderListCommand.execute(request,response);
+                return orderListCommand.execute(request, response);
             }
 
         }
