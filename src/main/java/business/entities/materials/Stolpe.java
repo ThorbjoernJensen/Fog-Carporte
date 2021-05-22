@@ -1,6 +1,7 @@
 package business.entities.materials;
 
-public class Stolpe {
+public class Stolpe implements Materiale{
+    private static final String materialType= "stolpe";
     private int antal;
     private int laengde;
     private double samletPris;
@@ -11,6 +12,11 @@ public class Stolpe {
         this.antal = antal;
         this.laengde = laengde;
         this.samletPris = samletPris;
+    }
+
+    @Override
+    public String getMaterialeType() {
+        return materialType;
     }
 
     public int getAntal() {

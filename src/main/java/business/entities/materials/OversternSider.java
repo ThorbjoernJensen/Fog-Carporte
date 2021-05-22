@@ -1,6 +1,7 @@
 package business.entities.materials;
 
-public class OversternSider {
+public class OversternSider implements Materiale{
+    private static final String materialType= "oversternSider";
     private int antal;
     private int laengde;
     private double samletPris;
@@ -11,6 +12,10 @@ public class OversternSider {
         this.antal = antal;
         this.laengde = laengde;
         this.samletPris = samletPris;
+    }
+    @Override
+    public String getMaterialeType() {
+        return materialType;
     }
 
     public int getAntal() {

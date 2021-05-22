@@ -2,13 +2,16 @@ package web.commands;
 
 import business.entities.Carport;
 import business.entities.materials.BillOfMaterials;
+import business.entities.materials.Materiale;
 import business.exceptions.UserException;
 import business.services.SVG;
 import business.util.CalculateElementsSVG;
+import business.util.CalculateElementsSVG2;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 public class ShowSVGCommand extends CommandProtectedPage {
     public ShowSVGCommand(String pageToShow, String role) {
@@ -29,6 +32,10 @@ public class ShowSVGCommand extends CommandProtectedPage {
         carport = (Carport) session.getAttribute("carport");
 
 
+
+
+
+
         String viewBoxTemplate = "0 0 %s %s";
         String xCanvas = String.valueOf(carport.getLength()+100);
         String yCanvas = String.valueOf(carport.getWidth()+100);
@@ -38,7 +45,9 @@ public class ShowSVGCommand extends CommandProtectedPage {
         CalculateElementsSVG.calculateElements(bom, carport, svg);
 //        svg.closeSvg();
 
-
+//        forsøg med ny stykliste
+        List<Materiale> stykliste = (List<Materiale>) session.getAttribute("stykliste");
+        CalculateElementsSVG2.calculateElements(stykliste, carport, svg);
 
 
 //        stringBuilder.append(svg);

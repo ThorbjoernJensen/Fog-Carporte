@@ -1,6 +1,7 @@
 package business.entities.materials;
 
-public class Spær {
+public class Spær implements Materiale{
+    private static final String materialType= "spær";
     private int antal;
     private int laengde;
     private double samletPris;
@@ -14,6 +15,11 @@ public class Spær {
         this.laengde = laengde;
         this.centerAfstand = centerAfstand;
         this.samletPris = samletPris;
+    }
+
+    @Override
+    public String getMaterialeType() {
+        return materialType;
     }
 
     public int getAntal() {
