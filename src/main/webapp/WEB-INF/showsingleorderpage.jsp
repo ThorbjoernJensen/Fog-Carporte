@@ -25,6 +25,7 @@
                 <th>orderStatusId</th>
                 <th></th>
                 <th></th>
+                <th></th>
 
                 </thead>
 
@@ -45,12 +46,12 @@
                         <button class="btn btn-danger " type="submit" name="cancel"
                                 value="${requestScope.order.orderId}">!Slet!
                         </button>
-                    </td>
+                    <td>
+                        Se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg"></a>
+                </td>
                 </tr>
             </table>
         </form>
-
-
 
 
     </jsp:body>

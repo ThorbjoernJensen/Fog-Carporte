@@ -36,6 +36,7 @@ public abstract class Command
         commands.put("showcarportrequestpage", new CommandShowCarportRequest ("showcarportrequestpage", "employee"));
         commands.put("receiptpage", new CarportHandlerCommand ("receiptpage"));
         commands.put("showsvg", new ShowSVGCommand ("showsvgpage", "employee"));
+//        commands.put("showsvg", new ShowSVGCommand ("showsvgpage", "employee"));
     }
 
     public static Command fromPath(
