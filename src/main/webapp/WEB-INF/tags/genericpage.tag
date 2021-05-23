@@ -42,12 +42,17 @@
     <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 fogblue border-bottom shadow-sm">
         <div class="h5 my-0 me-md-auto fw-normal">
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-12 col-md-6 col-lg-3">
                     <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/Images/logo.png"
-                                                          height="100" alt="Logo for Fog-carport"/></a>
+                                                          height="126" alt="Logo for Fog-carport"/></a>
                 </div>
-                <div class="col-sm-9 pt-5">
-                    <p style="color: aliceblue">Velkommen til Fog-carport</p>
+                <div style="color: aliceblue" class="col-sm-12 col-md-6 col-lg-9 pt-3">
+                    <p>Velkommen til Fog-carport</p>
+                    <c:if test="${sessionScope.user != null}">
+                        user: ${sessionScope.user.email}
+                    </c:if>
+                    <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
+                       href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
                 </div>
                 <p style="font-size: small">
                     <jsp:invoke fragment="header"/>
@@ -60,6 +65,7 @@
             <%--        </c:if>--%>
             <c:if test="${sessionScope.user.role == 'employee' }">
                 <div class="row">
+
                     <div class="col-sm-3">
                         <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/employeepage">Home</a>
                     </div>
@@ -70,11 +76,6 @@
                         <a class="p-2 textfarve"
                            href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Forspørgelser</a>
                     </div>
-                    <div class="col-sm-3">
-                        <a class="p-2 textfarve"
-                           href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
-                    </div>
-                </div>
             </div>
 
 
@@ -89,7 +90,7 @@
 
 
     <c:if test="${sessionScope.user != null}">
-        ${sessionScope.user.email}
+<%--        ${sessionScope.user.email}--%>
     </c:if>
 
     <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
@@ -98,8 +99,6 @@
 
     <c:if test="${isNotLoginPage && isNotRegisterPage}">
     <c:if test="${sessionScope.user != null }">
-        <a type="button" class="btn btn-sm  btn-outline-secondary"
-           href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
     </c:if>
     <c:if test="${sessionScope.user == null }">
         <a STYLE="color: aliceblue" type="button" class="btn btn-sm  btn-outline-secondary"
