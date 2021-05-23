@@ -51,8 +51,10 @@
                     <c:if test="${sessionScope.user != null}">
                         user: ${sessionScope.user.email}
                     </c:if>
+                    <c:if test="${sessionScope.user != null}">
                     <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
                        href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                    </c:if>
                 </div>
                 <p style="font-size: small">
                     <jsp:invoke fragment="header"/>
@@ -60,11 +62,9 @@
             </div>
         </div>
         <nav class="my-2 my-md-0 me-md-3">
-            <%--        <c:if test="${addHomeLink == null }">--%>
-            <%--            <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>--%>
-            <%--        </c:if>--%>
             <c:if test="${sessionScope.user.role == 'employee' }">
                 <div class="row">
+                    <div class="col-2"></div>
 
                     <div class="col-sm-3">
                         <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/employeepage">Home</a>
@@ -76,6 +76,7 @@
                         <a class="p-2 textfarve"
                            href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Forspørgelser</a>
                     </div>
+                    <div class="col-1"></div>
             </div>
 
 
