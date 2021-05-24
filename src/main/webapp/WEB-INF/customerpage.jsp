@@ -17,7 +17,7 @@
         <%--        You are now logged in as a Customer of our wonderful site.--%>
         <%--        Role: ${sessionScope.role}--%>
 
-        <h2><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se bestillinger under behandling </a></h2>
+        <h2><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se bestillinger </a></h2>
         <h2><a href="${pageContext.request.contextPath}/fc/newrequestpage">Opret ny bestilling</a></h2>
 
 
