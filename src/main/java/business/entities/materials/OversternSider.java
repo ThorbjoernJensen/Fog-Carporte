@@ -1,19 +1,18 @@
 package business.entities.materials;
 
-public class Stolpe implements Materiale{
-    private static final String materialType= "stolpe";
+public class OversternSider implements Materiale{
+    private static final String materialType= "oversternSider";
     private int antal;
     private int laengde;
     private double samletPris;
 
     private static final double meterPris = 10.0;
 
-    public Stolpe(int antal, int laengde, double samletPris) {
+    public OversternSider(int antal, int laengde, double samletPris) {
         this.antal = antal;
         this.laengde = laengde;
         this.samletPris = samletPris;
     }
-
     @Override
     public String getMaterialeType() {
         return materialType;

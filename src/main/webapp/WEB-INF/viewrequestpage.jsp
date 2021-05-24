@@ -47,13 +47,17 @@
 <%--                <td>${carports.userId}</td>--%>
                 <td>${carports.carportStatusId}</td>
                 <td>
-                <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
+                <form action="${pageContext.request.contextPath}/fc/orderHandlercustomer" method="post">
                     <input class="btn btn-primary" type="submit" name="select" value="Se carport tegning">
+                    <input type="number" hidden id="carportId" name="carportId" value="${carports.carportId}">
+                    <input type="number" hidden id="token" name="token" value="1">
                 </form>
                 </td>
                 <td>
-                <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
+                <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
                     <input class="btn btn-primary" type="submit" name="select" value="Slet ">
+                    <input type="number" hidden id="carportId" name="carportId" value="${carports.carportId}">
+                    <input type="number" hidden id="token" name="token" value="2">
                 </form>
                 </td>
             </tr>
@@ -61,6 +65,11 @@
             </table>
         </c:if>
 
+        <c:if test="${requestScope.error != null }">
+            <p style="color:red">
+                    ${requestScope.error}
+            </p>
+        </c:if>
     </jsp:body>
 
 </t:genericpage>

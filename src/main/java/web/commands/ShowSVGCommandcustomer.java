@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class ShowSVGCommand extends CommandProtectedPage {
-    public ShowSVGCommand(String pageToShow, String role) {
+public class ShowSVGCommandcustomer extends CommandProtectedPage {
+    public ShowSVGCommandcustomer(String pageToShow, String role) {
         super(pageToShow, role);
     }
 

@@ -1,4 +1,5 @@
 package business.persistence;
+
 import business.entities.Carport;
 import business.entities.User;
 import business.entities.materials.Dimensions;
@@ -235,8 +236,6 @@ public class CarportMapper {
 
                     userCarportList.add(new Carport(carportId, roofId, height, length, width, shedId, userId, status));
                 }
-
-
             } catch (SQLException ex) {
                 throw new UserException(ex.getMessage());
             }
@@ -244,5 +243,23 @@ public class CarportMapper {
             throw new UserException(ex.getMessage());
         }
         return userCarportList;
+    }
+
+    public boolean deleteCarport(int carportId) throws UserException {
+        boolean result = false;
+        String sql = "delete from carport where carport_id = ?";
+        try (Connection connection = database.connect()) {
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                ps.setInt(1, carportId);
+                ps.executeUpdate();
+                int rowsAffected = ps.executeUpdate();
+                if (rowsAffected == 1) {
+                    result = true;
+                }
+            }
+            return result;
+        } catch (SQLException ex) {
+            throw new UserException(ex.getMessage());
+        }
     }
 }

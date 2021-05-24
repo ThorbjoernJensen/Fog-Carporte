@@ -1,16 +1,17 @@
 package business.entities.materials;
 
-public class Stolpe implements Materiale{
-    private static final String materialType= "stolpe";
+public class ByggeMateriale implements Materiale{
+    private String materialType;
     private int antal;
     private int laengde;
+    private double meterPris;
     private double samletPris;
 
-    private static final double meterPris = 10.0;
-
-    public Stolpe(int antal, int laengde, double samletPris) {
+    public ByggeMateriale(String materialType, int antal, int laengde, double meterPris, double samletPris) {
+        this.materialType = materialType;
         this.antal = antal;
         this.laengde = laengde;
+        this.meterPris = meterPris;
         this.samletPris = samletPris;
     }
 
@@ -43,7 +44,19 @@ public class Stolpe implements Materiale{
         this.samletPris = samletPris;
     }
 
-    public static double getMeterPris() {
+    public String getMaterialType() {
+        return materialType;
+    }
+
+    public void setMaterialType(String materialType) {
+        this.materialType = materialType;
+    }
+
+    public double getMeterPris() {
         return meterPris;
+    }
+
+    public void setMeterPris(double meterPris) {
+        this.meterPris = meterPris;
     }
 }
