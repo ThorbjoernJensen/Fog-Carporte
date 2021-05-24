@@ -81,6 +81,7 @@
 
 
 
+
 </c:if>
 <%--        <a class="p-2 text-dark" href="#">Orders</a>--%>
 <%--        <a class="p-2 text-dark" href="#">Profile</a>--%>
@@ -99,8 +100,6 @@
     <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
 
     <c:if test="${isNotLoginPage && isNotRegisterPage}">
-    <c:if test="${sessionScope.user != null }">
-    </c:if>
     <c:if test="${sessionScope.user == null }">
         <a STYLE="color: aliceblue" type="button" class="btn btn-sm  btn-outline-secondary"
            href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
@@ -121,7 +120,6 @@
     <hr>
     <br>
     <jsp:invoke fragment="footer"/>
-</div>
 </div>
 </div>
 </body>

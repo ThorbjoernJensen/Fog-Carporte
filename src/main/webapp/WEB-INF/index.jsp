@@ -13,9 +13,9 @@
     </jsp:attribute>
 
     <jsp:body>
-
+<div class="container-fluid">
         <div>
-            <h2>Velkommen til Fogs Carporte</h2>
+            <h2 class="text-center">Velkommen til Fogs Carporte</h2>
 
             <div style="margin-top: 3em;margin-bottom: 3em;">
                 Opret bestilling på din unikt tilpassede drømmecarport
@@ -143,6 +143,6 @@
                 </p>
             </c:if>
         </div>
-
+</div>
     </jsp:body>
 </t:genericpage>
