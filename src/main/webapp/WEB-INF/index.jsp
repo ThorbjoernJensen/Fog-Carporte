@@ -4,6 +4,8 @@
 
 <t:genericpage>
 
+
+
     <jsp:attribute name="header">
 <%--         Home--%>
     </jsp:attribute>
@@ -12,8 +14,11 @@
         <c:set var="addHomeLink" value="${false}" scope="request"/>
     </jsp:attribute>
 
+
+
     <jsp:body>
-        <div class="container-fluid pb-5" style="background: rgb(12, 32, 105)">
+
+        <div class="container-fluid rounded pb-5" style="background: rgb(12, 32, 105)">
             <div>
                 <h2 style="color: aliceblue" class="text-center">Velkommen til Fogs Carporte</h2>
 
@@ -29,7 +34,7 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card" style="background: darkgrey">
+                                        <div class="card" style="background: lightgrey">
                                             <div class="card-body">
                                                 <h4 class="text-center">Vælg dimensioner på carporten</h4>
                                                 <h5 class="text-center">vælg højde</h5>
@@ -67,7 +72,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card mt-3" style="background: darkgrey">
+                                        <div class="card mt-3" style="background: lightgrey">
                                             <div class="card-body">
                                                 <h4 class="text-center">Redskabsrum</h4>
                                                 <h5>vælg længde</h5>
@@ -97,7 +102,7 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card pb-3" style=" background: darkgray">
+                                        <div class="card pb-3" style=" background: lightgrey">
                                             <div class="card-body">
                                                 <h4 class="text-center">Indtast brugeroplysninger</h4>
                                                 <h5 class="text-center"><label for="name">Navn</label></h5>
@@ -148,12 +153,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <input type="submit" value="Send forespørgsel" class="btn btn-primary mt-2">
-                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-5"></div>
+                        <div class="col-lg-2">
+                            <input style="color: aliceblue" type="submit" value="Send forespørgsel" class="btn bg-success mt-2">
+                        </div>
+                         <div class="col-lg-5"></div>
+
+                    </div>
                     </div>
 
                 </form>
