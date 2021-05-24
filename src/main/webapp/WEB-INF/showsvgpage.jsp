@@ -19,7 +19,7 @@
         <p>her sætter vi en tegning</p>
 
 
-<%--        ${requestScope.svg}--%>
+        ${requestScope.svg}
         ${requestScope.svg2}
 
 
