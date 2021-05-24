@@ -13,13 +13,13 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="container-fluid">
+        <div class="container-fluid pb-5" style="background: rgb(12, 32, 105)">
             <div>
-                <h2 class="text-center">Velkommen til Fogs Carporte</h2>
+                <h2 style="color: aliceblue" class="text-center">Velkommen til Fogs Carporte</h2>
 
 
                 <div style="margin-top: 3em;margin-bottom: 3em;">
-                    <p class="text-center"> Opret bestilling på din unikt tilpassede drømmecarport</p>
+                    <p style="color: aliceblue" class="text-center"> Opret bestilling på din unikt tilpassede drømmecarport</p>
                 </div>
 
                 <form action="${pageContext.request.contextPath}/fc/registercommand" method="post">
@@ -29,7 +29,7 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card">
+                                        <div class="card" style="background: darkgrey">
                                             <div class="card-body">
                                                 <h4 class="text-center">Vælg dimensioner på carporten</h4>
                                                 <h5 class="text-center">vælg højde</h5>
@@ -67,7 +67,7 @@
 
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card mt-3">
+                                        <div class="card mt-3" style="background: darkgrey">
                                             <div class="card-body">
                                                 <h4 class="text-center">Redskabsrum</h4>
                                                 <h5>vælg længde</h5>
@@ -97,7 +97,7 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <div class="card" style=" background: darkgray">
+                                        <div class="card pb-3" style=" background: darkgray">
                                             <div class="card-body">
                                                 <h4 class="text-center">Indtast brugeroplysninger</h4>
                                                 <h5 class="text-center"><label for="name">Navn</label></h5>
@@ -145,9 +145,11 @@
 
                                                 <input type="number" hidden id="creatorId" name="creatorId" value="1">
 
-                                                <input type="submit" value="Send forespørgsel" class="btn btn-primary">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <input type="submit" value="Send forespørgsel" class="btn btn-primary mt-2">
                                     </div>
                                 </div>
                             </div>
