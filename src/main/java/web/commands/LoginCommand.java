@@ -8,37 +8,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginCommand extends CommandUnprotectedPage
-{
+public class LoginCommand extends CommandUnprotectedPage {
     private UserFacade userFacade;
 
-    public LoginCommand(String pageToShow)
-    {
+    public LoginCommand(String pageToShow) {
         super(pageToShow);
         userFacade = new UserFacade(database);
     }
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException
-    {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
         try {
-        User user = userFacade.login(email, password);
-            System.out.println("");
-        HttpSession session = request.getSession();
+            User user = userFacade.login(email, password);
+            HttpSession session = request.getSession();
 
-        session.setAttribute("user", user);
-        session.setAttribute("userId", user.getUserId());
-        session.setAttribute("role", user.getRole());
-        session.setAttribute("email", email);
+            session.setAttribute("user", user);
+            session.setAttribute("userId", user.getUserId());
+            session.setAttribute("role", user.getRole());
+            session.setAttribute("email", email);
+            session.setAttribute("name", user.getName());
+            System.out.println("brugernavn er" + user.getName());
 
-        String pageToShow =  user.getRole() + "page";
-        return REDIRECT_INDICATOR + pageToShow;
-        }
-        catch (UserException ex)
-        {
+            String pageToShow = user.getRole() + "page";
+            return REDIRECT_INDICATOR + pageToShow;
+        } catch (UserException ex) {
             request.setAttribute("error", "Wrong username or password!");
             return "loginpage";
         }
