@@ -13,6 +13,12 @@
         <h1>Hello ${sessionScope.email} </h1>
         You are now logged in as a Customer of our wonderful site.
         Role: ${sessionScope.role}
+
+       <h2><a href="${pageContext.request.contextPath}/fc/newrequestpage">Opret ny forespørgelse</a></h2>
+
+       <h2><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se dine forespørgelser</a></h2>
+
+
     </jsp:body>
 
 </t:genericpage>

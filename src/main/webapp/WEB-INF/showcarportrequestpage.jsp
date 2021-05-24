@@ -34,7 +34,7 @@
                     <td>${carports.carportStatusId}</td>
                     <td>
                         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
-                            <input class="btn btn-primary" type="submit" name="select" value="Godkend forespørgsel">
+                            <input class="btn btn-primary" type="submit" name="select" value="Se forespørgelser">
                             <input type="number" hidden id="carportId" name="carportId" value="${carports.carportId}">
                             <input type="number" hidden id="roofId" name="roofId" value="${carports.roofId}">
                             <input type="number" hidden id="height" name="height" value="${carports.height}">

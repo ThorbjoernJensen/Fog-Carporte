@@ -20,7 +20,6 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
     public CommandShowCarportRequest(String pageToShow, String role) {
         super(pageToShow, role);
         this.carportFacade = new CarportFacade(database);
-//        this.commandShowCarportRequest = new CommandShowCarportRequest("showcarportrequestpage", "employee");
 
     }
 
@@ -28,7 +27,6 @@ public class CommandShowCarportRequest extends CommandProtectedPage {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws UserException {
         HttpSession session = request.getSession();
         List <Carport> carportList = carportFacade.getCarportByStatusId(1);
-        System.out.println(carportList.size());
 
         session.setAttribute("carportList", carportList);
 
