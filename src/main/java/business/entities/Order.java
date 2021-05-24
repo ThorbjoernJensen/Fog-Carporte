@@ -40,10 +40,6 @@ public class Order {
         return materialList;
     }
 
-    public void setMaterialList(int materialList) {
-        this.materialList = materialList;
-    }
-
     public int getOrderId() {
         return orderId;
     }
@@ -78,10 +74,6 @@ public class Order {
 
     public Timestamp getOrderDate() {
         return orderDate;
-    }
-
-    public void setOrderDate(Timestamp orderDate) {
-        this.orderDate = orderDate;
     }
 
     public int getOrderStatusId() {

@@ -1,6 +1,5 @@
 package business.persistence;
 
-import business.entities.Carport;
 import business.entities.Order;
 import business.exceptions.UserException;
 
@@ -39,27 +38,6 @@ public class OrderMapper {
         return order;
     }
 
-
-    public void setOrderPrice(double price, int orderId) throws UserException {
-        try (Connection connection = database.connect()) {
-
-            String sql = "UPDATE `order` SET price = ? WHERE order_id = ?";
-
-            try (PreparedStatement ps = connection.prepareStatement(sql)) {
-
-                ps.setDouble(1, price);
-                ps.setInt(2, orderId);
-                ps.executeUpdate();
-
-
-            } catch (SQLException ex) {
-                throw new UserException(ex.getMessage());
-            }
-        } catch (SQLException ex) {
-            throw new UserException("Connection to database could not be established");
-        }
-    }
-
     public List<Order> getAllOrders() throws UserException {
         List<Order> orderList = new ArrayList<>();
         try (Connection connection = database.connect()) {
@@ -76,7 +54,6 @@ public class OrderMapper {
                     Timestamp orderDate = rs.getTimestamp("order_date");
                     int orderStatusId = rs.getInt("order_status_id");
                     orderList.add(new Order(orderId, carportId, price, userId, materialList, orderDate, orderStatusId));
-                    System.out.println(price);
                 }
 
             } catch (SQLException ex) {

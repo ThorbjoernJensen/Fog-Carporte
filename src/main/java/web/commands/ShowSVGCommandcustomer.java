@@ -7,7 +7,6 @@ import business.exceptions.UserException;
 import business.services.SVG;
 import business.util.CalculateElementsSVG;
 import business.util.CalculateElementsSVG2;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,21 +39,12 @@ public class ShowSVGCommandcustomer extends CommandProtectedPage {
         CalculateElementsSVG.calculateElements(bom, carport, svg);
         request.setAttribute("svg", svg.toString());
 
-//        forsøg med ny stykliste
         List<Materiale> stykliste = (List<Materiale>) session.getAttribute("stykliste");
         SVG svg2 = new SVG(0, 0, viewBox, 100, 100);
         CalculateElementsSVG2.calculateElements(stykliste, carport, svg2);
         request.setAttribute("svg2", svg2.toString());
 
-
-
-
-
-
-
         return pageToShow;
-
-
     }
 
     public String getRole() {

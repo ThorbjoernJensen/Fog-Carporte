@@ -1,16 +1,13 @@
 package web.commands;
 
 import business.entities.Carport;
-import business.entities.Order;
 import business.entities.materials.BillOfMaterials;
 import business.entities.materials.ByggeMateriale;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
-import business.services.OrderFacade;
 import business.services.UserFacade;
 import business.util.CalculateBOM;
 import business.util.CalculateBOM2;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;

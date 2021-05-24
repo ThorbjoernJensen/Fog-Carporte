@@ -49,10 +49,6 @@ public class Carport {
         return carportStatusId;
     }
 
-    public void setCarportStatusId(int carportStatusId) {
-        this.carportStatusId = carportStatusId;
-    }
-
     public int getUserId() {
         return userId;
     }
@@ -72,10 +68,6 @@ public class Carport {
 
     public int getRoofId() {
         return roofId;
-    }
-
-    public void setRoofId(int roofId) {
-        this.roofId = roofId;
     }
 
     public int getHeight() {
@@ -106,7 +98,4 @@ public class Carport {
         return shedId;
     }
 
-    public void setShedId(int shedId) {
-        this.shedId = shedId;
-    }
 }

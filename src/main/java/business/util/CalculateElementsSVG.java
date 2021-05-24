@@ -75,15 +75,11 @@ public class CalculateElementsSVG {
         double indrykningXakse = 50.0;
         double stolpeAfstand;
         int stolpeAntal;
-
-//        efter Foghs vejledning om 35 cm. til rem
-//        stolper skal have remmen monteret på udvendig side
         yStart = 35.0;
         y2Start = Double.valueOf(carport.getWidth()) - (35 + 22.0);
         width = Double.valueOf(carport.getLength());
         stolpeAntal = bom.getStolpe().getAntal();
         stolpeAfstand = (width - 2 * indrykningXakse - stolpeWidth) / (stolpeAntal / 2 - 1);
-        System.out.println("afstand ml. stolper" + stolpeAfstand);
 
         for (int x = 0; x < ((bom.getStolpe().getAntal())/2); x++) {
 
@@ -98,7 +94,6 @@ public class CalculateElementsSVG {
         double yStart;
         double y2Start;
 
-//        efter Foghs vejledning om 35 cm. til rem
         yStart = 35.0;
         y2Start = Double.valueOf(carport.getWidth()) - (35 + 5);
         width = Double.valueOf(carport.getLength());

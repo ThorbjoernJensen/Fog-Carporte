@@ -1,6 +1,5 @@
 package web.commands;
 
-import business.entities.Carport;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 
@@ -22,10 +21,7 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
     public String execute(
             HttpServletRequest request,
             HttpServletResponse response) throws UserException {
-
         HttpSession session = request.getSession();
-//her sletter bruger sin ordre
-
         try {
             if (request.getParameter("token").equals("1")){
             return commandViewRequest.execute(request,response);
@@ -50,7 +46,6 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
         int shedlength = Integer.parseInt(request.getParameter("shedlength"));
 
         String roofmaterial = request.getParameter("roofmaterial");
-
 
         if (shedlength!=0 && shedwidth!=0) {
             carportFacade.insertCarportWithShed(userId, height, width, length, shedwidth, shedlength, roofmaterial);

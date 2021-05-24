@@ -4,16 +4,14 @@ import business.entities.Order;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 import business.services.OrderFacade;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.text.DecimalFormat;
+
 
 public class OrderByIdCommand extends CommandUnprotectedPage {
     CarportFacade carportFacade;
 
-    public OrderByIdCommand(String pageToShow, String role) {
+    public OrderByIdCommand(String pageToShow) {
         super(pageToShow);
         this.carportFacade = new CarportFacade(database);
 

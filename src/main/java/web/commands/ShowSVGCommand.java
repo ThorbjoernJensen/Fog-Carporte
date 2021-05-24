@@ -40,21 +40,12 @@ public class ShowSVGCommand extends CommandProtectedPage {
         CalculateElementsSVG.calculateElements(bom, carport, svg);
         request.setAttribute("svg", svg.toString());
 
-//        forsøg med ny stykliste
         List<Materiale> stykliste = (List<Materiale>) session.getAttribute("stykliste");
         SVG svg2 = new SVG(0, 0, viewBox, 100, 100);
         CalculateElementsSVG2.calculateElements(stykliste, carport, svg2);
         request.setAttribute("svg2", svg2.toString());
 
-
-
-
-
-
-
         return pageToShow;
-
-
     }
 
     public String getRole() {

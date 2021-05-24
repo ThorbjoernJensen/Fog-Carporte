@@ -2,7 +2,6 @@ package business.services;
 
 
 import business.entities.Carport;
-import business.entities.User;
 import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 import business.persistence.CarportMapper;

@@ -5,24 +5,20 @@ import business.persistence.Database;
 import business.persistence.UserMapper;
 import business.exceptions.UserException;
 
-public class UserFacade
-{
+public class UserFacade {
     UserMapper userMapper;
 
-    public UserFacade(Database database)
-    {
+    public UserFacade(Database database) {
         userMapper = new UserMapper(database);
     }
 
-    public User login(String email, String password) throws UserException
-    {
+    public User login(String email, String password) throws UserException {
         return userMapper.login(email, password);
     }
 
-    public User createUser(String name, String email, int tlf, String password, String address, String zip) throws UserException
-    {
+    public User createUser(String name, String email, int tlf, String password, String address, String zip) throws UserException {
 
-        User user = userMapper.createUser(new User(name, email,tlf, password, "customer", address, zip));
+        User user = userMapper.createUser(new User(name, email, tlf, password, "customer", address, zip));
 
         return user;
     }

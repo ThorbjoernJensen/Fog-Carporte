@@ -1,15 +1,11 @@
 package web.commands;
 
 import business.entities.Carport;
-import business.entities.materials.BillOfMaterials;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
-import business.util.CalculateBOM;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommandShowCarportRequest extends CommandProtectedPage {

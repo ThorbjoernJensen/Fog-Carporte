@@ -1,7 +1,6 @@
 package business.persistence;
 
 import business.entities.Carport;
-import business.entities.User;
 import business.entities.materials.Dimensions;
 
 import business.exceptions.UserException;
@@ -202,7 +201,6 @@ public class CarportMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     dimensionsList.add(new Dimensions(id, height, length, width));
-                    System.out.println(width);
 
                 }
                 return dimensionsList;

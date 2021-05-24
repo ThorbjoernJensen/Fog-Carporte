@@ -3,11 +3,9 @@ package web.commands;
 import business.entities.Carport;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommandViewRequest extends CommandProtectedPage

@@ -21,47 +21,20 @@ public class BillOfMaterials {
         return oversternSider;
     }
 
-    public void setOversternSider(OversternSider oversternSider) {
-        this.oversternSider = oversternSider;
-    }
-
-    public OversternEnder getOversternEnder() {
-        return oversternEnder;
-    }
-
-    public void setOversternEnder(OversternEnder oversternEnder) {
-        this.oversternEnder = oversternEnder;
-    }
-
     public Stolpe getStolpe() {
         return stolpe;
-    }
-
-    public void setStolpe(Stolpe stolpe) {
-        this.stolpe = stolpe;
     }
 
     public Rem getRem() {
         return rem;
     }
 
-    public void setRem(Rem rem) {
-        this.rem = rem;
-    }
-
     public Spær getSpær() {
         return spær;
-    }
-
-    public void setSpær(Spær spær) {
-        this.spær = spær;
     }
 
     public double getBomSamletPris() {
         return bomSamletPris;
     }
 
-    public void setBomSamletPris(double bomSamletPris) {
-        this.bomSamletPris = bomSamletPris;
-    }
 }

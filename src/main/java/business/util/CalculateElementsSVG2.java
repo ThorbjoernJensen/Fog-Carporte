@@ -58,8 +58,6 @@ public class CalculateElementsSVG2 {
         double stolpeAfstand;
         int stolpeAntal;
 
-//        efter Foghs vejledning om 35 cm. til rem
-//        stolper skal have remmen monteret på udvendig side
         yStart = 35.0;
         y2Start = Double.valueOf(carport.getWidth()) - (35 + 22.0);
         width = Double.valueOf(carport.getLength());
@@ -78,8 +76,6 @@ public class CalculateElementsSVG2 {
         double width;
         double yStart;
         double y2Start;
-
-//        efter Foghs vejledning om 35 cm. til rem
         yStart = 35.0;
         y2Start = Double.valueOf(carport.getWidth()) - (35 + 5);
         width = Double.valueOf(carport.getLength());
@@ -105,7 +101,6 @@ public class CalculateElementsSVG2 {
         int y1;
         int x2;
         int y2;
-
         x1 = 50;
         y1 = 10;
         x2 = x1;
@@ -122,7 +117,6 @@ public class CalculateElementsSVG2 {
         int y1;
         int x2;
         int y2;
-
         x1 = 100;
         y1 = carport.getWidth() + 40;
         x2 = carport.getLength() + x1;
@@ -131,8 +125,5 @@ public class CalculateElementsSVG2 {
         dimensionsSVG.addArrowDefinitions();
         dimensionsSVG.addDefinitionLineText((carport.getLength() / 2 + 100), carport.getWidth() + 60, 0, carport.getLength());
 
-
     }
-
-
 }

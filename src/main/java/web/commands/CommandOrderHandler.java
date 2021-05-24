@@ -4,7 +4,6 @@ import business.entities.Carport;
 import business.entities.Order;
 import business.entities.materials.BillOfMaterials;
 import business.entities.materials.ByggeMateriale;
-import business.entities.materials.Materiale;
 import business.exceptions.UserException;
 import business.services.CarportFacade;
 import business.services.OrderFacade;
@@ -15,7 +14,6 @@ import business.util.CalculateBOM2;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommandOrderHandler extends CommandProtectedPage {
@@ -30,7 +28,7 @@ public class CommandOrderHandler extends CommandProtectedPage {
         this.orderFacade = new OrderFacade(database);
         this.userFacade = new UserFacade(database);
         this.carportFacade = new CarportFacade(database);
-        this.orderListCommand = new OrderListCommand("showallorders", "employee");
+        this.orderListCommand = new OrderListCommand("showallorders");
     }
 
     @Override
@@ -51,7 +49,6 @@ public class CommandOrderHandler extends CommandProtectedPage {
         int orderStatus = 1;
         order = new Order(carportId, userId, price, orderStatus);
 
-//        forsøg med at lave en liste af materialer der opfylder interface
         CalculateBOM2 bom2 = new CalculateBOM2(carport);
         List<ByggeMateriale> stykliste = bom2.calculateMaterials();
         session.setAttribute("stykliste", stykliste);

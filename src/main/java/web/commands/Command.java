@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class Command
 {
-    //Return a token string from the execute method to make a client side redirect,
-    // instead of a server side (forward) redirect
+
     public final static String REDIRECT_INDICATOR = "#*redirect*#_###_";
     public final static String WAS_NOT_FOUND_COMMAND ="404_NOT_FOUND";
 
@@ -23,11 +22,11 @@ public abstract class Command
         commands.put("orderHandler", new CommandOrderHandler("orderHandler","employee"));
         commands.put("orderHandlercustomer", new CommandOrderHandlerCustomer("orderHandlercustomer","customer"));
         commands.put("updatePrice", new CommandOrderUpdater("orderHandler","employee"));
-        commands.put("showOrders", new OrderListCommand("showallorders","employee"));
+        commands.put("showOrders", new OrderListCommand("showallorders"));
         commands.put("newrequestpage", new CommandNewRequest("newrequestpage", "customer"));
         commands.put("viewrequestpage", new CommandViewRequest("viewrequestpage", "customer"));
-        commands.put("editorder", new OrderListCommand("editorderpage","employee"));
-        commands.put("showsingleorder", new OrderByIdCommand("showsingleorderpage","employee"));
+        commands.put("editorder", new OrderListCommand("editorderpage"));
+        commands.put("showsingleorder", new OrderByIdCommand("showsingleorderpage"));
         commands.put("index", new CommandUnprotectedPage("index"));
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
         commands.put("logincommand", new LoginCommand(""));

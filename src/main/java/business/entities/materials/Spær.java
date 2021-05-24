@@ -50,10 +50,6 @@ public class Spær implements Materiale{
         return centerAfstand;
     }
 
-    public void setCenterAfstand(double centerAfstand) {
-        this.centerAfstand = centerAfstand;
-    }
-
     public static double getMeterPris() {
         return meterPris;
     }

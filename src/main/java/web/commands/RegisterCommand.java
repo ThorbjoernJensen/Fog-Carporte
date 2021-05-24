@@ -91,8 +91,6 @@ public class RegisterCommand extends CommandUnprotectedPage {
                     session.setAttribute("userId",user.getUserId());
                     return user.getRole() + "page";
                 }
-
-
             } else {
                 request.setAttribute("error", "the two passwords did not match");
                 return returnpage;
@@ -101,8 +99,5 @@ public class RegisterCommand extends CommandUnprotectedPage {
             request.setAttribute("error", "Ugyldit email.");
             return returnpage;
         }
-
     }
-
-
 }

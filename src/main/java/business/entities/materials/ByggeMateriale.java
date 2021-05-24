@@ -44,14 +44,6 @@ public class ByggeMateriale implements Materiale{
         this.samletPris = samletPris;
     }
 
-    public String getMaterialType() {
-        return materialType;
-    }
-
-    public void setMaterialType(String materialType) {
-        this.materialType = materialType;
-    }
-
     public double getMeterPris() {
         return meterPris;
     }
