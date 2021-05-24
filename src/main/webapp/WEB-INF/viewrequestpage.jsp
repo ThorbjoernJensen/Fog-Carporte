@@ -10,18 +10,27 @@
     </jsp:attribute>
 
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a Customer of our wonderful site.
-        Role: ${sessionScope.role}
-        <table>
+        <h2>Hej ${sessionScope.user.name}. </h2>
+        <p> Her er en oversigt over dine aktive forespørgsler </p>
+
+
+        <c:if test="${sessionScope.carportUserList.size()==0}">
+        <p style="color:red">
+            Du har ingen aktive forespørgsler
+        </p>
+        </c:if>
+
+        <c:if test="${not empty sessionScope.carportUserList}">
+
+        <table class="table">
         <thead>
         <th>Carport ID</th>
-        <th>Tag</th>
+<%--        <th>Tag</th>--%>
         <th>Højde</th>
         <th>Længde</th>
         <th>Bredde</th>
-        <th>Skur</th>
-        <th>UserId</th>
+<%--        <th>Skur</th>--%>
+<%--        <th>UserId</th>--%>
         <th>Status</th>
         <th></th>
         <th></th>
@@ -30,12 +39,12 @@
         <c:forEach var="carports" items="${sessionScope.carportUserList}">
             <tr>
                 <td>${carports.carportId}</td>
-                <td>${carports.roofId}</td>
+<%--                <td>${carports.roofId}</td>--%>
                 <td>${carports.height}</td>
                 <td>${carports.length}</td>
                 <td>${carports.width}</td>
-                <td>${carports.shedId}</td>
-                <td>${carports.userId}</td>
+<%--                <td>${carports.shedId}</td>--%>
+<%--                <td>${carports.userId}</td>--%>
                 <td>${carports.carportStatusId}</td>
                 <td>
                 <form action="${pageContext.request.contextPath}/fc/orderHandlercustomer" method="post">
@@ -54,6 +63,7 @@
             </tr>
         </c:forEach>
             </table>
+        </c:if>
 
         <c:if test="${requestScope.error != null }">
             <p style="color:red">
