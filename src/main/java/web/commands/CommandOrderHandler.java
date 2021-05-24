@@ -55,10 +55,9 @@ public class CommandOrderHandler extends CommandProtectedPage {
         String token = request.getParameter("token");
         if (token.equals("5")) {
             double newPrice = 5;
-
-            System.out.println(newPrice);
             if (session.getAttribute("newPrice") == null) {
-                System.out.println("Vi er i 0 if");
+                orderStatus=2;
+                order.setOrderStatusId(orderStatus);
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);
                 request.setAttribute("orderId", order.getOrderId());
@@ -66,7 +65,8 @@ public class CommandOrderHandler extends CommandProtectedPage {
 
             } else {
                 newPrice = (double) session.getAttribute("newPrice");
-                System.out.println(newPrice);
+                orderStatus=2;
+                order.setOrderStatusId(orderStatus);
                 order.setPrice(newPrice);
                 order = orderFacade.carportToOrder(order);
                 carportFacade.updateCarportStatus(orderStatus, carportId);

@@ -66,6 +66,7 @@
                     <option value="30">30</option>
                 </select>
             </div>
+            <input type="number" hidden id="token" name="token" value="3">
             <input type="submit" value="Send forespørgsel" class="btn btn-primary">
         </form>
 

@@ -50,4 +50,8 @@ public class CarportFacade {
         return carportMapper.getCarportByUser(userId);
     }
 
+    public void deleteCarport(int carportId) throws UserException {
+        carportMapper.deleteCarport(carportId);
+    }
+
 }
