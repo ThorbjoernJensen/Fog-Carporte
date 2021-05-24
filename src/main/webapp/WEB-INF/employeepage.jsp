@@ -9,12 +9,18 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        You are now logged in as a EMPLOYEE of our wonderful site.
-        <a href="${pageContext.request.contextPath}/fc/showcarportrequestpage">se en hardcoded carport-forespørgsel </a>
-<%--        den skal med tiden sendes afsted med en carport-id, så siden kun viser detaljer for en given carport--%>
-<br>
-        <a href="${pageContext.request.contextPath}/fc/showOrders"> se alle ordre </a>
+
+        <div class="container-fluid rounded pb-5" style="background: rgb(12, 32, 105)">
+            <p class="text-center" style="color: aliceblue">You are now logged in as a EMPLOYEE of our wonderful
+                site.</p>
+
+                    <a STYLE="color: aliceblue" type="button" class="btn bg-primary"
+                       href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Se ordreforspørgelser</a>
+                    <a STYLE="color: aliceblue" type="button" class="btn bg-primary"
+                     href="${pageContext.request.contextPath}/fc/showOrders"> se alle ordre </a>
+
+                </div>
+
 
     </jsp:body>
 </t:genericpage>

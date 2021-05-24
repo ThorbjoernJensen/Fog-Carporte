@@ -11,7 +11,13 @@
     <jsp:body>
         <h1>Hello ${sessionScope.email} </h1>
         Du er logget ind som ansat, og her kan du se en carport
-        <table>
+
+        <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+
+        <table class="table">
             <thead>
             <th>Carport ID</th>
             <th>Tag</th>
@@ -49,7 +55,10 @@
                 </tr>
             </c:forEach>
         </table>
-
+            </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
 
         <c:if test="${requestScope.error != null }">
             <p style="color:red">
