@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Edit price
+<%--         Edit price--%>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

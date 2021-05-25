@@ -6,7 +6,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Her er en liste af alle ordre
+<%--         Her er en liste af alle ordre--%>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

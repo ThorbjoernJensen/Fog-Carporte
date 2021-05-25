@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Customer Roles!!
+<%--         Demo Page for Customer Roles!!--%>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

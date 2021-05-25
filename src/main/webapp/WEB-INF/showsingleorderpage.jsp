@@ -4,7 +4,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Enkelt Ordre
+<%--         Enkelt Ordre--%>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
