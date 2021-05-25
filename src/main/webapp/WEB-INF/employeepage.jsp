@@ -15,7 +15,7 @@
                 site.</p>
 
                     <a STYLE="color: aliceblue" type="button" class="btn bg-primary"
-                       href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Se ordreforspørgelser</a>
+                       href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Se ordrerforespørgsler</a>
                     <a STYLE="color: aliceblue" type="button" class="btn bg-primary"
                      href="${pageContext.request.contextPath}/fc/showOrders"> se alle ordre </a>
 

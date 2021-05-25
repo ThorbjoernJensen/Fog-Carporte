@@ -53,7 +53,7 @@
                     </c:if>
                     <c:if test="${sessionScope.user != null}">
                         <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
-                           href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                           href="${pageContext.request.contextPath}/fc/logoutcommand">Log ud</a>
                     </c:if>
                 </div>
                 <p style="font-size: small">
@@ -69,14 +69,14 @@
                     <div class="col-2"></div>
 
                     <div class="col-sm-3">
-                        <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/employeepage">Home</a>
+                        <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/employeepage">Hjem</a>
                     </div>
                     <div class="col-sm-3">
-                        <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/showOrders">Order</a>
+                        <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/showOrders">Ordrer</a>
                     </div>
                     <div class="col-sm-3">
                         <a class="p-2 textfarve"
-                           href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Forspørgelser</a>
+                           href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Forespørgsler</a>
                     </div>
                     <div class="col-1"></div>
                 </div>
@@ -87,16 +87,16 @@
             <c:if test="${sessionScope.user.role == 'customer' }">
 
             <div class="row">
-                <div class="col-2"></div>
-                <div class="col-lg-3 col-sm-12">
-                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/customerpage">Home</a>
+                <div class="col-3"></div>
+                <div class="col-lg-2 col-sm-12">
+                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/customerpage">Hjem</a>
                 </div>
                 <div class="col-lg-3 col-sm-12">
                     <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/viewrequestpage">
-                        ordre</a>
+                        MineOrdre</a>
                 </div>
                 <div class="col-lg-3 col-sm-12">
-                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/newrequestpage">opretnyOrdre </a>
+                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/newrequestpage">OpretNyOrdre </a>
                 </div>
 
 
