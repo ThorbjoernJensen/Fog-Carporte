@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+<%--         Kvittering--%>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -15,32 +15,34 @@
     <jsp:body>
 
         <div>
-            <h2>Her er din bestilling. Vores sælgere kigger på din ordre og vender tilbage snarest</h2>
+            <h2>Tak for din henvendelse. </h2>
             <div style="margin-top: 3em;margin-bottom: 3em;">
-                <p>Du har valgt den magiske kombination: højde ${sessionScope.height} cm x, bredde ${sessionScope.width} cm og længde ${sessionScope.length} cm med ${sessionScope.roofmaterial}.</p>
+                <p>Du har valgt følgende mål: højde ${sessionScope.height} cm x, bredde ${sessionScope.width} cm og
+                    længde ${sessionScope.length} cm. Som tagbeklædning er valgt: ${sessionScope.roofmaterial}.</p>
+
                 <c:if test="${sessionScope.shedlength !=null}">
                     <p> Du har valgt følgende dimensioner på dit skur:
-                    ${sessionScope.shedlength} cm
-                        ${sessionScope.shedwidth} cm
+                            ${sessionScope.shedlength} cm
+                            ${sessionScope.shedwidth} cm
                     </p>
                 </c:if>
-                <p>
-                    Held og lykke!
+                <p> Vores sælgere kigger på din bestilling og vender tilbage snarest!
+
                 </p>
             </div>
 
 
-            <c:if test="${sessionScope.role == 'employee' }">
-            <p style="font-size: larger">This is what you can do,
-                since your are logged in as an employee</p>
-            <p><a href="${pageContext.request.contextPath}/fc/employeepage">Employee Page</a>
-                </c:if>
+<%--            <c:if test="${sessionScope.role == 'employee' }">--%>
+<%--            <p style="font-size: larger">This is what you can do,--%>
+<%--                since your are logged in as an employee</p>--%>
+<%--            <p><a href="${pageContext.request.contextPath}/fc/employeepage">Employee Page</a>--%>
+<%--                </c:if>--%>
 
-                <c:if test="${sessionScope.role == 'customer' }">
-            <p style="font-size: larger">This is what you can do, since your
-                are logged in as a customer</p>
-            <p><a href="${pageContext.request.contextPath}/fc/customerpage">Customer Page</a>
-                </c:if>
+<%--                <c:if test="${sessionScope.role == 'customer' }">--%>
+<%--            <p style="font-size: larger">This is what you can do, since your--%>
+<%--                are logged in as a customer</p>--%>
+<%--            <p><a href="${pageContext.request.contextPath}/fc/customerpage">Customer Page</a>--%>
+<%--                </c:if>--%>
 
         </div>
 
