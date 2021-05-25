@@ -42,18 +42,18 @@
     <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 fogblue border-bottom shadow-sm">
         <div class="h5 my-0 me-md-auto fw-normal">
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="col-lg-3 col-sm-12 col-md-5">
                     <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/Images/logo.png"
                                                           height="126" alt="Logo for Fog-carport"/></a>
                 </div>
-                <div style="color: aliceblue" class="col-sm-12 col-md-6 col-lg-9 pt-3">
+                <div style="color: aliceblue" class="col-sm-12 col-md-7 col-lg-9 pt-3">
                     <p>Velkommen til Fog-carport</p>
                     <c:if test="${sessionScope.user != null}">
                         user: ${sessionScope.user.email}
                     </c:if>
                     <c:if test="${sessionScope.user != null}">
-                    <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
-                       href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
+                        <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
+                           href="${pageContext.request.contextPath}/fc/logoutcommand">Logout</a>
                     </c:if>
                 </div>
                 <p style="font-size: small">
@@ -62,6 +62,8 @@
             </div>
         </div>
         <nav class="my-2 my-md-0 me-md-3">
+
+
             <c:if test="${sessionScope.user.role == 'employee' }">
                 <div class="row">
                     <div class="col-2"></div>
@@ -77,50 +79,67 @@
                            href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Forspørgelser</a>
                     </div>
                     <div class="col-1"></div>
-            </div>
+                </div>
+
+            </c:if>
 
 
+            <c:if test="${sessionScope.user.role == 'customer' }">
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-lg-3 col-sm-12">
+                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/customerpage">Home</a>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/viewrequestpage">
+                        ordre</a>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                    <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/newrequestpage">opretnyOrdre </a>
+                </div>
 
 
-</c:if>
-<%--        <a class="p-2 text-dark" href="#">Orders</a>--%>
-<%--        <a class="p-2 text-dark" href="#">Profile</a>--%>
-<%--        <a class="p-2 text-dark" href="#">About</a>--%>
-</nav>
+                </div>
+                </c:if>
+                <%--        <a class="p-2 text-dark" href="#">Orders</a>--%>
+                <%--        <a class="p-2 text-dark" href="#">Profile</a>--%>
+                <%--        <a class="p-2 text-dark" href="#">About</a>--%>
+        </nav>
 
-<div>
+        <div>
 
 
-    <c:if test="${sessionScope.user != null}">
-<%--        ${sessionScope.user.email}--%>
-    </c:if>
+            <c:if test="${sessionScope.user != null}">
+                <%--        ${sessionScope.user.email}--%>
+            </c:if>
 
-    <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
-    <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
-    <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
+            <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
+            <c:set var="isNotLoginPage" value="${!fn:endsWith(thisPage,'loginpage.jsp')}"/>
+            <c:set var="isNotRegisterPage" value="${!fn:endsWith(thisPage,'registerpage.jsp')}"/>
 
-    <c:if test="${isNotLoginPage && isNotRegisterPage}">
-    <c:if test="${sessionScope.user == null }">
-        <a STYLE="color: aliceblue" type="button" class="btn btn-sm  btn-outline-secondary"
-           href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
-        <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
-           href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
-    </c:if>
-</div>
-</c:if>
-</header>
+            <c:if test="${isNotLoginPage && isNotRegisterPage}">
+            <c:if test="${sessionScope.user == null }">
+                <a STYLE="color: aliceblue" type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+                <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
+                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+            </c:if>
+        </div>
+        </c:if>
+    </header>
 
-<div id="body" class="container" style="min-height: 20vh;">
-    <jsp:doBody/>
-</div>
+    <div id="body" class="container" style="min-height: 20vh;">
+        <jsp:doBody/>
+    </div>
 
-<!-- Footer -->
-<div class="container">
-    <br>
-    <hr>
-    <br>
-    <jsp:invoke fragment="footer"/>
-</div>
+    <!-- Footer -->
+    <div class="container">
+        <br>
+        <hr>
+        <br>
+        <jsp:invoke fragment="footer"/>
+    </div>
 </div>
 </body>
 </html>
