@@ -3,6 +3,7 @@ package web.commands;
 import business.entities.User;
 import business.services.UserFacade;
 import business.exceptions.UserException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -29,7 +30,7 @@ public class RegisterCommand extends CommandUnprotectedPage {
         String password2 = request.getParameter("password2");
         String address = request.getParameter("address");
         String zip = request.getParameter("zip");
-        String returnpage="";
+        String returnpage = "";
 
 
         int shedwidth = 0;
@@ -61,15 +62,20 @@ public class RegisterCommand extends CommandUnprotectedPage {
                 request.setAttribute("error", "Ugyldit tlf nr. Kun hele tal");
                 return returnpage;
             }
+            int zipcode = Integer.parseInt(zip);
+            if (zipcode != 3700 && zipcode != 3790) {
+                request.setAttribute("error", "Vi leverer kun til Bornholm tjek postNr og prøv igen");
+                return returnpage;
+            }
 
             if (password1.equals(password2)) {
-                if (shedlength!=0 && shedwidth==0){
-                    request.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+                if (shedlength != 0 && shedwidth == 0) {
+                    request.setAttribute("error", "Du skal vælge både længde og bredde på dit skur");
                     return returnpage;
 
                 }
-                if (shedwidth!=0 && shedlength==0){
-                    request.setAttribute("error","Du skal vælge både længde og bredde på dit skur");
+                if (shedwidth != 0 && shedlength == 0) {
+                    request.setAttribute("error", "Du skal vælge både længde og bredde på dit skur");
                     return returnpage;
                 }
                 User user = userFacade.createUser(name, email, tlfInt, password1, address, zip);
@@ -77,7 +83,7 @@ public class RegisterCommand extends CommandUnprotectedPage {
 
 
                 if (returnpage.equals("index")) {
-                    session.setAttribute("userId",user.getUserId());
+                    session.setAttribute("userId", user.getUserId());
                     session.setAttribute("name", name);
                     session.setAttribute("email", email);
                     session.setAttribute("user", user);
@@ -95,7 +101,7 @@ public class RegisterCommand extends CommandUnprotectedPage {
                     session.setAttribute("role", user.getRole());
                     session.setAttribute("address", user.getAddress());
                     session.setAttribute("zip", user.getZip());
-                    session.setAttribute("userId",user.getUserId());
+                    session.setAttribute("userId", user.getUserId());
                     return user.getRole() + "page";
                 }
 

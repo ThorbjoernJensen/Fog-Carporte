@@ -6,10 +6,6 @@
 <title>Alle ordre</title>
 <t:genericpage>
     <jsp:attribute name="header">
-<<<<<<< HEAD
-=======
-<%--         Her er en liste af alle ordre--%>
->>>>>>> 4f22d0db37137c2fab2db8157538f6c6a3f21441
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

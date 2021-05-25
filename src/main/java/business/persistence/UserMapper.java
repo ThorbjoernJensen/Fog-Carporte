@@ -34,6 +34,7 @@ public class UserMapper {
             }
         } catch (SQLException ex) {
             throw new UserException(ex.getMessage());
+
         }
         return user;
     }
