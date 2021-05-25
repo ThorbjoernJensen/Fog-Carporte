@@ -5,7 +5,7 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-         Home
+<%--         SVG tegning--%>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -15,9 +15,7 @@
     <jsp:body>
 
 
-        <h2>Velkommen til tegningen af carporten</h2>
-        <p>her sætter vi en tegning</p>
-
+        <h2>Tegning af carporten</h2>
 
 <%--        ${requestScope.svg}--%>
         ${requestScope.svg2}
