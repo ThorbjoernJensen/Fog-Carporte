@@ -32,7 +32,7 @@
 
 </style>
 <body>
-<div class="container-fluid">
+<div class="container">
     <!--
         This header is inspired by this bootstrap
         example: https://getbootstrap.com/docs/5.0/examples/pricing/
@@ -42,11 +42,11 @@
     <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 fogblue border-bottom shadow-sm">
         <div class="h5 my-0 me-md-auto fw-normal">
             <div class="row">
-                <div class="col-lg-3 col-sm-12 col-md-5">
+                <div class="col-lg-4 col-sm-12 col-md-5">
                     <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/Images/logo.png"
                                                           height="126" alt="Logo for Fog-carport"/></a>
                 </div>
-                <div style="color: aliceblue" class="col-sm-12 col-md-7 col-lg-9 pt-3">
+                <div style="color: aliceblue" class="col-sm-12 col-md-7 col-lg-8 pt-3">
                     <p>Velkommen til Fog-carport</p>
                     <c:if test="${sessionScope.user != null}">
                         user: ${sessionScope.user.email}
