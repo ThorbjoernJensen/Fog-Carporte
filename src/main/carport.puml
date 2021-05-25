@@ -21,6 +21,8 @@ index.jsp --> loginpage.jsp: log på
 loginpage.jsp --> loginpage.jsp: log på [fejl]
 
 
+
+
 loginpage.jsp --> LoggedOnAsCustomer: log på [ok]
 State LoggedOnAsCustomer {
 
