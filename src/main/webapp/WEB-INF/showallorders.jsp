@@ -4,52 +4,56 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-
-    <t:genericpage>
+<t:genericpage>
     <jsp:attribute name="header">
          Her er en liste af alle ordre
     </jsp:attribute>
-        <jsp:attribute name="footer">
+    <jsp:attribute name="footer">
     </jsp:attribute>
-        <jsp:body>
-            <h1>Hello ${sessionScope.email} </h1>
+    <jsp:body>
 
-
+        <div class="container-fluid pb-5 p-lg-3" style="background: rgb(12, 32, 105)">
+           <h3> <p class="text-center" style="color: aliceblue">Her er en liste over alle ordre</p></h3>
             <form action="${pageContext.request.contextPath}/fc/showsingleorder" method="post">
 
-            <table class="table">
-            <thead>
-            <th>orderId</th>
-            <th>carportId</th>
-            <th>price</th>
-            <th>userId</th>
-            <th>materialList</th>
-            <th>orderDate</th>
-            <th>orderStatusId</th>
-            <th></th>
-            <th></th>
-            </thead>
+                <div class="card" style="background: lightgrey">
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="text-center">
+                            <th>orderId</th>
+                            <th>carportId</th>
+                            <th>price</th>
+                            <th>userId</th>
+                            <th>materialList</th>
+                            <th>orderDate</th>
+                            <th>orderStatusId</th>
+                            <th></th>
+                            <th></th>
+                            </thead>
 
 
-            <c:forEach var="orderItem" items="${applicationScope.orderList}">
-                <tr>
-                    <td>${orderItem.orderId}</td>
-                    <td>${orderItem.carportId}</td>
-                    <td>${orderItem.price}</td>
-                    <td>${orderItem.userId}</td>
-                    <td>${orderItem.materialList}</td>
-                    <td>${orderItem.orderDate}</td>
-                    <td>${orderItem.orderStatusId}</td>
-                    <td>
-                        <button class="btn btn-primary " type="submit" name="singleOrder"
-                                value="${orderItem.orderId}">se ordre
-                        </button>
-                    </td>
+                            <c:forEach var="orderItem" items="${applicationScope.orderList}">
+                            <tr class="text-center">
+                                <td>${orderItem.orderId}</td>
+                                <td>${orderItem.carportId}</td>
+                                <td>${orderItem.price}</td>
+                                <td>${orderItem.userId}</td>
+                                <td>${orderItem.materialList}</td>
+                                <td>${orderItem.orderDate}</td>
+                                <td>${orderItem.orderStatusId}</td>
+                                <td>
+                                    <button class="btn btn-primary " type="submit" name="singleOrder"
+                                            value="${orderItem.orderId}">se ordre
+                                    </button>
+                                </td>
 
-                </form>
+            </form>
             </c:forEach>
+        </div>
+        </div>
+        </div>
 
 
-        </jsp:body>
-    </t:genericpage>
+    </jsp:body>
+</t:genericpage>
 
