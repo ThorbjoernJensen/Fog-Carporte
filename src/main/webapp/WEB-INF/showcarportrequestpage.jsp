@@ -1,17 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<title>Forespørgelser</title>
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Employee Roles
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
         <div class="container-fluid pb-5 rounded" style="background: rgb(12, 32, 105)">
 
-            <p class="text-center" style="color: aliceblue">Her er en liste over ikke godkendte forspørgelser</p>
+            <p class="text-center" style="color: aliceblue">Her er en liste over ikke godkendte forespørgelser</p>
             <%--gør den mobile friendly--%>
             <div class="row">
                 <div class="col-lg-1"></div>

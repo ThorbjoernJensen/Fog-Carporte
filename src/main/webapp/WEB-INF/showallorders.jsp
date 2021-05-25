@@ -3,10 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<title>Alle ordre</title>
 <t:genericpage>
     <jsp:attribute name="header">
-         Her er en liste af alle ordre
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

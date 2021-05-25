@@ -1,10 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<title>Ordre nr: ${requestScope.order.orderId}</title>
 <t:genericpage>
     <jsp:attribute name="header">
-         Enkelt Ordre
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
@@ -47,7 +46,7 @@
                                 value="${requestScope.order.orderId}">!Slet!
                         </button>
                     <td>
-                        Se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg"></a>
+                       <a href="${pageContext.request.contextPath}/fc/showsvg"> Se billede af carporten: </a>
                 </td>
                 </tr>
             </table>

@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<title>Carport tegning</title>
 
 <t:genericpage>
 
@@ -17,8 +18,8 @@
 
         <h2>Tegning af carporten</h2>
 
-<%--        ${requestScope.svg}--%>
-        ${requestScope.svg2}
+        ${requestScope.svg}
+<%--        ${requestScope.svg2}--%>
 
 
     </jsp:body>

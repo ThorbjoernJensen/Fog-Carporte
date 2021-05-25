@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<title>Employee Page</title>
 <t:genericpage>
     <jsp:attribute name="header">
 <%--         Demo Page for Employee Roles--%>

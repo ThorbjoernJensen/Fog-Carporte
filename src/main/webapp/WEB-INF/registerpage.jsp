@@ -1,10 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<title>Registerings side</title>
 <t:genericpage>
     <jsp:attribute name="header">
-         Register as new User
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

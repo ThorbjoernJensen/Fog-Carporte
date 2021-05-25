@@ -2,6 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<title>Index</title>
 <t:genericpage>
 
 
@@ -44,7 +45,7 @@
                                                     </c:forEach>
                                                 </select>
 
-                                                <h5 class="text-center">vælg bredde</h5>
+                                                <h5 class="text-center">Vælg bredde</h5>
                                                 <select class="form-select" name="width" id="width">
                                                     <c:forEach var="width" items="${applicationScope.DimensionList}">
                                                         <option value="${width.width}">${width.width} cm</option>
@@ -52,14 +53,14 @@
                                                 </select>
 
 
-                                                <h5 class="text-center">vælg længde</h5>
+                                                <h5 class="text-center">Vælg længde</h5>
                                                 <select class="form-select" name="length" id="length">
                                                     <c:forEach var="length" items="${applicationScope.DimensionList}">
                                                         <option value="${length.length}">${length.length} cm</option>
                                                     </c:forEach>
                                                 </select>
 
-                                                <h5 class="text-center">vælg tag</h5>
+                                                <h5 class="text-center">Vælg tag</h5>
                                                 <select class="form-select" name="roofmaterial" id="roofmaterial">
                                                     <option value="Plasttrapezplader">Plasttrapezplader</option>
                                                     <option value="Plasttrapezplader">Plasttrapezplader</option>
@@ -78,18 +79,18 @@
                                                 <h5>vælg længde</h5>
                                                 <select class="form-select" name="shedlength" id="shedlength">
                                                     <option value="0" selected>Jeg ønsker ikke skur</option>
-                                                    <option value="10">10</option>
-                                                    <option value="20">20</option>
-                                                    <option value="30">30</option>
+<%--                                                    <option value="10">10</option>--%>
+<%--                                                    <option value="20">20</option>--%>
+<%--                                                    <option value="30">30</option>--%>
                                                 </select>
 
 
                                                 <h5>vælg bredde</h5>
                                                 <select class="form-select" name="shedwidth" id="shedwidth">
                                                     <option value="0" selected>Jeg ønsker ikke skur</option>
-                                                    <option value="10">10</option>
-                                                    <option value="20">20</option>
-                                                    <option value="30">30</option>
+<%--                                                    <option value="10">10</option>--%>
+<%--                                                    <option value="20">20</option>--%>
+<%--                                                    <option value="30">30</option>--%>
                                                 </select>
                                             </div>
                                         </div>
