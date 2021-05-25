@@ -75,7 +75,7 @@ public class FrontController extends HttpServlet
                 return;
             }
 
-            request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response); 
         }
         catch (UnsupportedEncodingException | UserException ex)
         {

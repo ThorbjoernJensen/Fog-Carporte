@@ -26,17 +26,17 @@ loginpage.jsp --> loginpage.jsp: log på [fejl]
 loginpage.jsp --> LoggedOnAsCustomer: log på [ok]
 State LoggedOnAsCustomer {
 
-State custermorpage.jsp
+State custormerpage.jsp
 State viewrequestpage.jsp
 State receiptpage.jsp
 State newrequestpage.jsp
 
-[*] -> custermorpage.jsp
-custermorpage.jsp --> viewrequestpage.jsp: se status/slette ordre
-custermorpage.jsp --> newrequestpage.jsp: ny ordreforespørgsel
+[*] -> custormerpage.jsp
+custormerpage.jsp --> viewrequestpage.jsp: se status/slette ordre
+custormerpage.jsp --> newrequestpage.jsp: ny ordreforespørgsel
 viewrequestpage.jsp --> showsvgpage.jsp: se svgtegning af carport
 newrequestpage.jsp --> receiptpage.jsp: bekræfdigelse af bestilling
-receiptpage.jsp --> custermorpage.jsp: tilbage til kundesiden
+receiptpage.jsp --> custormerpage.jsp: tilbage til kundesiden
 
 }
 

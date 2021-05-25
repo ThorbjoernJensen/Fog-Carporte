@@ -5,6 +5,7 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
+
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>

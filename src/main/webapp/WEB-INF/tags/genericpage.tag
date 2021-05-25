@@ -121,9 +121,9 @@
             <c:if test="${isNotLoginPage && isNotRegisterPage}">
             <c:if test="${sessionScope.user == null }">
                 <a STYLE="color: aliceblue" type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/loginpage">Login</a>
+                   href="${pageContext.request.contextPath}/fc/loginpage">Log-ind</a>
                 <a STYLE="color: aliceblue " type="button" class="btn btn-sm  btn-outline-secondary"
-                   href="${pageContext.request.contextPath}/fc/registerpage">Sign up</a>
+                   href="${pageContext.request.contextPath}/fc/registerpage">Opret bruger</a>
             </c:if>
         </div>
         </c:if>
