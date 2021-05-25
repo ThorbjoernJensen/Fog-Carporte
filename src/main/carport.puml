@@ -3,17 +3,64 @@
 @startuml
 Title CARPORT
 
-State custermorpage.jsp
-State employeepage.jsp
 State index.jsp
 State loginpage.jsp
-State receiptpage.jsp
 State registerpage.jsp
-State materialpage.jsp
-State showcarportrequestpage.jsp
+State showsvgpage.jsp
+
+note left of loginpage.jsp
+Username and role stored in session
+end note
+
 
 [*] -> index.jsp
-index.jsp --> receiptpage.jsp
+index.jsp --> registerpage.jsp: ny bruger
+registerpage.jsp --> registerpage.jsp: register [fejl]
+registerpage.jsp --> LoggedOnAsCustomer: register [ok]
+index.jsp --> loginpage.jsp: log på
+loginpage.jsp --> loginpage.jsp: log på [fejl]
 
-employeepage.jsp --> showcarportrequestpage.jsp
+
+
+
+loginpage.jsp --> LoggedOnAsCustomer: log på [ok]
+State LoggedOnAsCustomer {
+
+State custermorpage.jsp
+State viewrequestpage.jsp
+State receiptpage.jsp
+State newrequestpage.jsp
+
+[*] -> custermorpage.jsp
+custermorpage.jsp --> viewrequestpage.jsp: se status/slette ordre
+custermorpage.jsp --> newrequestpage.jsp: ny ordreforespørgsel
+viewrequestpage.jsp --> showsvgpage.jsp: se svgtegning af carport
+newrequestpage.jsp --> receiptpage.jsp: bekræfdigelse af bestilling
+receiptpage.jsp --> custermorpage.jsp: tilbage til kundesiden
+
+}
+
+
+loginpage.jsp --> LoggedOnAsEmployee: login [ok]
+State LoggedOnAsEmployee {
+
+
+State employeepage.jsp
+State showallorders.jsp
+State showsingleorderpage.jsp
+State showcarportrequestpage.jsp
+State orderHandler.jsp
+State editorpage.jsp
+
+[*] -> employeepage.jsp
+employeepage.jsp --> showcarportrequestpage.jsp: se alle forespørgseler
+employeepage.jsp --> showallorders.jsp: se alle ordre
+showcarportrequestpage.jsp --> orderHandler.jsp: se detaljeret forespørgsel
+orderHandler.jsp --> showsvgpage.jsp: se tegning af kundens ønskede carport
+orderHandler.jsp --> showallorders.jsp: ordre godkendt
+showallorders.jsp --> showsingleorderpage.jsp: se enkelt ordre
+showsingleorderpage.jsp --> editorpage.jsp: ret pris i enkelt ordre
+editorpage.jsp --> showallorders.jsp: ordre rettet.
+
+}
 @enduml

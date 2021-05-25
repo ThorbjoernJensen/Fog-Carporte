@@ -78,6 +78,13 @@ public class RegisterCommand extends CommandUnprotectedPage {
 
                 if (returnpage.equals("index")) {
                     session.setAttribute("userId",user.getUserId());
+                    session.setAttribute("name", name);
+                    session.setAttribute("email", email);
+                    session.setAttribute("user", user);
+                    session.setAttribute("tlf", tlfInt);
+                    session.setAttribute("role", user.getRole());
+                    session.setAttribute("address", user.getAddress());
+                    session.setAttribute("zip", user.getZip());
                     return carportHandlerCommand.execute(request, response);
                 } else {
 
