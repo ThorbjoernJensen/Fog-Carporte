@@ -145,7 +145,7 @@
                                                  <input id="zip" class="form-control" type="text" name="zip"
                                                        value="${param.zip}"
                                                                                 placeholder="Skriv dit postNr">
-
+                                                <input type="number" hidden id="token" name="token" value="3">
                                                 <input type="number" hidden id="creatorId" name="creatorId" value="1">
 
                                             </div>
