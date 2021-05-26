@@ -32,7 +32,7 @@
 
 </style>
 <body>
-<div class="container">
+<div class="container responsive-header">
     <!--
         This header is inspired by this bootstrap
         example: https://getbootstrap.com/docs/5.0/examples/pricing/
