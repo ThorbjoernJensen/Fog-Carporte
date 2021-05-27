@@ -11,8 +11,7 @@
     <jsp:body>
         <div class="container-fluid pb-5 rounded" style="background: rgb(12, 32, 105)">
 
-            <p class="text-center" style="color: aliceblue">Her er en liste over ikke godkendte forespørgelser</p>
-            <%--gør den mobile friendly--%>
+            <p class="text-center" style="color: aliceblue">Her er en liste over ikke godkendte forespørgsler</p>
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-10 col-sm-12">
@@ -28,7 +27,7 @@
                                 <th>Skur</th>
                                 <th>UserId</th>
                                 <th>Status</th>
-                                <th class="text-center">Forspørgelser</th>
+                                <th class="text-center">Forespørgsler</th>
                                 </thead>
                                 <c:forEach var="carports" items="${sessionScope.carportList}">
                                     <tr class="text-center">
@@ -44,7 +43,7 @@
                                             <form action="${pageContext.request.contextPath}/fc/orderHandler"
                                                   method="post">
                                                 <input class="btn btn-primary" type="submit" name="select"
-                                                       value="Se forespørgelser">
+                                                       value="Se forespørgsler">
                                                 <input type="number" hidden id="carportId" name="carportId"
                                                        value="${carports.carportId}">
                                                 <input type="number" hidden id="roofId" name="roofId"

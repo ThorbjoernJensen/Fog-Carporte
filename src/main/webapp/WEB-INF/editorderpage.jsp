@@ -11,15 +11,13 @@
     <jsp:body>
 
         <div class="container-fluid" style="background: rgb(12, 32, 105)">
-            <h3 class="mb-3 text-center" style="color: aliceblue">Rediger prisen her under</h3>
+            <h3 class="mb-3 text-center" style="color: aliceblue">Rediger prisen </h3>
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
 
-
                     <form action="${pageContext.request.contextPath}/fc/showsingleorder" method="post">
                         <input type="hidden" name="order_id" value="${requestScope.orderItem.orderId}"/>
-
 
                         <div class="input-group input-group-sm mb-3 text-center" style="color: aliceblue">
                             <div class="form-group">

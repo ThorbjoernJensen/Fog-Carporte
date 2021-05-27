@@ -4,17 +4,11 @@
 <title>Opret forespørgelse</title>
 <t:genericpage>
     <jsp:attribute name="header">
-<%--         Opret forespørgsel--%>
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
 
     <jsp:body>
-<%--        <h1>Hello ${sessionScope.email} </h1>--%>
-<%--        You are now logged in as a Customer of our wonderful site.--%>
-<%--        Role: ${sessionScope.role}--%>
-
-<%--        <h2>Opret ny forespørgelse</h2>--%>
 
         <form action="${pageContext.request.contextPath}/fc/receiptpage" method="post">
 
@@ -33,7 +27,6 @@
                 </c:forEach>
             </select>
 
-
             <h5>Længde</h5>
             <select class="form-select" name="length" id="length">
                 <c:forEach var="length" items="${applicationScope.DimensionList}">
@@ -41,13 +34,11 @@
                 </c:forEach>
             </select>
 
-
             <h5>Tagbeklædning</h5>
             <select name="roofmaterial" id="roofmaterial">
                 <option value="Plasttrapezplader">Plasttrapezplader</option>
                 <option value="Plasttrapezplader">Plasttrapezplader</option>
             </select>
-
 
             <div class="container">
                 <h4>Redskabsrum</h4>
@@ -67,8 +58,9 @@
 <%--                    <option value="30">30</option>--%>
                 </select>
             </div>
+
             <input type="number" hidden id="token" name="token" value="3">
-            <input type="submit" value="Send forespørgsel" class="btn btn-primary">
+            <input type="submit" value="Send forespørgsel" class="btn btn-primary mt-3">
         </form>
 
     </jsp:body>

@@ -25,11 +25,11 @@
 
         </div>
         <h1>Stykliste</h1>
-        <table>
+        <table class="table-striped">
             <thead>
             <th>Navn</th>
             <th>Antal</th>
-            <th>Laengde</th>
+            <th>Længde</th>
             <th>Pris</th>
             </thead>
 

@@ -83,7 +83,6 @@
 
             </c:if>
 
-
             <c:if test="${sessionScope.user.role == 'customer' }">
 
             <div class="row">
@@ -93,25 +92,19 @@
                 </div>
                 <div class="col-lg-3 col-sm-12">
                     <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/viewrequestpage">
-                        MineOrdre</a>
+                        MineOrdrer</a>
                 </div>
                 <div class="col-lg-3 col-sm-12">
                     <a class="p-2 textfarve" href="${pageContext.request.contextPath}/fc/newrequestpage">OpretNyOrdre </a>
                 </div>
-
-
                 </div>
                 </c:if>
-                <%--        <a class="p-2 text-dark" href="#">Orders</a>--%>
-                <%--        <a class="p-2 text-dark" href="#">Profile</a>--%>
-                <%--        <a class="p-2 text-dark" href="#">About</a>--%>
+
         </nav>
 
         <div>
 
-
             <c:if test="${sessionScope.user != null}">
-                <%--        ${sessionScope.user.email}--%>
             </c:if>
 
             <c:set var="thisPage" value="${pageContext.request.servletPath}"/>
@@ -133,7 +126,6 @@
         <jsp:doBody/>
     </div>
 
-    <!-- Footer -->
     <div class="container">
         <br>
         <hr>

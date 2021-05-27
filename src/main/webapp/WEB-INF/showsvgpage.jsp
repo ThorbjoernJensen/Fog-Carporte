@@ -6,7 +6,6 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-<%--         SVG tegning--%>
     </jsp:attribute>
 
     <jsp:attribute name="footer">

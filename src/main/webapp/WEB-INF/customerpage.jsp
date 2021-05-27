@@ -10,17 +10,10 @@
     </jsp:attribute>
 
     <jsp:body>
-        <%--        <h1>Velkommen ${sessionScope.email} </h1>--%>
-
         <h2>Velkommen ${sessionScope.user.name}. </h2>
         <p> Her er en oversigt over dine muligheder: </p>
-        <%--        You are now logged in as a Customer of our wonderful site.--%>
-        <%--        Role: ${sessionScope.role}--%>
-
-        <h2><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se bestillinger </a></h2>
-        <h2><a href="${pageContext.request.contextPath}/fc/newrequestpage">Opret ny bestilling</a></h2>
-
-
+        <p><a href="${pageContext.request.contextPath}/fc/viewrequestpage">Se bestillinger </a></p>
+        <p><a href="${pageContext.request.contextPath}/fc/newrequestpage">Opret ny bestilling</a></p>
     </jsp:body>
 
 </t:genericpage>

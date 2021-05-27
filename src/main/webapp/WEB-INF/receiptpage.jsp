@@ -5,7 +5,6 @@
 <t:genericpage>
 
     <jsp:attribute name="header">
-<%--         Kvittering--%>
     </jsp:attribute>
 
     <jsp:attribute name="footer">
@@ -30,19 +29,6 @@
 
                 </p>
             </div>
-
-
-<%--            <c:if test="${sessionScope.role == 'employee' }">--%>
-<%--            <p style="font-size: larger">This is what you can do,--%>
-<%--                since your are logged in as an employee</p>--%>
-<%--            <p><a href="${pageContext.request.contextPath}/fc/employeepage">Employee Page</a>--%>
-<%--                </c:if>--%>
-
-<%--                <c:if test="${sessionScope.role == 'customer' }">--%>
-<%--            <p style="font-size: larger">This is what you can do, since your--%>
-<%--                are logged in as a customer</p>--%>
-<%--            <p><a href="${pageContext.request.contextPath}/fc/customerpage">Customer Page</a>--%>
-<%--                </c:if>--%>
 
         </div>
 
