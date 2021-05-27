@@ -25,8 +25,8 @@
                                 <th>orderStatusId</th>
                                 <th>rediger</th>
                                 <th>slet</th>
-                                <th>se carport tegning</th>
                                 <th></th>
+
 
                                 </thead>
 
@@ -48,10 +48,7 @@
                                                 value="${requestScope.order.orderId}">!Slet!
                                         </button>
                                     <td>
-                                        <a type="button"
-                                           class="btn btn-sm  btn-outline-secondary"
-                                           href="${pageContext.request.contextPath}/fc/showsvg"> Se billede af
-                                            carporten: </a>
+                                    <a href="${pageContext.request.contextPath}/fc/showsvg">Se tegning af carport</a>
                                     </td>
                                 </tr>
                             </table>
