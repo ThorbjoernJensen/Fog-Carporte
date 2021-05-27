@@ -41,7 +41,6 @@ public class CarportHandlerCommand extends CommandUnprotectedPage {
             return "viewrequestpage";
         }
 
-
         int userId = (int) session.getAttribute("userId");
         int height = Integer.parseInt(request.getParameter("height"));
         int width = Integer.parseInt(request.getParameter("width"));
