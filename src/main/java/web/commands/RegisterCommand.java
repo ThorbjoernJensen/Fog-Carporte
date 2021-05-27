@@ -63,8 +63,9 @@ public class RegisterCommand extends CommandUnprotectedPage {
                 return returnpage;
             }
             int zipcode = Integer.parseInt(zip);
-            if (zipcode != 3700 && zipcode != 3790) {
-                request.setAttribute("error", "Vi leverer kun til Bornholm tjek postNr og prøv igen");
+            if (zipcode != 3700 && zipcode != 3790 && zipcode != 3720 && zipcode != 3730 && zipcode != 3740 && zipcode != 3751 && zipcode != 3760 && zipcode != 3770 && zipcode != 3782) {
+                request.setAttribute("error", "Vi leverer foreløbig kun til Bornholm tjek post nummer og prøv igen. -->" +
+                        "3700 Rønne, 3720 Aakirkeby , 3730 Nexø, 3740 Svaneke, 3751 Østermarie, 3760 Gudhjem, 3770 Allinge, 3782 Klemensker, 3790 Hasle ");
                 return returnpage;
             }
 
