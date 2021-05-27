@@ -12,7 +12,7 @@
     <jsp:body>
 
         <div class="container-fluid pb-5 p-lg-3" style="background: rgb(12, 32, 105)">
-           <h3> <p class="text-center" style="color: aliceblue">Her er en liste over alle ordrer</p></h3>
+            <h3><p class="text-center" style="color: aliceblue">Her er en liste over alle ordrer</p></h3>
             <form action="${pageContext.request.contextPath}/fc/showsingleorder" method="post">
 
                 <div class="card" style="background: lightgrey">
@@ -45,11 +45,11 @@
                                             value="${orderItem.orderId}">se ordre
                                     </button>
                                 </td>
-
+                            </tr>
+                            </c:forEach>
+                    </div>
+                </div>
             </form>
-            </c:forEach>
-        </div>
-        </div>
         </div>
 
 
