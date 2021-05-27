@@ -3,8 +3,6 @@ package business.entities.materials;
 public interface Materiale {
     public String getMaterialeType();
 
-//    public void setMaterialeType(String materialeType);
-
     public int getAntal();
 
     public void setAntal(int antal);
@@ -17,5 +15,4 @@ public interface Materiale {
 
     public void setSamletPris(double samletPris);
 
-//    public double getMeterPris();
 }

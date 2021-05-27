@@ -76,7 +76,6 @@ public class OrderMapper {
                     Timestamp orderDate = rs.getTimestamp("order_date");
                     int orderStatusId = rs.getInt("order_status_id");
                     orderList.add(new Order(orderId, carportId, price, userId, materialList, orderDate, orderStatusId));
-                    System.out.println(price);
                 }
 
             } catch (SQLException ex) {

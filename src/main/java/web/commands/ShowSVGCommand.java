@@ -4,6 +4,7 @@ import business.entities.Carport;
 import business.entities.materials.BillOfMaterials;
 import business.entities.materials.Materiale;
 import business.exceptions.UserException;
+import business.services.CarportFacade;
 import business.services.SVG;
 import business.util.CalculateElementsSVG;
 import business.util.CalculateElementsSVG2;
@@ -14,8 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class ShowSVGCommand extends CommandProtectedPage {
+CarportFacade carportFacade;
     public ShowSVGCommand(String pageToShow, String role) {
         super(pageToShow, role);
+        this.carportFacade = new CarportFacade(database);
+
     }
 
     @Override
@@ -32,6 +36,7 @@ public class ShowSVGCommand extends CommandProtectedPage {
         carport = (Carport) session.getAttribute("carport");
 
         String viewBoxTemplate = "0 0 %s %s";
+
         String xCanvas = String.valueOf(carport.getLength()+100);
         String yCanvas = String.valueOf(carport.getWidth()+100);
         String viewBox = String.format(viewBoxTemplate, xCanvas, yCanvas);
@@ -45,12 +50,6 @@ public class ShowSVGCommand extends CommandProtectedPage {
         SVG svg2 = new SVG(0, 0, viewBox, 100, 100);
         CalculateElementsSVG2.calculateElements(stykliste, carport, svg2);
         request.setAttribute("svg2", svg2.toString());
-
-
-
-
-
-
 
         return pageToShow;
 

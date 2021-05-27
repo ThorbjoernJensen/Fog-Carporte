@@ -202,8 +202,6 @@ public class CarportMapper {
                     int length = rs.getInt("length");
                     int width = rs.getInt("width");
                     dimensionsList.add(new Dimensions(id, height, length, width));
-                    System.out.println(width);
-
                 }
                 return dimensionsList;
             } catch (SQLException ex) {

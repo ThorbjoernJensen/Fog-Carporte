@@ -9,14 +9,12 @@
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
-        <h1>Hello ${sessionScope.email} </h1>
-        <H2>Du har godkendt følgende ordre</H2>
-        Den har fået følgende ordre ID:
-        ${requestScope.orderId}
+        <h1>Hello ${sessionScope.name} </h1>
+        <h2>Her kan du godkende en carport forespørgelse</h2>
 
         <br>
         <br>
-        se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg">SVG-tegning</a>
+        Se billede af carporten: <a href="${pageContext.request.contextPath}/fc/showsvg">SVG-tegning</a>
         <div class="container">
             Carport-id: ${sessionScope.carport.carportId}<br>
             Længde: ${sessionScope.carport.length} cm<br>
@@ -27,25 +25,26 @@
 
         </div>
         <h1>Stykliste</h1>
-        <div class="container">
-            Stolpe antal: ${sessionScope.bom.stolpe.antal} stk<br>
-            Stolpe længde: ${sessionScope.bom.stolpe.laengde} cm<br>
-            Stolpe pris: ${sessionScope.bom.stolpe.samletPris} kr. <br>
+        <table>
+            <thead>
+            <th>Navn</th>
+            <th>Antal</th>
+            <th>Laengde</th>
+            <th>Pris</th>
+            </thead>
 
-            Remme antal: ${sessionScope.bom.rem.antal} stk<br>
-            Remme længde: ${sessionScope.bom.rem.laengde} cm<br>
-            Remme pris: ${sessionScope.bom.rem.samletPris} kr. <br>
-
-            Spær antal: ${sessionScope.bom.spær.antal} stk<br>
-            Spær længde: ${sessionScope.bom.spær.laengde} cm<br>
-            Afstand mellem spærene: ${sessionScope.bom.spær.centerAfstand} cm <br>
-            spær pris: ${sessionScope.bom.spær.samletPris} kr.<br>
-
-            Overstern antal: ${sessionScope.bom.oversternSider.antal} stk<br>
-            Overstern længde: ${sessionScope.bom.oversternSider.laengde} cm<br>
-            Overstern pris: ${sessionScope.bom.oversternSider.samletPris} <br>
-        </div>
-
+            <c:forEach var="materiale" items="${sessionScope.stykliste}">
+                <tr>
+                    <td>${materiale.materialeType}</td>
+                    <td>${materiale.antal}</td>
+                    <td>${materiale.laengde}</td>
+                    <td>${materiale.samletPris}</td>
+                    <td>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <p> centerafstand spær er: ${sessionScope.centerafstand}</p>
 
         <h4>Samlet pris før evt rabatter: ${sessionScope.bom.bomSamletPris}</h4>
 
@@ -61,12 +60,10 @@
             </div>
 
             <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">
-
             <input type="submit" value="Ændre pris" class="btn btn-primary">
         </form>
 
         <form action="${pageContext.request.contextPath}/fc/orderHandler" method="post">
-
             <input class="btn btn-primary" type="submit" name="select" value="Godkend ordre">
             <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">
             <input type="number" hidden id="roofId" name="roofId" value="${sessionScope.carport.roofId}">
@@ -79,53 +76,8 @@
                    value="${sessionScope.carport.carportStatusId}">
             <input type="text" hidden id="token" name="token" value="5">
             <input type="text" hidden id="newPrice" name="newPrice" value="${0}">
-
         </form>
 
-        <table>
-            <thead>
-            <th>navn</th>
-            <th>antal</th>
-            <th>laengde</th>
-            <th>pris</th>
-
-
-            </thead>
-
-            <c:forEach var="materiale" items="${sessionScope.stykliste}">
-                <tr>
-
-                    <td>${materiale.materialeType}</td>
-                    <td>${materiale.antal}</td>
-                    <td>${materiale.laengde}</td>
-                    <td>${materiale.samletPris}</td>
-                    <td>
-                            <%--                    <button class="btn btn-danger " type="submit" name="delete"--%>
-                            <%--                            value="${orderline.id}">Slet--%>
-                            <%--                    </button>--%>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-        <p> centerafstand spær er: ${sessionScope.centerafstand}</p>
-        <p> samlet pris er: ${sessionScope.samletpris}</p>
-
-
-
-        <%--        <form action="${pageContext.request.contextPath}/fc/updatePrice" method="post">--%>
-
-        <%--            <div class="row mb-3">--%>
-        <%--                <label class="col-sm-2 col-form-label" for="price">Ændre pris for ordre</label>--%>
-        <%--        <div class="col-sm-3">--%>
-        <%--            <input id="price" class="form-control" type="number" step="0.01" name="price" value="Ændre pris:">--%>
-        <%--        </div>--%>
-        <%--            </div>--%>
-
-        <%--            <input type="number" hidden id="orderId" name="orderId" value="${sessionScope.orderId}">--%>
-        <%--            <input type="number" hidden id="carportId" name="carportId" value="${sessionScope.carport.carportId}">--%>
-
-        <%--            <input type="submit" value="Ændre pris" class="btn btn-primary">--%>
-        <%--        </form>--%>
 
     </jsp:body>
 </t:genericpage>

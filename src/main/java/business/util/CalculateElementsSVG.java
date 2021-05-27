@@ -83,7 +83,6 @@ public class CalculateElementsSVG {
         width = Double.valueOf(carport.getLength());
         stolpeAntal = bom.getStolpe().getAntal();
         stolpeAfstand = (width - 2 * indrykningXakse - stolpeWidth) / (stolpeAntal / 2 - 1);
-        System.out.println("afstand ml. stolper" + stolpeAfstand);
 
         for (int x = 0; x < ((bom.getStolpe().getAntal())/2); x++) {
 
@@ -111,7 +110,6 @@ public class CalculateElementsSVG {
         double width;
         height = Double.valueOf(carport.getWidth() - 5);
         int antalSpær = bom.getSpær().getAntal();
-        System.out.println(antalSpær);
 
         double centerafstand = (carport.getLength() - 4.5) / Double.valueOf(antalSpær - 1);
 

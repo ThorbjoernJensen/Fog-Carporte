@@ -76,10 +76,6 @@ public class SVG {
         svg.append(innerSVG.toString());
 
     }
-//    public void closeSvg() {
-//        svg.append("</svg>");
-//
-//    }
 
     public void addArrowDefinitions(){
         svg.append(

@@ -3,11 +3,11 @@ package business.entities;
 public class User {
 
 
-    private int userId; // just used to demo retrieval of autogen keys in UserMapper
+    private int userId;
     private String name;
     private String email;
     private int tlf;
-    private String password; // Should be hashed and secured
+    private String password;
     private String role;
     private String address;
     private String zip;

@@ -1,12 +1,9 @@
 package web;
 
-import business.entities.materials.Dimensions;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.services.CarportFacade;
 import web.commands.*;
-
-import java.awt.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.logging.Level;

@@ -47,11 +47,6 @@ public class ShowSVGCommandcustomer extends CommandProtectedPage {
         request.setAttribute("svg2", svg2.toString());
 
 
-
-
-
-
-
         return pageToShow;
 
 

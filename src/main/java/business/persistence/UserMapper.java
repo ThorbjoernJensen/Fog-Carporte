@@ -12,7 +12,6 @@ public class UserMapper {
         this.database = database;
     }
 
-    //Denne funktion virker ikke på nuværende, mangler passende navne
     public User createUser(User user) throws UserException {
         try (Connection connection = database.connect()) {
             String sql = "INSERT INTO user (name, email, tlf, password, role, address, zip) VALUES (?, ?, ?, ?, ?,?,? )";
