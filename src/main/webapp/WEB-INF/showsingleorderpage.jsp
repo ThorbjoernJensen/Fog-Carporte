@@ -45,9 +45,6 @@
                                         <button class="btn btn-danger " type="submit" name="cancel"
                                                 value="${requestScope.order.orderId}">Slet
                                         </button>
-                                    <td>
-                                    <a href="${pageContext.request.contextPath}/fc/showsvg">Se tegning af carport</a>
-                                    </td>
                                 </tr>
                             </table>
                         </div>

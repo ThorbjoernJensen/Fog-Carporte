@@ -59,8 +59,8 @@ class CalculateBOMTest {
 
         double samletPris = spær.getAntal() * spær.getLaengde() * spær.getMeterPris()/100;
         assertEquals(samletPris, spær.getSamletPris());
-        assertEquals(54.95, spær.getCenterAfstand());
-        assertEquals(59, spær3.getCenterAfstand());
+        assertEquals(59.95, spær.getCenterAfstand());
+        assertEquals(54.59090909090909, spær3.getCenterAfstand());
 
     }
 

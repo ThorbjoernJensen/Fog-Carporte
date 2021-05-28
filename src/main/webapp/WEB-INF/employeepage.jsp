@@ -10,8 +10,7 @@
     <jsp:body>
 
         <div class="container-fluid rounded pb-5" style="background: rgb(12, 32, 105)">
-            <p class="text-center" style="color: aliceblue">Velkommen du er logget ind som ansat.
-                site.</p>
+            <p class="text-center" style="color: aliceblue">Velkommen du er logget ind som ansat.</p>
 
                     <a STYLE="color: aliceblue" type="button" class="btn bg-primary"
                        href="${pageContext.request.contextPath}/fc/showcarportrequestpage">Se ordreforespørgsler</a>
